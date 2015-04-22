@@ -56,6 +56,9 @@
      ("\\.m\\'"
       (".h")))))
  '(column-number-mode t)
+ '(desktop-clear-preserve-buffers
+   (quote
+    ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:local\\*" "&bitlbee" "localhost\\:[:digit:]+")))
  '(desktop-save-mode t)
  '(diff-command "ediff")
  '(dired-listing-switches "-pgGh")
