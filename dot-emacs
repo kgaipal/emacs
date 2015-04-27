@@ -85,7 +85,7 @@
  '(global-linum-mode t)
  '(global-subword-mode t)
  '(gnus-use-full-window nil)
- '(grep-command "grep -nHs ")
+ '(grep-command "grep -nHsI ")
  '(grep-find-ignored-directories (quote (".svn" ".git" ".hg" ".bzr" ".output")))
  '(grep-template "grep <X> <C> <n> <H> <e> <R> <F>")
  '(hide-ifdef-initially t)
