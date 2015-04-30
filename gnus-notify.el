@@ -92,7 +92,7 @@ contains new messages"))
   "Update the modeline to show groups containing new messages"
   (if gnus-mst-notify-groups
       (setq gnus-mst-display-new-messages
-	    (append (list " [m:")
+	    (append (list " [mail:")
 		    (maplist
 		     #'(lambda (sublist)
 			 (let ((group (car sublist))
@@ -106,7 +106,7 @@ contains new messages"))
 			   (list*
 			    (list ':propertize
 				  (if gnus-notify-show-unread-counts
-				      (format "[%s%s]"
+				      (format " %s%s"
 					      (gnus-mst-notify-shorten-group-name
 					       (car sublist))
 					      (gnus-group-unread (car sublist)))
