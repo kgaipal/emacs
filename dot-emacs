@@ -92,6 +92,7 @@
  '(hide-ifdef-shadow t)
  '(highlight-symbol-colors (quote ("yellow")))
  '(ido-enable-flex-matching t)
+ '(ido-ignore-buffers (quote ("\\` " "\\*Messages\\*")))
  '(ido-mode (quote buffer) nil (ido))
  '(indent-tabs-mode t)
  '(initial-buffer-choice nil)
