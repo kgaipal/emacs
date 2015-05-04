@@ -144,7 +144,7 @@
  '(font-lock-keyword-face ((t (:foreground "royal blue"))))
  '(font-lock-string-face ((t (:foreground "lawn green"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) nil)))
- '(gnus-group-mail-3-empty ((t nil)))
+ '(gnus-group-mail-3-empty ((t (:foreground "dark magenta" :weight bold))))
  '(hide-ifdef-shadow ((t (:inherit shadow :background "color-233"))))
  '(hl-line ((t (:foreground "color-28" :weight extra-bold))))
  '(isearch ((t (:background "yellow" :foreground "black" :weight normal))))
