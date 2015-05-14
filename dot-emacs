@@ -22,6 +22,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(Buffer-menu-name-width 35)
  '(auto-save-default t)
  '(cc-other-file-alist
    (quote
@@ -58,7 +59,7 @@
  '(column-number-mode t)
  '(desktop-clear-preserve-buffers
    (quote
-    ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:local\\*" "&bitlbee" "localhost\\:[:digit:]+" "erc\\:[[:alnum:]]+")))
+    ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
  '(desktop-save-mode t)
  '(diff-command "ediff")
  '(dired-listing-switches "-pgGh")
