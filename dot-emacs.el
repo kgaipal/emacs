@@ -59,7 +59,7 @@
  '(column-number-mode t)
  '(desktop-clear-preserve-buffers
    (quote
-    ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
+    ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "\\*shell\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
  '(desktop-save-mode t)
  '(diff-command "ediff")
  '(dired-listing-switches "-pgGh")
