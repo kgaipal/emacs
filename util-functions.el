@@ -12,12 +12,12 @@
 
 ;; ;; Python indent using tabs instead of spaces
 ;; (add-hook 'python-mode-hook
-;; 	  (lambda ()
-;; 	    (setq indent-tabs-mode t)
-;; 	    (setq python-indent 4)
-;; 	    (setq tab-width 4)))
+;;	  (lambda ()
+;;	    (setq indent-tabs-mode t)
+;;	    (setq python-indent 4)
+;;	    (setq tab-width 4)))
 
-;; Mark the buffer read only to avoid cat typing in a newly opened buffer 
+;; Mark the buffer read only to avoid cat typing in a newly opened buffer
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
 (add-hook 'find-file-hook
 	  '(lambda ()
@@ -53,7 +53,7 @@
 	    (subword-mode 1)))
 
 ;; Auto reload file by F5 keystroke
-(defun refresh-file () 
+(defun refresh-file ()
   (interactive) (revert-buffer t t t)
   (toggle-read-only 1))
 
@@ -68,12 +68,12 @@
 ;; (defvar ecb-windows-visible nil)
 ;; (defun ecb-toggle-windows-visibility ()
 ;;   (interactive) (if (eq ecb-windows-visible nil)
-;; 		    (progn 
-;; 		      (ecb-show-ecb-windows) 
-;; 		      (setq ecb-windows-visible t))
-;; 		  (progn 
-;; 		    (ecb-hide-ecb-windows) 
-;; 		    (setq ecb-windows-visible nil))))
+;;		    (progn
+;;		      (ecb-show-ecb-windows)
+;;		      (setq ecb-windows-visible t))
+;;		  (progn
+;;		    (ecb-hide-ecb-windows)
+;;		    (setq ecb-windows-visible nil))))
 
 ;; Cut-Copy-Paste in emacs-nox (Emacs without X)
 ;; http://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
@@ -109,7 +109,7 @@
 	(unless (string= (car kill-ring) xsel-output)
 	  xsel-output )))
 
-    ;; Note: Disable the hooks for now because this doesnt 
+    ;; Note: Disable the hooks for now because this doesnt
     ;; work while editing remote machines (xsel may not always be installed)
 
     ;; Attach callbacks to hooks
@@ -129,13 +129,13 @@
 If the region is not active, activate the current line."
   (if (not mark-active)
       ;; Create region from current line
-      (progn 
-        (beginning-of-line)
-        (set-mark (point))
-        (end-of-line))
+      (progn
+	(beginning-of-line)
+	(set-mark (point))
+	(end-of-line))
     ;; The mark is active, expand region
     (let ((beg (region-beginning))
-          (end (region-end)))
+	  (end (region-end)))
       (goto-char beg)
       (beginning-of-line)
       (set-mark (point))
@@ -166,7 +166,7 @@ If the region is not active, activate the current line."
   (let ((word (symbol-name (symbol-at-point))))
     (setq isearch-string word
 	  isearch-message word
-          isearch-forward word)
+	  isearch-forward word)
     (kill-new word))
   (isearch-update))
 
@@ -194,31 +194,31 @@ If the region is not active, activate the current line."
 Only show the modified files."
   (interactive)
   (let ((crt (ewoc-nth vc-ewoc -1))
-        (first (ewoc-nth vc-ewoc 0)))
+	(first (ewoc-nth vc-ewoc 0)))
     ;; Go over from the last item to the first and remove the
     ;; unregistered files and directories with no child files.
     (while (not (eq crt first))
       (let* ((data (ewoc-data crt))
-             (dir (vc-dir-fileinfo->directory data))
-             (next (ewoc-next vc-ewoc crt))
-             (prev (ewoc-prev vc-ewoc crt))
-             ;; ewoc-delete does not work without this...
-             (inhibit-read-only t))
-        (when (or
-               ;; Remove directories with no child files.
-               (and dir
-                    (or
-                     ;; Nothing follows this directory.
-                     (not next)
-                     ;; Next item is a directory.
-                     ;; (vc-dir-fileinfo->directory (ewoc-data next))))
+	     (dir (vc-dir-fileinfo->directory data))
+	     (next (ewoc-next vc-ewoc crt))
+	     (prev (ewoc-prev vc-ewoc crt))
+	     ;; ewoc-delete does not work without this...
+	     (inhibit-read-only t))
+	(when (or
+	       ;; Remove directories with no child files.
+	       (and dir
+		    (or
+		     ;; Nothing follows this directory.
+		     (not next)
+		     ;; Next item is a directory.
+		     ;; (vc-dir-fileinfo->directory (ewoc-data next))))
 
 		     ;; hide the directory entry, we want to show only the modified files
-                     (vc-dir-fileinfo->directory data)))
-               ;; Remove files in the unregistered state.
-               (eq (vc-dir-fileinfo->state data) 'unregistered))
-          (ewoc-delete vc-ewoc crt))
-        (setq crt prev)))))
+		     (vc-dir-fileinfo->directory data)))
+	       ;; Remove files in the unregistered state.
+	       (eq (vc-dir-fileinfo->state data) 'unregistered))
+	  (ewoc-delete vc-ewoc crt))
+	(setq crt prev)))))
 
 ;; Toggle the layout (vertical -> horizontal and vice versa)
 ;; of the frame only if it is split into 2 windows
@@ -313,25 +313,27 @@ of the frame only if it is split into exactly 2 windows."
 ;; ;; make completion buffers disappear after 3 seconds.
 ;; ;; http://snarfed.org/why_i_dont_run_shells_inside_emacs
 ;; (add-hook 'completion-setup-hook
-;; 	  (lambda () (run-at-time 3 nil 
-;; 				  (lambda () (delete-windows-on "*Completions*")
-;; 				    (message "Deleted some windows")))))
-
-
-;; Start a new emacs terminal emulator and rename it uniquely.
-(defun new-term (buffer-name)
-  "Start a emacs terminal emulator and rename it uniquely."
-  (interactive "s term-buffer name: ")
-  (ansi-term "/bin/bash")
-  (rename-buffer (concatenate 'string "*term:" buffer-name "*"))
-  (message (concatenate 'string "Renamed the new terminal to *term:" buffer-name "*")))
+;;	  (lambda () (run-at-time 3 nil
+;;				  (lambda () (delete-windows-on "*Completions*")
+;;				    (message "Deleted some windows")))))
 
 ;; Start a new emacs shell and rename it uniquely.
 ;; http://stackoverflow.com/a/2788843/398328
 (defun new-shell (buffer-name)
   "Start a new emacs shell and rename it uniquely."
   (interactive "s shell-buffer name: ")
-  (shell (concatenate 'string "*shell:" buffer-name "*"))
+
+  ;; option #1
+  ;; (ansi-term "/bin/bash")
+  ;; (rename-buffer (concatenate 'string "*term:" buffer-name "*"))
+
+  ;; option #2
+  ;; (shell (concatenate 'string "*shell:" buffer-name "*"))
+
+  ;; option #3
+  (eshell )
+  (rename-buffer (concatenate 'string "*shell:" buffer-name "*"))
+
   (message (concatenate 'string "Renamed the new shell to *shell:" buffer-name "*")))
 
 ;; Insert current date and time

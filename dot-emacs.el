@@ -59,7 +59,7 @@
  '(column-number-mode t)
  '(desktop-clear-preserve-buffers
    (quote
-    ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "\\*shell\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
+    ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
  '(desktop-save-mode t)
  '(diff-command "ediff")
  '(dired-listing-switches "-pgGh")
@@ -81,6 +81,7 @@
 		  (user-uid)
 		  0)
 		 " # " "]$ "))))
+ '(eshell-visual-subcommands (quote (("git" "diff" "show" "log"))))
  '(fill-column 90)
  '(fringe-mode 0 nil (fringe))
  '(global-linum-mode t)
@@ -234,7 +235,7 @@
 ;; Setting environment variable for shell commands to work from emacs prompt
 (setenv "PATH"
 	(concat	(getenv "PATH")
-		":~/.local/bin"	))
+		(concat	":" (getenv "HOME") "/.local/bin")))
 
 ;; setup files ending in “.scons” to open in python-mode
 (add-to-list 'auto-mode-alist '("\.scons" . python-mode))
