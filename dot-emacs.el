@@ -71,6 +71,7 @@
       (0.18324607329842932 . 0.9818181818181818)))))
  '(ediff-make-buffers-readonly-at-startup t)
  '(erc-notifications-mode t)
+ '(erc-server "localhost")
  '(eshell-prompt-function
    (lambda nil
      (concat "["
