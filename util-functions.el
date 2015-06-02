@@ -328,11 +328,11 @@ of the frame only if it is split into exactly 2 windows."
   ;; (rename-buffer (concatenate 'string "*term:" buffer-name "*"))
 
   ;; option #2
-  ;; (shell (concatenate 'string "*shell:" buffer-name "*"))
+  (shell (concatenate 'string "*shell:" buffer-name "*"))
 
   ;; option #3
-  (eshell )
-  (rename-buffer (concatenate 'string "*shell:" buffer-name "*"))
+  ;; (eshell )
+  ;; (rename-buffer (concatenate 'string "*shell:" buffer-name "*"))
 
   (message (concatenate 'string "Renamed the new shell to *shell:" buffer-name "*")))
 
