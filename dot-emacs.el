@@ -13,6 +13,10 @@
 (require 'highlight-symbol)
 (require 'buffer-move)
 
+(load-file "~/.emacs.d/xcscope.el") ;GNU coding style
+(require 'xcscope)
+(cscope-setup)
+
 ;; Load these files last, as they have my custom code/shortcuts
 (load-file "~/.emacs.d/keyboard-shortcuts.el");Load our custom keyboard shortcuts
 
