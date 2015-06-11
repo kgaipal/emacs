@@ -854,7 +854,7 @@ be removed by quitting the cscope buffer."
 
 
 (defconst cscope-result-separator
-  "===============================================================================\n"
+  "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n\n"
   "Line of text to use as a visual separator.
 Must end with a newline. Must work as a regex without quoting")
 
@@ -903,9 +903,9 @@ at the start of a line, so the leading ^ must be omitted")
 
 (defface cscope-line-number-face
   '((((class color) (background dark))
-     (:foreground "red"))
+     (:foreground "light green"))
     (((class color) (background light))
-     (:foreground "red"))
+     (:foreground "light green"))
     (t (:bold t)))
   "Face used to highlight line number in the *cscope* buffer."
   :group 'cscope)
@@ -921,9 +921,9 @@ at the start of a line, so the leading ^ must be omitted")
 
 (defface cscope-separator-face
   '((((class color) (background dark))
-     (:bold t :overline t :underline t :foreground "red"))
+     (:bold t :foreground "gray"))
     (((class color) (background light))
-     (:bold t :overline t :underline t :foreground "red"))
+     (:bold t :foreground "gray"))
     (t (:bold t)))
   "Face used to highlight the separator in the *cscope* buffer."
   :group 'cscope)

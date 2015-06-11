@@ -76,7 +76,7 @@
  '(hide-ifdef-shadow t)
  '(highlight-symbol-colors (quote ("yellow")))
  '(ido-enable-flex-matching t)
- '(ido-ignore-buffers (quote ("\\` " "\\*Messages\\*")))
+ '(ido-ignore-buffers (quote ("\\*Messages\\*")))
  '(ido-mode (quote buffer) nil (ido))
  '(indent-tabs-mode t)
  '(initial-buffer-choice nil)
@@ -95,7 +95,7 @@
  '(transient-mark-mode t)
  '(vc-directory-exclusion-list
    (quote
-    ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" ".output")))
+    (".svn" ".git" ".hg" ".bzr" ".output")))
  '(which-func-format (quote ("{" which-func-current "}"))))
 
 (custom-set-faces
