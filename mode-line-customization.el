@@ -28,6 +28,9 @@
    ;; fuzzy position in the buffer
    (:propertize "%p|")
 
+   ;; ;; absolute position in the buffer
+   ;; (:propertize "-L:%l-")
+
    ;; absolute position, including warning for 100 columns
    (:eval
     (cond
@@ -52,7 +55,7 @@
    ;; modified buffer
    (:eval
     (cond ((buffer-modified-p) "*-")
-	  (t "-")))
+	  (t "--")))
 
    ;; Buffer/file name
    (:propertize "%b" face mode-line-buffer-id)
