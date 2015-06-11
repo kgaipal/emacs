@@ -1,6 +1,15 @@
 ;; Custom mode line setup, special thanks to Amit
 ;; http://amitp.blogspot.com/2011/08/emacs-custom-mode-line.html
 
+;; slight color change makes easier to distinguish between active/inactive buffer's modeline
+(set-face-attribute 'mode-line nil
+		    :background "gray"
+		    :foreground "black"
+		    :box -1)
+
+(set-face-attribute 'mode-line-inactive nil
+		    :background "dim gray")
+
 ;; custom faces
 (make-face 'mode-line-col-limit-exceeds-face)
 (make-face 'mode-line-col-limit-exceeds-inactive-face)
