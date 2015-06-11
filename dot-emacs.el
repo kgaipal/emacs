@@ -1,8 +1,8 @@
 ;; dot-emacs file
-;; Last modified on Feb 18, 2015
-;; kshitijgaipal@gmail.com
+;; Last modified on Jun 10, 2015
+;; kgaipal@gmail.com
 
-;; =================================== Plugins/Files =====================================
+;; ============================= Plugins/Files ==============================
 ;; Load all essential plugins/files
 (load-file "~/.emacs.d/highlight-symbol.el") ;Highlight current word under the cursor [http://xahlee.blogspot.com/2010/05/emacs-isearch-of-current-work.html]
 (load-file "~/.emacs.d/buffer-move.el")      ;Moves the buffer from one side to other [http://stackoverflow.com/questions/1774832/how-to-swap-the-buffers-in-2-windows-emacs]
@@ -20,7 +20,7 @@
 ;; Load these files last, as they have my custom code/shortcuts
 (load-file "~/.emacs.d/keyboard-shortcuts.el");Load our custom keyboard shortcuts
 
-;; ====================================== Emacs only =====================================
+;; ============================= Emacs only =================================
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -87,9 +87,8 @@
 		  0)
 		 " # " "]$ "))))
  '(eshell-visual-subcommands (quote (("git" "diff" "show" "log"))))
- '(fill-column 90)
- '(fringe-mode 0 nil (fringe))
- '(global-linum-mode t)
+ '(fill-column 80)
+ '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
  '(gnus-use-full-window nil)
  '(grep-command "grep -nHsI ")
@@ -246,7 +245,8 @@
 (add-to-list 'auto-mode-alist '("\.scons" . python-mode))
 (add-to-list 'auto-mode-alist '("SConstruct" . python-mode))
 
-;;========================================================================================
+;; ==========================================================================
+
 ;; set mode-line format
 (setq-default
  mode-line-format
@@ -261,9 +261,9 @@
 	   (< (current-column) 10))
       (propertize "--%1c"))
      ((and (>= (current-column) 10)
-	   (<= (current-column) 90))
+	   (<= (current-column) 80))
       (propertize "-%2c"))
-     ((> (current-column) 90)
+     ((> (current-column) 80)
       (propertize "%3c" 'face 'mode-line-col-limit-exceeds-face))
      (t (propertize "%3c"))))
 
@@ -298,4 +298,4 @@
    (global-mode-string global-mode-string)
    "%-"
    ))
-;;========================================================================================
+;; ==========================================================================
