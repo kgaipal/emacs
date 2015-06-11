@@ -4,21 +4,38 @@
 
 ;; ============================= Plugins/Files ==============================
 ;; Load all essential plugins/files
-(load-file "~/.emacs.d/highlight-symbol.el") ;Highlight current word under the cursor [http://xahlee.blogspot.com/2010/05/emacs-isearch-of-current-work.html]
-(load-file "~/.emacs.d/buffer-move.el")      ;Moves the buffer from one side to other [http://stackoverflow.com/questions/1774832/how-to-swap-the-buffers-in-2-windows-emacs]
-(load-file "~/.emacs.d/gnus-notify.el")
-(load-file "~/.emacs.d/gnu-coding-style.el") ;GNU coding style
 
-(require 'ibuf-ext)
-(require 'highlight-symbol)
+;; Moves the buffer from one side to other
+;; [http://stackoverflow.com/questions/1774832/how-to-swap-the-buffers-in-2-windows-emacs]
+(load-file "~/.emacs.d/buffer-move.el")
 (require 'buffer-move)
 
-(load-file "~/.emacs.d/xcscope.el") ;GNU coding style
+;; GNU Coding style
+(load-file "~/.emacs.d/gnu-coding-style.el")
+
+;; GNUS notification conf
+(load-file "~/.emacs.d/gnus-notify.el")
+
+;; Highlight current word under the cursor
+;; [http://xahlee.blogspot.com/2010/05/emacs-isearch-of-current-work.html]
+(load-file "~/.emacs.d/highlight-symbol.el")
+(require 'highlight-symbol)
+
+;; xcscope for searching in large code trees
+;; [https://github.com/dkogan/xcscope.el]
+(load-file "~/.emacs.d/xcscope.el")
 (require 'xcscope)
 (cscope-setup)
 
-;; Load these files last, as they have my custom code/shortcuts
-(load-file "~/.emacs.d/keyboard-shortcuts.el");Load our custom keyboard shortcuts
+;; Some helpful functions which are not defined in this file because they are too big
+(load-file "~/.emacs.d/util-functions.el")
+
+;; Customization in mode-line format
+(load-file "~/.emacs.d/modeline-customization.el")
+
+;; Load these files last, as they have my custom code/shortcuts which may be
+;; overridden from above packages if this is loaded last
+(load-file "~/.emacs.d/keyboard-shortcuts.el")
 
 ;; ============================= Emacs only =================================
 (custom-set-variables
@@ -28,51 +45,12 @@
  ;; If there is more than one, they won't work right.
  '(Buffer-menu-name-width 35)
  '(auto-save-default t)
- '(cc-other-file-alist
-   (quote
-    (("\\.cc\\'"
-      (".hh" ".h"))
-     ("\\.hh\\'"
-      (".cc" ".C"))
-     ("\\.c\\'"
-      (".h"))
-     ("\\.h\\'"
-      (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".m"))
-     ("\\.C\\'"
-      (".H" ".hh" ".h"))
-     ("\\.H\\'"
-      (".C" ".CC"))
-     ("\\.CC\\'"
-      (".HH" ".H" ".hh" ".h"))
-     ("\\.HH\\'"
-      (".CC"))
-     ("\\.c\\+\\+\\'"
-      (".h++" ".hh" ".h"))
-     ("\\.h\\+\\+\\'"
-      (".c++"))
-     ("\\.cpp\\'"
-      (".hpp" ".hh" ".h"))
-     ("\\.hpp\\'"
-      (".cpp"))
-     ("\\.cxx\\'"
-      (".hxx" ".hh" ".h"))
-     ("\\.hxx\\'"
-      (".cxx"))
-     ("\\.m\\'"
-      (".h")))))
- '(column-number-mode t)
  '(desktop-clear-preserve-buffers
    (quote
     ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
  '(desktop-save-mode t)
  '(diff-command "ediff")
  '(dired-listing-switches "-pgGh")
- '(ecb-activate-hook (quote (ecb-toggle-windows-visibility)))
- '(ecb-deactivate-hook nil)
- '(ecb-layout-window-sizes
-   (quote
-    (("left9"
-      (0.18324607329842932 . 0.9818181818181818)))))
  '(ediff-make-buffers-readonly-at-startup t)
  '(erc-notifications-mode t)
  '(erc-server "localhost")
@@ -103,7 +81,6 @@
  '(indent-tabs-mode t)
  '(initial-buffer-choice nil)
  '(kill-whole-line t)
- '(linum-format "%3d|")
  '(make-backup-files nil)
  '(mode-line-in-non-selected-windows t)
  '(read-file-name-completion-ignore-case t)
@@ -112,7 +89,6 @@
  '(scroll-conservatively 100)
  '(sentence-end-double-space nil)
  '(show-paren-mode t)
- '(size-indication-mode t)
  '(tab-width 8)
  '(tool-bar-mode nil)
  '(tramp-auto-save-directory "/tmp")
@@ -120,8 +96,7 @@
  '(vc-directory-exclusion-list
    (quote
     ("SCCS" "RCS" "CVS" "MCVS" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" ".output")))
- '(which-func-format (quote ("{" which-func-current "}")))
- '(whitespace-line-column nil))
+ '(which-func-format (quote ("{" which-func-current "}"))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -182,6 +157,7 @@
 (put 'kbd-macro-query 'disabled t)	;conflicts with key sequence "C-x q"
 (put 'compose-mail 'disabled t)		;conflicts with key sequence "C-l"
 
+;; Shorten the required response in mode-buffer from yes/no to y/n
 ;; http://www.youtube.com/watch?v=a-jRN_ba41w
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -191,31 +167,16 @@
 
 ;; IBuffer module provides better switching
 ;; http://www.emacswiki.org/emacs/IbufferMode
+(require 'ibuf-ext)
 (add-to-list 'ibuffer-never-show-predicates "^\\*") ;hiding the unnecessary buffers
 
 ;; set the desktop-path to current directory only
 (setq desktop-path '("."))
 
-(load-file "~/.emacs.d/util-functions.el")   ;Some helpful functions
-
 ;; custom ibuffer format
 (setq ibuffer-formats '((mark modified read-only " "
 			      (name 50 100 :left :elide) " "
 			      (file-or-process-directory))))
-
-;; Custom mode line setup, special thanks to Amit
-;; http://amitp.blogspot.com/2011/08/emacs-custom-mode-line.html
-
-;; custom faces
-(make-face 'mode-line-col-limit-exceeds-face)
-(make-face 'mode-line-col-limit-exceeds-inactive-face)
-
-(set-face-attribute 'mode-line-col-limit-exceeds-face nil
-		    :inherit 'mode-line
-		    :background "orange")
-(set-face-attribute 'mode-line-col-limit-exceeds-inactive-face nil
-		    :inherit 'mode-line-inactive
-		    :background "orange")
 
 ;; When we move forward word-by-word ... also stop at ';'
 ;; Helpfull stop running past to next line in c-mode/c++-mode
@@ -244,58 +205,3 @@
 ;; setup files ending in “.scons” to open in python-mode
 (add-to-list 'auto-mode-alist '("\.scons" . python-mode))
 (add-to-list 'auto-mode-alist '("SConstruct" . python-mode))
-
-;; ==========================================================================
-
-;; set mode-line format
-(setq-default
- mode-line-format
- '(
-   ;; fuzzy position in the buffer
-   (:propertize "%p|" 'face 'mode-line-col-limit-exceeds-face)
-
-   ;; absolute position, including warning for 100 columns
-   (:eval
-    (cond
-     ((and (>= (current-column) 0)
-	   (< (current-column) 10))
-      (propertize "--%1c"))
-     ((and (>= (current-column) 10)
-	   (<= (current-column) 80))
-      (propertize "-%2c"))
-     ((> (current-column) 80)
-      (propertize "%3c" 'face 'mode-line-col-limit-exceeds-face))
-     (t (propertize "%3c"))))
-
-   ;; remote file?
-   (:propertize "-%1@")
-
-   ;; read only buffer
-   (:eval
-    (cond (buffer-read-only "%%")
-	  (t "-")))
-
-   ;; modified buffer
-   (:eval
-    (cond ((buffer-modified-p) "*-")
-	  (t "-")))
-
-   ;; Buffer/file name
-   (:propertize "%b" face mode-line-buffer-id)
-
-   ;; which-func mode
-   " - " which-func-format " -"
-
-   ;; mode indicators: vc, recursive edit, major mode, minor modes, process, global
-   (vc-mode vc-mode)
-   "--"
-   (:propertize mode-line-process)
-   "-%["
-   (:propertize mode-name)
-   "%]"
-
-   ;; (:eval (propertize (format-mode-line minor-mode-alist)))
-   (global-mode-string global-mode-string)
-   "%-"
-   ))
-;; ==========================================================================
