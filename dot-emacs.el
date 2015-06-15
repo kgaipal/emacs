@@ -13,9 +13,6 @@
 ;; GNU Coding style
 (load-file "~/.emacs.d/gnu-coding-style.el")
 
-;; GNUS notification conf
-(load-file "~/.emacs.d/gnus-notify.el")
-
 ;; Highlight current word under the cursor
 ;; [http://xahlee.blogspot.com/2010/05/emacs-isearch-of-current-work.html]
 (load-file "~/.emacs.d/highlight-symbol.el")
@@ -68,7 +65,6 @@
  '(fill-column 80)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
- '(gnus-use-full-window nil)
  '(grep-command "grep -nHsI ")
  '(grep-find-ignored-directories (quote (".svn" ".git" ".hg" ".bzr" ".output")))
  '(grep-template "grep <X> <C> <n> <H> <e> <R> <F>")
@@ -126,7 +122,6 @@
  '(font-lock-keyword-face ((t (:foreground "royal blue"))))
  '(font-lock-string-face ((t (:foreground "lawn green"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) nil)))
- '(gnus-group-mail-3-empty ((t (:foreground "dark magenta" :weight bold))))
  '(hide-ifdef-shadow ((t (:inherit shadow :background "color-233"))))
  '(hl-line ((t (:foreground "color-28" :weight extra-bold))))
  '(isearch ((t (:background "yellow" :foreground "black" :weight normal))))
