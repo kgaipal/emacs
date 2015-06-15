@@ -52,7 +52,9 @@
 ;; See http://blog.binchen.org/posts/notes-on-using-gnus.html
 
 ;; misc configuration
-;; (setq gnus-group-mail-3-empty ((t (:foreground "dark magenta" :weight bold))))
+(set-face-attribute 'gnus-group-mail-3-empty-face nil
+		    :foreground "dark magenta"
+		    :weight 'bold)
 
 ;; default "%U%R%z%I%(%[%4L: %-23,23f%]%) %s\n"
 (setq gnus-summary-line-format "%U%R%z%I%(%[%P %d: %-23,23f%]%) %s\n"
