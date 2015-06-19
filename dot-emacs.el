@@ -89,9 +89,7 @@
  '(tool-bar-mode nil)
  '(tramp-auto-save-directory "/tmp")
  '(transient-mark-mode t)
- '(vc-directory-exclusion-list
-   (quote
-    (".svn" ".git" ".hg" ".bzr" ".output")))
+ '(vc-directory-exclusion-list (quote (".svn" ".git" ".hg" ".bzr" ".output")))
  '(which-func-format (quote ("{" which-func-current "}"))))
 
 (custom-set-faces
@@ -101,7 +99,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:background "black" :foreground "white"))))
  '(comint-highlight-prompt ((t (:foreground "brightblue"))))
- '(compilation-line-number ((t (:inherit font-lock-variable-name-face :foreground "brightblue"))))
+ '(compilation-info ((t (:foreground "plum4" :underline nil :weight ultra-light))))
+ '(compilation-line-number ((t (:inherit font-lock-variable-name-face :foreground "green4"))))
  '(custom-group-tag ((((min-colors 88) (class color) (background light)) (:inherit variable-pitch :background "white" :foreground "darkblue" :weight bold :height 1.2))))
  '(custom-variable-tag ((((min-colors 88) (class color) (background light)) (:foreground "brightblue" :weight bold))))
  '(diff-added ((t (:foreground "green"))))
@@ -130,7 +129,7 @@
  '(link ((t (:foreground "cyan" :underline "deep sky blue"))))
  '(linum ((t (:inherit font-lock-comment-face :background "black" :weight normal))))
  '(log-view-message ((((class color)) (:background "grey50"))))
- '(match ((((class color) (min-colors 88) (background light)) (:background "yellow1" :foreground "black"))))
+ '(match ((t (:foreground "red"))))
  '(minibuffer-prompt ((t (:foreground "royal blue"))))
  '(region ((t (:background "gray23"))))
  '(which-func ((((class color) (min-colors 88) (background light)) nil))))
