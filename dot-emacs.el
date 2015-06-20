@@ -100,7 +100,7 @@
  '(default ((t (:background "black" :foreground "white"))))
  '(comint-highlight-prompt ((t (:foreground "brightblue"))))
  '(compilation-info ((t (:foreground "plum4" :underline nil :weight ultra-light))))
- '(compilation-line-number ((t (:inherit font-lock-variable-name-face :foreground "green4"))))
+ '(compilation-line-number ((t (:inherit font-lock-variable-name-face :foreground "green4" :underline nil))))
  '(custom-group-tag ((((min-colors 88) (class color) (background light)) (:inherit variable-pitch :background "white" :foreground "darkblue" :weight bold :height 1.2))))
  '(custom-variable-tag ((((min-colors 88) (class color) (background light)) (:foreground "brightblue" :weight bold))))
  '(diff-added ((t (:foreground "green"))))

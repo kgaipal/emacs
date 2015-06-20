@@ -54,6 +54,7 @@
 ;; misc configuration
 (set-face-attribute 'gnus-group-mail-3-empty-face nil
 		    :foreground "dark magenta"
+		    :box 1
 		    :weight 'bold)
 
 ;; default "%U%R%z%I%(%[%4L: %-23,23f%]%) %s\n"
