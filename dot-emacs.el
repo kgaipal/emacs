@@ -46,7 +46,6 @@
    (quote
     ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
  '(desktop-save-mode t)
- '(diff-command "ediff")
  '(dired-listing-switches "-pgGh")
  '(ediff-make-buffers-readonly-at-startup t)
  '(erc-notifications-mode t)
@@ -69,7 +68,7 @@
  '(grep-find-ignored-directories (quote (".svn" ".git" ".hg" ".bzr" ".output")))
  '(grep-template "grep <X> <C> <n> <H> <e> <R> <F>")
  '(hide-ifdef-initially t)
- '(hide-ifdef-shadow t)
+ '(hide-ifdef-shadow nil)
  '(highlight-symbol-colors (quote ("yellow")))
  '(ido-enable-flex-matching t)
  '(ido-ignore-buffers (quote ("\\*Messages\\*")))
