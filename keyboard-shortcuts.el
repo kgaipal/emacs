@@ -106,3 +106,6 @@
 ;; ;; Find next defined tag
 ;; (global-set-key (kbd "C-x M-.") ')
 
+;; whitespace-cleanup
+(global-set-key (kbd "C-x C-k") 'whitespace-cleanup)
+
