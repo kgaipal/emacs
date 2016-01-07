@@ -47,7 +47,6 @@
     ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
  '(desktop-save-mode t)
  '(dired-listing-switches "-pgGh")
- '(ediff-make-buffers-readonly-at-startup t)
  '(erc-notifications-mode t)
  '(erc-server "localhost")
  '(eshell-prompt-function
@@ -196,6 +195,9 @@
 	(concat	(getenv "PATH")
 		(concat	":" (getenv "HOME") "/.local/bin")))
 
-;; setup files ending in “.scons” to open in python-mode
+;; setup files ending in ".scons" to open in python-mode
 (add-to-list 'auto-mode-alist '("\.scons" . python-mode))
 (add-to-list 'auto-mode-alist '("SConstruct" . python-mode))
+
+;; setup CMakeLists.txt to open in makefile-mode
+(add-to-list 'auto-mode-alist '("CMakeLists.txt" . makefile-mode))
