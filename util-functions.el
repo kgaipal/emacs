@@ -44,6 +44,11 @@
 ;; [http://www.emacswiki.org/emacs/QtMode#toc3]
 (setq c-C++-access-key "\\<\\(slots\\|signals\\|private\\|protected\\|public\\)\\>[ \t]*[(slots\\|signals)]*[ \t]*:")
 (font-lock-add-keywords 'c++-mode '(("\\<\\(Q_[A-Z]*\\|\\Q[A-Z][A-Za-z]*\\|public slots\\|public signals\\|private slots\\|private signals\\|protected slots\\|protected signals\\)\\>" . font-lock-constant-face)))
+
+;; Highlight C++11 keywords
+(setq c-C++-access-key "override\\|final")
+(font-lock-add-keywords 'c++-mode '(("override\\|final" . font-lock-constant-face)))
+
 ;; right now c++-mode does not work in .h file, so forcing it.
 ;; [http://stackoverflow.com/questions/3312114/how-to-tell-emacs-to-open-h-file-in-c-mode]
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
