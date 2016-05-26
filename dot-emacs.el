@@ -15,10 +15,10 @@
 
 ;; C# mode
 ;; https://www.emacswiki.org/emacs/CSharpMode
-(load-file "~/.emacs.d/csharp-mode.el")
-(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
-(setq auto-mode-alist
-      (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
+;; (load-file "~/.emacs.d/csharp-mode.el")
+;; (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+;; (setq auto-mode-alist
+;;       (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
 
 ;; Highlight current word under the cursor
 ;; [http://xahlee.blogspot.com/2010/05/emacs-isearch-of-current-work.html]
@@ -208,3 +208,9 @@
 
 ;; setup CMakeLists.txt to open in makefile-mode
 (add-to-list 'auto-mode-alist '("CMakeLists.txt" . makefile-mode))
+
+;; setup files ending in ".ini" to open as windows conf-mode
+(add-to-list 'auto-mode-alist '("\.ini" . conf-windows-mode))
+
+;; setup files ending in ".cs" (c-sharp) to open as c++-mode
+(add-to-list 'auto-mode-alist '("\.cs" . c++-mode))
