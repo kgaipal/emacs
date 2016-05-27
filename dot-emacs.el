@@ -206,4 +206,4 @@
 (add-to-list 'auto-mode-alist '("\.ini" . conf-windows-mode))
 
 ;; setup files ending in ".cs" (c-sharp) to open as c++-mode
-(add-to-list 'auto-mode-alist '("*\.cs" . c++-mode))
+(add-to-list 'auto-mode-alist '("\.cs" . c++-mode))
