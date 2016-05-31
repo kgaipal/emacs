@@ -207,3 +207,8 @@
 
 ;; setup files ending in ".cs" (c-sharp) to open as c++-mode
 (add-to-list 'auto-mode-alist '("\.cs" . c++-mode))
+
+;; remove the hook to check the vc-status on any file; this makes emacs 1-2 slow on windows
+;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
+(remove-hook 'find-file-hooks 'vc-find-file-hook)
+
