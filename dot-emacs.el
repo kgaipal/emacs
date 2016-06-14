@@ -52,18 +52,17 @@
  '(eshell-prompt-function
    (lambda nil
      (concat "["
-	     (file-name-nondirectory
-	      (eshell/pwd))
-	     (if
-		 (=
-		  (user-uid)
-		  0)
-		 " # " "]$ "))))
+             (file-name-nondirectory
+              (eshell/pwd))
+             (if
+                 (=
+                  (user-uid)
+                  0)
+                 " # " "]$ "))))
  '(eshell-visual-subcommands (quote (("git" "diff" "show" "log"))))
  '(fill-column 80)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
- '(grep-command "grep -nHsI --exclude=*.map --exclude=*.log --exclude-dir=node_modules ")
  '(grep-find-ignored-directories (quote (".svn" ".git" ".hg" ".bzr" ".output")))
  '(grep-template "grep <X> <C> <n> <H> <e> <R> <F>")
  '(hide-ifdef-initially t)
@@ -167,8 +166,8 @@
 
 ;; custom ibuffer format
 (setq ibuffer-formats '((mark modified read-only " "
-			      (name 50 100 :left :elide) " "
-			      (file-or-process-directory))))
+                              (name 50 100 :left :elide) " "
+                              (file-or-process-directory))))
 
 ;; When we move forward word-by-word ... also stop at ';'
 ;; Helpfull stop running past to next line in c-mode/c++-mode
@@ -191,8 +190,8 @@
 
 ;; Setting environment variable for shell commands to work from emacs prompt
 (setenv "PATH"
-	(concat	(getenv "PATH")
-		(concat	":" (getenv "HOME") "/.local/bin")))
+        (concat (getenv "PATH")
+                (concat ":" (getenv "HOME") "/.local/bin")))
 
 ;; setup files ending in ".scons" to open in python-mode
 (add-to-list 'auto-mode-alist '("\.scons" . python-mode))
@@ -210,4 +209,3 @@
 ;; remove the hook to check the vc-status on any file; this makes emacs 1-2 slow on windows
 ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
-
