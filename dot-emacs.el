@@ -60,7 +60,7 @@
                   0)
                  " # " "]$ "))))
  '(eshell-visual-subcommands (quote (("git" "diff" "show" "log"))))
- '(fill-column 80)
+ '(fill-column 90)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
  '(grep-find-ignored-directories (quote (".svn" ".git" ".hg" ".bzr" ".output")))
@@ -204,7 +204,11 @@
 (add-to-list 'auto-mode-alist '("\.ini" . conf-windows-mode))
 
 ;; setup files ending in ".cs" (c-sharp) to open as c++-mode
-(add-to-list 'auto-mode-alist '("\.cs" . c++-mode))
+;; (add-to-list 'auto-mode-alist '("\.cs" . csharp-mode))
+(load-file "~/.emacs.d/csharp-mode.el")
+(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+(setq auto-mode-alist
+      (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
 
 ;; remove the hook to check the vc-status on any file; this makes emacs 1-2 slow on windows
 ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
