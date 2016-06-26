@@ -139,9 +139,9 @@
 ;; http://www.chemie.fu-berlin.de/chemnet/use/info/cc-mode/cc-mode_6.html#SEC17
 (setq-default default-tab-width 8)
 (setq-default c-basic-indent 0)
-(setq-default c-basic-offset 8)
+(setq-default c-basic-offset 4)
 (c-set-offset 'substatement-open 0)
-(setq c-default-style "linux" c-basic-offset 8)
+(setq c-default-style "linux" c-basic-offset 4)
 
 ;; Disable some commands
 (put 'kbd-macro-query 'disabled t)	;conflicts with key sequence "C-x q"
@@ -174,7 +174,6 @@
 (modify-syntax-entry ?$ "w")
 
 ;; Highlight postgres keywords too when in SQL mode
-(add-to-list 'auto-mode-alist '("[.]psql$" . sql-mode))
 (add-hook 'sql-mode-hook 'sql-highlight-postgres-keywords)
 
 ;; fixing wierd control characters in shell mode
@@ -193,22 +192,14 @@
         (concat (getenv "PATH")
                 (concat ":" (getenv "HOME") "/.local/bin")))
 
-;; setup files ending in ".scons" to open in python-mode
-(add-to-list 'auto-mode-alist '("\.scons" . python-mode))
-(add-to-list 'auto-mode-alist '("SConstruct" . python-mode))
-
-;; setup CMakeLists.txt to open in makefile-mode
-(add-to-list 'auto-mode-alist '("CMakeLists.txt" . makefile-mode))
-
-;; setup files ending in ".ini" to open as windows conf-mode
-(add-to-list 'auto-mode-alist '("\.ini" . conf-windows-mode))
-
-;; setup files ending in ".cs" (c-sharp) to open as c++-mode
-;; (add-to-list 'auto-mode-alist '("\.cs" . csharp-mode))
-(load-file "~/.emacs.d/csharp-mode.el")
-(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+;; setup for various files [extensions] and their editing modes
 (setq auto-mode-alist
-      (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
+      (append '(("\\.psql$" . sql-mode)
+                ("\\.cs$" . c++-mode)
+                ("\\.ini$" . windows-conf-mode)
+                ("\\.scons$" . python-mode)
+                ("SConstruct$" . python-mode)
+                ("CMakeLists.txt$" . makefile-mode)) auto-mode-alist))
 
 ;; remove the hook to check the vc-status on any file; this makes emacs 1-2 slow on windows
 ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
