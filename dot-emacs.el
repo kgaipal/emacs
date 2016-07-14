@@ -142,10 +142,6 @@
 (c-set-offset 'substatement-open 0)
 (setq c-default-style "linux" c-basic-offset 4)
 
-;; Disable some commands
-(put 'kbd-macro-query 'disabled t)	;conflicts with key sequence "C-x q"
-(put 'compose-mail 'disabled t)		;conflicts with key sequence "C-l"
-
 ;; Shorten the required response in mode-buffer from yes/no to y/n
 ;; http://www.youtube.com/watch?v=a-jRN_ba41w
 (fset 'yes-or-no-p 'y-or-n-p)

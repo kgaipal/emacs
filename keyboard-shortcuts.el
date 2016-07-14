@@ -109,3 +109,7 @@
 ;; whitespace-cleanup
 (global-set-key (kbd "C-x C-k") 'whitespace-cleanup)
 
+;; Disable some commands
+(put 'kbd-macro-query 'disabled t)	;conflicts with key sequence "C-x q"
+(put 'compose-mail 'disabled t)		;conflicts with key sequence "C-l"
+
