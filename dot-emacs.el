@@ -196,16 +196,21 @@
                 ("SConstruct$" . python-mode)
                 ("CMakeLists.txt$" . makefile-mode)) auto-mode-alist))
 
-;; Update paths and fonts for windows platform only
-;; this is necessary for find and grep modes to work properly
-;; https://www.emacswiki.org/emacs/GrepMode
+;; windows specic tweaks
 (when (or (eq system-type 'windows-nt) (eq system-type 'msdos))
   (set-face-attribute 'default nil :height 130)
   (let ((git-path (concat (getenv "HOME") "/code/git-sdk-64/usr/bin/")))
-    (setenv "PATH" (concat git-path ";" (getenv "PATH"))) ;TODO: if path is globally set, remove this
+
+    ;; TODO: if path is globally set, remove this
+    (setenv "PATH" (concat git-path ";" (getenv "PATH")))
+
+    ;; remove the hook to check the vc-status on any file; this makes emacs
+    ;; 1-2 slow on windows
+    ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
+    (remove-hook 'find-file-hooks 'vc-find-file-hook)
+
+    ;; Update paths and fonts for windows platform only; this is necessary
+    ;; for find and grep modes to work properly
+    ;; https://www.emacswiki.org/emacs/GrepMode
     (setq find-program (concat git-path "find.exe")
           grep-program (concat git-path "grep.exe"))))
-
-;; remove the hook to check the vc-status on any file; this makes emacs 1-2 slow on windows
-;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
-(remove-hook 'find-file-hooks 'vc-find-file-hook)
