@@ -64,7 +64,6 @@
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
  '(grep-find-ignored-directories (quote (".svn" ".git" ".hg" ".bzr" ".output")))
- '(grep-template "grep <X> <C> <n> <H> <e> <R> <F>")
  '(hide-ifdef-initially t)
  '(hide-ifdef-shadow nil)
  '(highlight-symbol-colors (quote ("yellow")))
@@ -187,19 +186,25 @@
 (setq dired-omit-files
       (concat dired-omit-files "\\|^\\..+$"))
 
-;; Setting environment variable for shell commands to work from emacs prompt
-(setenv "PATH"
-        (concat (getenv "PATH")
-                (concat ":" (getenv "HOME") "/.local/bin")))
-
 ;; setup for various files [extensions] and their editing modes
 (setq auto-mode-alist
       (append '(("\\.psql$" . sql-mode)
                 ("\\.cs$" . c++-mode)
                 ("\\.ini$" . windows-conf-mode)
                 ("\\.scons$" . python-mode)
+                ("\\.cshtml$" . html-mode)
                 ("SConstruct$" . python-mode)
                 ("CMakeLists.txt$" . makefile-mode)) auto-mode-alist))
+
+;; Update paths and fonts for windows platform only
+;; this is necessary for find and grep modes to work properly
+;; https://www.emacswiki.org/emacs/GrepMode
+(when (or (eq system-type 'windows-nt) (eq system-type 'msdos))
+  (set-face-attribute 'default nil :height 130)
+  (let ((git-path (concat (getenv "HOME") "/code/git-sdk-64/usr/bin/")))
+    (setenv "PATH" (concat git-path ";" (getenv "PATH"))) ;TODO: if path is globally set, remove this
+    (setq find-program (concat git-path "find.exe")
+          grep-program (concat git-path "grep.exe"))))
 
 ;; remove the hook to check the vc-status on any file; this makes emacs 1-2 slow on windows
 ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
