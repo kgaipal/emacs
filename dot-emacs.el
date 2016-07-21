@@ -197,7 +197,7 @@
   (set-face-attribute 'default nil :height 130)
   (let ((git-path (concat (getenv "HOME") "/code/git-sdk-64/usr/bin/")))
 
-    ;; TODO: if path is globally set, remove this
+    ;; TODO: below is unnecessary if path is set as 'System Variable'
     (setenv "PATH" (concat git-path ";" (getenv "PATH")))
 
     ;; remove the hook to check the vc-status on any file; this makes emacs
@@ -205,8 +205,12 @@
     ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
     (remove-hook 'find-file-hooks 'vc-find-file-hook)
 
-    ;; Update paths and fonts for windows platform only; this is necessary
-    ;; for find and grep modes to work properly
-    ;; https://www.emacswiki.org/emacs/GrepMode
-    (setq find-program (concat git-path "find.exe")
-          grep-program (concat git-path "grep.exe"))))
+    ;; Not setting grep and find program since this is already avaialble through PATH,
+    ;; also M-x grep injects full path to the grep.exe as set here, which makes it
+    ;; difficult to type
+    ;; ;; Update paths and fonts for windows platform only; this is necessary
+    ;; ;; for find and grep modes to work properly
+    ;; ;; https://www.emacswiki.org/emacs/GrepMode
+    ;; (setq find-program (concat git-path "find.exe")
+    ;;       grep-program (concat git-path "grep.exe"))
+  ))
