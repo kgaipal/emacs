@@ -205,9 +205,10 @@
     ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
     (remove-hook 'find-file-hooks 'vc-find-file-hook)
 
-    ;; Not setting grep and find program since this is already avaialble through PATH,
-    ;; also M-x grep injects full path to the grep.exe as set here, which makes it
+    ;; Note: Not setting grep and find program since this is already available through
+    ;; PATH, also M-x grep injects full path to the grep.exe as set here, which makes it
     ;; difficult to type
+    ;;
     ;; ;; Update paths and fonts for windows platform only; this is necessary
     ;; ;; for find and grep modes to work properly
     ;; ;; https://www.emacswiki.org/emacs/GrepMode
