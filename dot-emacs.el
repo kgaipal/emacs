@@ -186,6 +186,7 @@
 (setq auto-mode-alist
       (append '(("\\.psql$" . sql-mode)
                 ("\\.cs$" . c++-mode)
+                ("\\.ts$" . c++-mode)
                 ("\\.ini$" . windows-conf-mode)
                 ("\\.scons$" . python-mode)
                 ("\\.cshtml$" . html-mode)
