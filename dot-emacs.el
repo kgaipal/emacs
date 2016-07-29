@@ -216,8 +216,10 @@
     ;;       grep-program (concat git-path "grep.exe"))
     ))
 
-;; grep program customization
-(setq grep-command
-      (concat "grep -nHsI --exclude-from="
-              (subst-char-in-string ?\\ ?/ (getenv "HOME"))
-              "/code/grep-exclude-patterns.txt -r "))
+;; Using external grep program
+(setq grep-command (concat
+                    (subst-char-in-string ?\\ ?/ (getenv "HOME"))
+                    "/.local/bin/grepk -r ")
+      find-program (concat
+                    (subst-char-in-string ?\\ ?/ (getenv "HOME"))
+                    "/.local/bin/findk "))
