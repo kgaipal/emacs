@@ -63,7 +63,6 @@
  '(fill-column 90)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
- '(grep-find-ignored-directories (quote (".svn" ".git" ".hg" ".bzr" ".output")))
  '(hide-ifdef-initially t)
  '(hide-ifdef-shadow nil)
  '(highlight-symbol-colors (quote ("yellow")))
@@ -215,4 +214,10 @@
     ;; ;; https://www.emacswiki.org/emacs/GrepMode
     ;; (setq find-program (concat git-path "find.exe")
     ;;       grep-program (concat git-path "grep.exe"))
-  ))
+    ))
+
+;; grep program customization
+(setq grep-command
+      (concat "grep -nHsI --exclude-from="
+              (subst-char-in-string ?\\ ?/ (getenv "HOME"))
+              "/code/grep-exclude-patterns.txt -r "))
