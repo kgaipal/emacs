@@ -219,7 +219,7 @@
 ;; Using external grep program
 (setq grep-command (concat
                     (subst-char-in-string ?\\ ?/ (getenv "HOME"))
-                    "/.local/bin/grepk -r ")
+                    "/.local/bin/grepk ")
       find-program (concat
                     (subst-char-in-string ?\\ ?/ (getenv "HOME"))
                     "/.local/bin/findk "))
