@@ -195,7 +195,7 @@
 ;; windows specic tweaks
 (when (or (eq system-type 'windows-nt) (eq system-type 'msdos))
   (set-face-attribute 'default nil :height 130)
-  (let ((git-path (concat (getenv "HOME") "/code/git-sdk-64/usr/bin/")))
+  (let ((git-path (concat (getenv "HOME") "/code/git-sdk/usr/bin/")))
 
     ;; TODO: below is unnecessary if path is set as 'System Variable'
     (setenv "PATH" (concat git-path ";" (getenv "PATH")))
