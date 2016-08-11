@@ -12,22 +12,22 @@
 
 ;; ;; Python indent using tabs instead of spaces
 ;; (add-hook 'python-mode-hook
-;;	  (lambda ()
-;;	    (setq indent-tabs-mode t)
-;;	    (setq python-indent 4)
-;;	    (setq tab-width 4)))
+;;        (lambda ()
+;;          (setq indent-tabs-mode t)
+;;          (setq python-indent 4)
+;;          (setq tab-width 4)))
 
 ;; Mark the buffer read only to avoid cat typing in a newly opened buffer
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
 (add-hook 'find-file-hook
-	  '(lambda ()
-	     (when (and (buffer-file-name)
-			(file-exists-p (buffer-file-name))
-			(file-writable-p (buffer-file-name)))
-	       (toggle-read-only 1)
-	       (if (string= "/scp:"
-			    (substring (buffer-file-name) 0 5))
-		   (auto-save-mode -1)))))
+          '(lambda ()
+             (when (and (buffer-file-name)
+                        (file-exists-p (buffer-file-name))
+                        (file-writable-p (buffer-file-name)))
+               (toggle-read-only 1)
+               (if (string= "/scp:"
+                            (substring (buffer-file-name) 0 5))
+                   (auto-save-mode -1)))))
 
 ;; Revert all buffers [http://www.emacswiki.org/emacs/RevertBuffer#toc4]
 (defun revert-all-buffers ()
@@ -36,8 +36,8 @@
   (dolist (buf (buffer-list))
     (with-current-buffer buf
       (when (and (buffer-file-name) (not (buffer-modified-p)))
-	(revert-buffer t t t)
-	(toggle-read-only 1) )))
+        (revert-buffer t t t)
+        (toggle-read-only 1) )))
   (message "Reverting all buffers...done") )
 
 ;; Highlight Qt specific keywords just like public,protected, private keywords in c++
@@ -53,9 +53,9 @@
 ;; [http://stackoverflow.com/questions/3312114/how-to-tell-emacs-to-open-h-file-in-c-mode]
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (which-function-mode t)
-	    (subword-mode 1)))
+          (lambda ()
+            (which-function-mode t)
+            (subword-mode 1)))
 
 ;; Auto reload file by F5 keystroke
 (defun refresh-file ()
@@ -73,12 +73,12 @@
 ;; (defvar ecb-windows-visible nil)
 ;; (defun ecb-toggle-windows-visibility ()
 ;;   (interactive) (if (eq ecb-windows-visible nil)
-;;		    (progn
-;;		      (ecb-show-ecb-windows)
-;;		      (setq ecb-windows-visible t))
-;;		  (progn
-;;		    (ecb-hide-ecb-windows)
-;;		    (setq ecb-windows-visible nil))))
+;;                  (progn
+;;                    (ecb-show-ecb-windows)
+;;                    (setq ecb-windows-visible t))
+;;                (progn
+;;                  (ecb-hide-ecb-windows)
+;;                  (setq ecb-windows-visible nil))))
 
 ;; Cut-Copy-Paste in emacs-nox (Emacs without X)
 ;; http://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
@@ -97,12 +97,12 @@
     (defun xsel-cut-function (text &optional push)
       ;; Insert text to temp-buffer, and "send" content to xsel stdin
       (with-temp-buffer
-	(insert text)
-	;; I prefer using the "clipboard" selection (the one the
-	;; typically is used by c-c/c-v) before the primary selection
-	;; (that uses mouse-select/middle-button-click)
-	(call-process-region
-	 (point-min) (point-max) "xsel" nil 0 nil "--clipboard" "--input")))
+        (insert text)
+        ;; I prefer using the "clipboard" selection (the one the
+        ;; typically is used by c-c/c-v) before the primary selection
+        ;; (that uses mouse-select/middle-button-click)
+        (call-process-region
+         (point-min) (point-max) "xsel" nil 0 nil "--clipboard" "--input")))
 
     ;; Call back for when user pastes
     (defun xsel-paste-function()
@@ -111,8 +111,8 @@
       ;; it. Else, nil is returned, so whatever is in the top of the
       ;; kill-ring will be used.
       (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
-	(unless (string= (car kill-ring) xsel-output)
-	  xsel-output )))
+        (unless (string= (car kill-ring) xsel-output)
+          xsel-output )))
 
     ;; Note: Disable the hooks for now because this doesnt
     ;; work while editing remote machines (xsel may not always be installed)
@@ -135,12 +135,12 @@ If the region is not active, activate the current line."
   (if (not mark-active)
       ;; Create region from current line
       (progn
-	(beginning-of-line)
-	(set-mark (point))
-	(end-of-line))
+        (beginning-of-line)
+        (set-mark (point))
+        (end-of-line))
     ;; The mark is active, expand region
     (let ((beg (region-beginning))
-	  (end (region-end)))
+          (end (region-end)))
       (goto-char beg)
       (beginning-of-line)
       (set-mark (point))
@@ -170,8 +170,8 @@ If the region is not active, activate the current line."
   (highlight-symbol-remove-all)
   (let ((word (symbol-name (symbol-at-point))))
     (setq isearch-string word
-	  isearch-message word
-	  isearch-forward word)
+          isearch-message word
+          isearch-forward word)
     (kill-new word))
   (isearch-update))
 
@@ -199,31 +199,31 @@ If the region is not active, activate the current line."
 Only show the modified files."
   (interactive)
   (let ((crt (ewoc-nth vc-ewoc -1))
-	(first (ewoc-nth vc-ewoc 0)))
+        (first (ewoc-nth vc-ewoc 0)))
     ;; Go over from the last item to the first and remove the
     ;; unregistered files and directories with no child files.
     (while (not (eq crt first))
       (let* ((data (ewoc-data crt))
-	     (dir (vc-dir-fileinfo->directory data))
-	     (next (ewoc-next vc-ewoc crt))
-	     (prev (ewoc-prev vc-ewoc crt))
-	     ;; ewoc-delete does not work without this...
-	     (inhibit-read-only t))
-	(when (or
-	       ;; Remove directories with no child files.
-	       (and dir
-		    (or
-		     ;; Nothing follows this directory.
-		     (not next)
-		     ;; Next item is a directory.
-		     ;; (vc-dir-fileinfo->directory (ewoc-data next))))
+             (dir (vc-dir-fileinfo->directory data))
+             (next (ewoc-next vc-ewoc crt))
+             (prev (ewoc-prev vc-ewoc crt))
+             ;; ewoc-delete does not work without this...
+             (inhibit-read-only t))
+        (when (or
+               ;; Remove directories with no child files.
+               (and dir
+                    (or
+                     ;; Nothing follows this directory.
+                     (not next)
+                     ;; Next item is a directory.
+                     ;; (vc-dir-fileinfo->directory (ewoc-data next))))
 
-		     ;; hide the directory entry, we want to show only the modified files
-		     (vc-dir-fileinfo->directory data)))
-	       ;; Remove files in the unregistered state.
-	       (eq (vc-dir-fileinfo->state data) 'unregistered))
-	  (ewoc-delete vc-ewoc crt))
-	(setq crt prev)))))
+                     ;; hide the directory entry, we want to show only the modified files
+                     (vc-dir-fileinfo->directory data)))
+               ;; Remove files in the unregistered state.
+               (eq (vc-dir-fileinfo->state data) 'unregistered))
+          (ewoc-delete vc-ewoc crt))
+        (setq crt prev)))))
 
 ;; Toggle the layout (vertical -> horizontal and vice versa)
 ;; of the frame only if it is split into 2 windows
@@ -234,44 +234,44 @@ of the frame only if it is split into exactly 2 windows."
   (interactive)
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
-	     (next-win-buffer (window-buffer (next-window)))
-	     (this-win-edges (window-edges (selected-window)))
-	     (next-win-edges (window-edges (next-window)))
-	     (this-win-2nd (not (and (<= (car this-win-edges)
-					 (car next-win-edges))
-				     (<= (cadr this-win-edges)
-					 (cadr next-win-edges)))))
-	     (splitter
-	      (if (= (car this-win-edges)
-		     (car (window-edges (next-window))))
-		  'split-window-horizontally
-		'split-window-vertically)))
-	(delete-other-windows)
-	(let ((first-win (selected-window)))
-	  (funcall splitter)
-	  (if this-win-2nd (other-window 1))
-	  (set-window-buffer (selected-window) this-win-buffer)
-	  (set-window-buffer (next-window) next-win-buffer)
-	  (select-window first-win)
-	  (if this-win-2nd (other-window 1))))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))
     (if (< (count-windows) 2)
-	(message "Nothing to toggle")
+        (message "Nothing to toggle")
       (message "Won't toggle for more than 2 windows!"))))
 
 
 ;; Highlight current line only in ibuffer
 (add-hook 'ibuffer-mode-hook
-	  (lambda ()
-	    (if (string= "*Ibuffer*" (buffer-name))
-		(hl-line-mode 1)
-	      (hl-line-mode -1))))
+          (lambda ()
+            (if (string= "*Ibuffer*" (buffer-name))
+                (hl-line-mode 1)
+              (hl-line-mode -1))))
 
 ;; Change the font face in vc-dir-mode buffer
 (add-hook 'vc-dir-mode-hook
-	  (lambda ()
-	    (if (string= "*vc-dir*" (buffer-name))
-		(hl-line-mode 1)
-	      (hl-line-mode -1))))
+          (lambda ()
+            (if (string= "*vc-dir*" (buffer-name))
+                (hl-line-mode 1)
+              (hl-line-mode -1))))
 
 
 ;; Restore windows layout when done with ediff mode
@@ -292,14 +292,14 @@ of the frame only if it is split into exactly 2 windows."
   (setq my-ediff-bwin-config (current-window-configuration))
   (when (characterp my-ediff-bwin-reg)
     (set-register my-ediff-bwin-reg
-		  (list my-ediff-bwin-config (point-marker)))))
+                  (list my-ediff-bwin-config (point-marker)))))
 
 (defun my-ediff-ash ()
   "Function to be called after buffers and window setup for ediff."
   (setq my-ediff-awin-config (current-window-configuration))
   (when (characterp my-ediff-awin-reg)
     (set-register my-ediff-awin-reg
-		  (list my-ediff-awin-config (point-marker)))))
+                  (list my-ediff-awin-config (point-marker)))))
 
 (defun my-ediff-qh ()
   "Function to be called when ediff quits."
@@ -311,16 +311,16 @@ of the frame only if it is split into exactly 2 windows."
 (add-hook 'ediff-quit-hook 'my-ediff-qh)
 
 (add-hook 'php-mode-hook
-	  (lambda ()
-	    (setq comment-start "#")
-	    (setq comment-end "")))
+          (lambda ()
+            (setq comment-start "#")
+            (setq comment-end "")))
 
 ;; ;; make completion buffers disappear after 3 seconds.
 ;; ;; http://snarfed.org/why_i_dont_run_shells_inside_emacs
 ;; (add-hook 'completion-setup-hook
-;;	  (lambda () (run-at-time 3 nil
-;;				  (lambda () (delete-windows-on "*Completions*")
-;;				    (message "Deleted some windows")))))
+;;        (lambda () (run-at-time 3 nil
+;;                                (lambda () (delete-windows-on "*Completions*")
+;;                                  (message "Deleted some windows")))))
 
 ;; Start a new emacs shell and rename it uniquely.
 ;; http://stackoverflow.com/a/2788843/398328
@@ -344,3 +344,9 @@ of the frame only if it is split into exactly 2 windows."
 ;; Insert current date and time
 (defun insert-current-date () (interactive)
        (insert (shell-command-to-string "echo -n $(date +'%b %d, %Y')")))
+
+;; Copies the current buffer in visual studio for editing; for now this command needs to
+;; be run manually; ideally it should be open directly
+(defun open-buffer-in-vs () (interactive)
+       (let ((cmd (concat "\"C:/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/devenv.exe\""
+                          " /edit " "\"" (buffer-file-name) "\"")))(kill-new cmd)))
