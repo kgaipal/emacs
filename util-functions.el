@@ -345,8 +345,10 @@ of the frame only if it is split into exactly 2 windows."
 (defun insert-current-date () (interactive)
        (insert (shell-command-to-string "echo -n $(date +'%b %d, %Y')")))
 
-;; Copies the current buffer in visual studio for editing; for now this command needs to
-;; be run manually; ideally it should be open directly
+;; Copies the current buffer in visual studio for editing; for now this
+;; commands needs to be run manually; ideally it should be open directly
 (defun open-buffer-in-vs () (interactive)
-       (let ((cmd (concat "\"C:/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/devenv.exe\""
-                          " /edit " "\"" (buffer-file-name) "\"")))(kill-new cmd)))
+       (let ((vs-cmd (concat "\""
+                             (shell-command-to-string (concat "where devenv"))
+                             "\" /edit \"" (buffer-file-name) "\"")))
+         (kill-new vs-cmd)))
