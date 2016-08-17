@@ -184,7 +184,7 @@
 ;; setup for various files [extensions] and their editing modes
 (setq auto-mode-alist
       (append '(("\\.psql$" . sql-mode)
-                ("\\.cs$" . c++-mode)
+                ("\\.cs$" . java-mode)
                 ("\\.ts$" . c++-mode)
                 ("\\.ini$" . windows-conf-mode)
                 ("\\.scons$" . python-mode)
