@@ -63,6 +63,7 @@
  '(fill-column 90)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
+ '(grep-use-null-device nil)            ; when using external grep wrapper (grepk) so not needed
  '(hide-ifdef-initially t)
  '(hide-ifdef-shadow nil)
  '(highlight-symbol-colors (quote ("yellow")))
