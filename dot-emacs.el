@@ -203,21 +203,8 @@
     ;; remove the hook to check the vc-status on any file; this makes emacs
     ;; 1-2 slow on windows
     ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
-    (remove-hook 'find-file-hooks 'vc-find-file-hook)
+    (remove-hook 'find-file-hooks 'vc-find-file-hook)))
 
-    ;; Note: Not setting grep and find program since this is already available through
-    ;; PATH, also M-x grep injects full path to the grep.exe as set here, which makes it
-    ;; difficult to type
-    ;;
-    ;; ;; Update paths and fonts for windows platform only; this is necessary
-    ;; ;; for find and grep modes to work properly
-    ;; ;; https://www.emacswiki.org/emacs/GrepMode
-    ;; (setq find-program (concat git-path "find.exe")
-    ;;       grep-program (concat git-path "grep.exe"))
-    ))
-
-;; Using external grep program
-(setq grep-command (concat (subst-char-in-string ?\\ ?/ (getenv "HOME"))
-                           "/.local/bin/grepk ")
-      find-program (concat (subst-char-in-string ?\\ ?/ (getenv "HOME"))
-                           "/.local/bin/findk "))
+;; Using external grep and find programs
+(setq grep-command "grepk "
+      find-program "findk ")
