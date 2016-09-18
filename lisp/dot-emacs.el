@@ -7,7 +7,7 @@
 
 ;; Moves the buffer from one side to other
 ;; [http://stackoverflow.com/questions/1774832/how-to-swap-the-buffers-in-2-windows-emacs]
-(load-file "~/.emacs.d/buffer-move.el")
+(load-file "~/.emacs.d/external/buffer-move.el")
 (require 'buffer-move)
 
 ;; GNU Coding style
@@ -15,12 +15,12 @@
 
 ;; Highlight current word under the cursor
 ;; [http://xahlee.blogspot.com/2010/05/emacs-isearch-of-current-work.html]
-(load-file "~/.emacs.d/highlight-symbol.el")
+(load-file "~/.emacs.d/external/highlight-symbol.el")
 (require 'highlight-symbol)
 
 ;; xcscope for searching in large code trees
 ;; [https://github.com/dkogan/xcscope.el]
-(load-file "~/.emacs.d/xcscope.el")
+(load-file "~/.emacs.d/external/xcscope.el")
 (require 'xcscope)
 (cscope-setup)
 
