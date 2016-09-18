@@ -1,0 +1,6 @@
+# emacs temp files
+auto-save-list
+recentf
+server
+tramp
+session.*
