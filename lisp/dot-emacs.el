@@ -193,22 +193,27 @@
                 ("SConstruct$" . python-mode)
                 ("CMakeLists.txt$" . makefile-mode)) auto-mode-alist))
 
+;; ~/.local/bin PATH
+(defvar local-bin-path (concat (getenv "HOME") "/.local/bin/"))
+
 ;; platforms specic tweaks
 (if (or (eq system-type 'windows-nt) (eq system-type 'msdos))
     (progn
-      (set-face-attribute 'default nil :height 130)
-      (let ((git-path (concat (getenv "HOME") "/code/git-sdk/usr/bin/")))
+      (defvar git-path (concat (getenv "HOME") "/code/git-sdk/usr/bin/"))
 
-        ;; TODO: below is unnecessary if path is set as 'System Variable'
-        (setenv "PATH" (concat git-path ";" (getenv "PATH"))))
+      (set-face-attribute 'default nil :height 130)
+
+      ;; TODO: below is unnecessary if path is set as 'System Variable'
+      (setenv "PATH" (concat git-path ";" (getenv "PATH")))
+      (setenv "PATH" (concat local-bin-path ";" (getenv "PATH")))
 
       ;; remove the hook to check the vc-status on any file;
       ;; this makes emacs 1-2 slow on windows
       ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
       (remove-hook 'find-file-hooks 'vc-find-file-hook))
   (progn
-    (setenv "PATH" (concat (getenv "PATH") ":" (getenv "HOME") "/.local/bin"))
-    (setq exec-path (append exec-path '(concat (getenv "HOME") "/.local/bin")))))
+    (setenv "PATH" (concat local-bin-path ":" (getenv "PATH")))
+    (setq exec-path (append exec-path 'local-bin-path))))
 
 ;; Using external grep and find programs
 (setq grep-command "grepk "
