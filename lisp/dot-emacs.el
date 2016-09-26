@@ -7,6 +7,13 @@
 
 ;; Moves the buffer from one side to other
 ;; [http://stackoverflow.com/questions/1774832/how-to-swap-the-buffers-in-2-windows-emacs]
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (load-file "~/.emacs.d/external/buffer-move.el")
 (require 'buffer-move)
 
