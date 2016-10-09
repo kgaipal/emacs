@@ -4,3 +4,4 @@ recentf
 server
 tramp
 session.*
+lisp/elpa/*
