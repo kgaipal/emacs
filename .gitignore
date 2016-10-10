@@ -4,4 +4,5 @@ recentf
 server
 tramp
 session.*
+lisp/newsticker/
 lisp/elpa/*
