@@ -41,6 +41,9 @@
 ;; overridden from above packages if this is loaded last
 (load-file "~/.emacs.d/keyboard-shortcuts.el")
 
+;; C# mode
+(load-file "~/.emacs.d/external/csharp-mode.el")
+
 ;; Microsoft TFS Server plugin for VC
 (load-file "~/.emacs.d/external/tfs.el")
 (require 'tfs)
@@ -196,7 +199,7 @@
 ;; setup for various files [extensions] and their editing modes
 (setq auto-mode-alist
       (append '(("\\.psql$" . sql-mode)
-                ("\\.cs$" . java-mode)
+                ("\\.cs$" . csharp-mode)
                 ("\\.ts$" . c++-mode)
                 ("\\.ini$" . windows-conf-mode)
                 ("\\.scons$" . python-mode)
