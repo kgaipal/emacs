@@ -43,6 +43,7 @@
 
 ;; C# mode
 (load-file "~/.emacs.d/external/csharp-mode.el")
+(flymake-mode-off)            ; disable flymake-mode as this doesnt work on windows anyway
 
 ;; Microsoft TFS Server plugin for VC
 (load-file "~/.emacs.d/external/tfs.el")
