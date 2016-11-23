@@ -49,13 +49,25 @@
 (setq c-C++-access-key "override\\|final")
 (font-lock-add-keywords 'c++-mode '(("override\\|final" . font-lock-constant-face)))
 
-;; right now c++-mode does not work in .h file, so forcing it.
-;; [http://stackoverflow.com/questions/3312114/how-to-tell-emacs-to-open-h-file-in-c-mode]
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+;; Highlight postgres keywords too when in SQL mode
+(add-hook 'sql-mode-hook 'sql-highlight-postgres-keywords)
+
+;; Common features in all c-mode
 (add-hook 'c-mode-common-hook
           (lambda ()
             (which-function-mode t)
             (subword-mode 1)))
+
+;; C# mode
+(add-hook 'csharp-mode-hook
+          (lambda ()
+            (which-function-mode nil)
+            (flymake-mode -1)
+            (subword-mode 1)))
+
+;; fixing wierd control characters in shell mode
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; Auto reload file by F5 keystroke
 (defun refresh-file ()
@@ -352,3 +364,93 @@ of the frame only if it is split into exactly 2 windows."
                              (shell-command-to-string (concat "where devenv"))
                              "\" /edit \"" (buffer-file-name) "\"")))
          (kill-new vs-cmd)))
+
+;; ========================== Manual changes =================================
+
+;; Force single instance of emacs running on the system
+(server-start)
+
+;; Set the tab width
+;; http://www.chemie.fu-berlin.de/chemnet/use/info/cc-mode/cc-mode_6.html#SEC17
+(setq-default default-tab-width 8)
+(setq-default c-basic-indent 0)
+(setq-default c-basic-offset 4)
+(c-set-offset 'substatement-open 0)
+(setq c-default-style "linux" c-basic-offset 4)
+
+;; Shorten the required response in mode-buffer from yes/no to y/n
+;; http://www.youtube.com/watch?v=a-jRN_ba41w
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Winners mode to preserve split windows
+;; http://ergoemacs.org/emacs/emacs_winner_mode.html
+(winner-mode 1)
+
+;; IBuffer module provides better switching
+;; http://www.emacswiki.org/emacs/IbufferMode
+(require 'ibuf-ext)
+;; hiding the unnecessary buffers
+(add-to-list 'ibuffer-never-show-predicates "^\\*")
+
+;; set the desktop-path to current directory only
+(setq desktop-path '("."))
+
+;; custom ibuffer format
+(setq ibuffer-formats '((mark modified read-only " "
+                              (name 50 100 :left :elide) " "
+                              (file-or-process-directory))))
+
+;; When we move forward word-by-word ... also stop at ';'
+;; Helpfull stop running past to next line in c-mode/c++-mode
+(modify-syntax-entry ?$ "w")
+
+;; right now c++-mode does not work in .h file, so forcing it.
+;; [http://stackoverflow.com/questions/3312114/how-to-tell-emacs-to-open-h-file-in-c-mode]
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+;; hiding some unwanted extensions in dired mode
+;; http://www.emacswiki.org/emacs/DiredOmitMode
+(require 'dired-x)
+(setq-default dired-omit-files-p t)	; this is buffer-local variable
+(setq dired-omit-files
+      (concat dired-omit-files "\\|^\\..+$"))
+
+;; setup for various files [extensions] and their editing modes
+(setq auto-mode-alist
+      (append '(("\\.psql$" . sql-mode)
+                ("\\.cs$" . csharp-mode)
+                ("\\.ts$" . c++-mode)
+                ("\\.ini$" . windows-conf-mode)
+                ("\\.scons$" . python-mode)
+                ("\\.cshtml$" . html-mode)
+                ("SConstruct$" . python-mode)
+                ("CMakeLists.txt$" . makefile-mode)) auto-mode-alist))
+
+;; ~/.local/bin PATH
+(defvar local-bin-path (concat (getenv "HOME") "/.local/bin/"))
+
+;; platforms specic tweaks
+(if (or (eq system-type 'windows-nt) (eq system-type 'msdos))
+    (progn
+      (defvar git-path (concat (getenv "HOME") "/code/git-sdk/usr/bin/"))
+
+      (set-face-attribute 'default nil :height 130)
+
+      ;; TODO: below is unnecessary if path is set as 'System Variable'
+      (setenv "PATH" (concat git-path ";" (getenv "PATH")))
+      (setenv "PATH" (concat local-bin-path ";" (getenv "PATH")))
+
+      ;; disable menu bar
+      (menu-bar-mode 0)
+
+      ;; remove the hook to check the vc-status on any file;
+      ;; this makes emacs 1-2 slow on windows
+      ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
+      (remove-hook 'find-file-hooks 'vc-find-file-hook))
+  (progn
+    (setenv "PATH" (concat local-bin-path ":" (getenv "PATH")))
+    (setq exec-path (append exec-path 'local-bin-path))))
+
+;; Using external grep and find programs
+(setq grep-command "grepk "
+      find-program "findk ")
