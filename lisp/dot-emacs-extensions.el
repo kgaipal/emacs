@@ -451,5 +451,7 @@ of the frame only if it is split into exactly 2 windows."
     (setq exec-path (append exec-path 'local-bin-path))))
 
 ;; Using external grep and find programs
+;; Note: remove " . " from $(GIT_SDK_ROOT)/mingw64/share/emacs/25.1/lisp/find-dired.el
+;; byte compile and reload emacs for find-dired to work with findk
 (setq grep-command "grepk "
       find-program "findk ")
