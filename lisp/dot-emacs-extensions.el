@@ -1,6 +1,5 @@
 ;; Some utility functions and hooks which I found rather helpful in certain tasks
-;; Last edited on: Dec 13, 2014
-;; by Kshitij Gaipal
+;; kgaipal@gmail.com
 
 ;; Load this file in your ".emacs" file:
 ;; (load-file "~/.emacs.d/util-functions.el")

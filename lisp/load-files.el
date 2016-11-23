@@ -21,7 +21,7 @@
 ;; (cscope-setup)
 
 ;; Some helpful functions which are not defined in this file because they are too big
-(load-file "~/.emacs.d/util-functions.el")
+(load-file "~/.emacs.d/dot-emacs-extensions.el")
 
 ;; Customization in mode-line format
 (load-file "~/.emacs.d/mode-line-customization.el")
