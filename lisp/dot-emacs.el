@@ -222,6 +222,9 @@
       (setenv "PATH" (concat git-path ";" (getenv "PATH")))
       (setenv "PATH" (concat local-bin-path ";" (getenv "PATH")))
 
+      ;; disable menu bar
+      (menu-bar-mode 0)
+
       ;; remove the hook to check the vc-status on any file;
       ;; this makes emacs 1-2 slow on windows
       ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly

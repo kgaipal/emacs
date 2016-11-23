@@ -3852,7 +3852,7 @@ this fn will be something like this:
      (\"(bottom)\"     . 1))
 
 "
-  (flet ((helper (list new)
+  (cl-flet ((helper (list new)
                  (if (null list) new
                    (let* ((elt (car list))
                           (topic (csharp--make-plural (csharp--first-word (car elt))))
@@ -4119,7 +4119,7 @@ out into multiple submenus.
 
 "
   (let ((counts (csharp--imenu-counts menu-alist)))
-    (flet ((helper
+    (cl-flet ((helper
             (list new)
             (if (null list)
                 new
@@ -5878,7 +5878,7 @@ $0" "XML Documentation" nil)
             ;; Insert the snippets from above into the table if they
             ;; are not already defined.
             (mapcar
-             '(lambda (item)
+             #'(lambda (item)
                 (let* ((full-key (car item))
                        (existing-snip
                         (yas/snippet-table-fetch snippet-table full-key)))

@@ -6,3 +6,4 @@ tramp
 session.*
 lisp/newsticker/
 lisp/elpa/*
+lisp/abbrev_defs
