@@ -20,10 +20,10 @@
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
 (add-hook 'find-file-hook
           '(lambda ()
+             (view-mode t)
              (when (and (buffer-file-name)
                         (file-exists-p (buffer-file-name))
                         (file-writable-p (buffer-file-name)))
-               (toggle-read-only 1)
                (if (string= "/scp:"
                             (substring (buffer-file-name) 0 5))
                    (auto-save-mode -1)))))
@@ -36,7 +36,7 @@
     (with-current-buffer buf
       (when (and (buffer-file-name) (not (buffer-modified-p)))
         (revert-buffer t t t)
-        (toggle-read-only 1))))
+        (view-mode t))))
   (message "Reverting all buffers...done") )
 
 ;; Highlight Qt specific keywords just like public,protected, private keywords in c++
@@ -73,7 +73,7 @@
 ;; Auto reload file by F5 keystroke
 (defun refresh-file ()
   (interactive) (revert-buffer t t t)
-  (toggle-read-only 1))
+  (view-mode t))
 
 ;; ;; Search some string in all open buffers (use ibuffer)
 ;; ;; http://stackoverflow.com/questions/2641211/emacs-interactively-search-open-buffers#_=_
