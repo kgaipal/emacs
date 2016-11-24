@@ -15,6 +15,7 @@
  '(desktop-clear-preserve-buffers
    (quote
     ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
+ '(desktop-restore-eager 10)
  '(desktop-save-mode t)
  '(dired-listing-switches "-pgGh")
  '(erc-notifications-mode t)

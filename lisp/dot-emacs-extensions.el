@@ -1,20 +1,8 @@
 ;; Some utility functions and hooks which I found rather helpful in certain tasks
 ;; kgaipal@gmail.com
 
-;; Load this file in your ".emacs" file:
-;; (load-file "~/.emacs.d/util-functions.el")
-
-;; ;; Defining my own aliases.
-;; ;; Some usefull ones are copied from here:
-;; ;; http://xahlee.org/emacs/emacs_alias.html
-;; (defalias 'list-buffers 'ibuffer)
-
-;; ;; Python indent using tabs instead of spaces
-;; (add-hook 'python-mode-hook
-;;        (lambda ()
-;;          (setq indent-tabs-mode t)
-;;          (setq python-indent 4)
-;;          (setq tab-width 4)))
+;; Force single instance of emacs running on the system
+(server-start)
 
 ;; Mark the buffer read only to avoid cat typing in a newly opened buffer
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
@@ -28,7 +16,7 @@
                             (substring (buffer-file-name) 0 5))
                    (auto-save-mode -1)))))
 
-;; Revert all buffers [http://www.emacswiki.org/emacs/RevertBuffer#toc4]
+;; Revert all buffers http://www.emacswiki.org/emacs/RevertBuffer#toc4
 (defun revert-all-buffers ()
   "Refreshes all open buffers from their respective files."
   (interactive)
@@ -40,7 +28,7 @@
   (message "Reverting all buffers...done") )
 
 ;; Highlight Qt specific keywords just like public,protected, private keywords in c++
-;; [http://www.emacswiki.org/emacs/QtMode#toc3]
+;; http://www.emacswiki.org/emacs/QtMode#toc3
 (setq c-C++-access-key "\\<\\(slots\\|signals\\|private\\|protected\\|public\\)\\>[ \t]*[(slots\\|signals)]*[ \t]*:")
 (font-lock-add-keywords 'c++-mode '(("\\<\\(Q_[A-Z]*\\|\\Q[A-Z][A-Za-z]*\\|public slots\\|public signals\\|private slots\\|private signals\\|protected slots\\|protected signals\\)\\>" . font-lock-constant-face)))
 
@@ -74,24 +62,6 @@
 (defun refresh-file ()
   (interactive) (revert-buffer t t t)
   (view-mode t))
-
-;; ;; Search some string in all open buffers (use ibuffer)
-;; ;; http://stackoverflow.com/questions/2641211/emacs-interactively-search-open-buffers#_=_
-;; (defun my-multi-occur-in-matching-buffers (regexp &optional allbufs)
-;;   "Show all lines matching REGEXP in all buffers."
-;;   (interactive (occur-read-primary-args))
-;;   (multi-occur-in-matching-buffers ".*" regexp))
-
-;; ;; Toggle ECB windows (very usefull in grep mode)
-;; (defvar ecb-windows-visible nil)
-;; (defun ecb-toggle-windows-visibility ()
-;;   (interactive) (if (eq ecb-windows-visible nil)
-;;                  (progn
-;;                    (ecb-show-ecb-windows)
-;;                    (setq ecb-windows-visible t))
-;;                (progn
-;;                  (ecb-hide-ecb-windows)
-;;                  (setq ecb-windows-visible nil))))
 
 ;; Cut-Copy-Paste in emacs-nox (Emacs without X)
 ;; http://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
@@ -328,13 +298,6 @@ of the frame only if it is split into exactly 2 windows."
             (setq comment-start "#")
             (setq comment-end "")))
 
-;; ;; make completion buffers disappear after 3 seconds.
-;; ;; http://snarfed.org/why_i_dont_run_shells_inside_emacs
-;; (add-hook 'completion-setup-hook
-;;        (lambda () (run-at-time 3 nil
-;;                                (lambda () (delete-windows-on "*Completions*")
-;;                                  (message "Deleted some windows")))))
-
 ;; Start a new emacs shell and rename it uniquely.
 ;; http://stackoverflow.com/a/2788843/398328
 (defun new-shell (buffer-name)
@@ -365,9 +328,6 @@ of the frame only if it is split into exactly 2 windows."
                              (shell-command-to-string (concat "where devenv"))
                              "\" /edit \"" (buffer-file-name) "\"")))
          (kill-new vs-cmd)))
-
-;; Force single instance of emacs running on the system
-(server-start)
 
 ;; Set the tab width
 ;; http://www.chemie.fu-berlin.de/chemnet/use/info/cc-mode/cc-mode_6.html#SEC17
@@ -403,10 +363,6 @@ of the frame only if it is split into exactly 2 windows."
 ;; Helpfull stop running past to next line in c-mode/c++-mode
 (modify-syntax-entry ?$ "w")
 
-;; right now c++-mode does not work in .h file, so forcing it.
-;; [http://stackoverflow.com/questions/3312114/how-to-tell-emacs-to-open-h-file-in-c-mode]
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
-
 ;; hiding some unwanted extensions in dired mode
 ;; http://www.emacswiki.org/emacs/DiredOmitMode
 (require 'dired-x)
@@ -418,6 +374,7 @@ of the frame only if it is split into exactly 2 windows."
 (setq auto-mode-alist
       (append '(("\\.psql$" . sql-mode)
                 ("\\.cs$" . csharp-mode)
+                ("\\.h$" . c++-mode)
                 ("\\.ts$" . c++-mode)
                 ("\\.ini$" . windows-conf-mode)
                 ("\\.scons$" . python-mode)
@@ -458,13 +415,13 @@ of the frame only if it is split into exactly 2 windows."
       grep-command grep-program
       grep-find-command (concat find-program " -type f -exec " grep-command " {} \\;"))
 
-(defun install-missing-melpa-packages ()
-  "Install missing packages from MELPA"
+(defun restore-packages ()
+  "Restore packages from [M]ELPA"
   (interactive)
 
   ;; Install external packages from MELPA or M-x list-packages on a
   ;; new emacs installation see variable package-selected-packages
-  ;; [http://stackoverflow.com/a/21065066]
+  ;; http://stackoverflow.com/a/21065066
   (if (not (package-installed-p 'use-package))
       (progn
         (package-refresh-contents)
@@ -473,7 +430,7 @@ of the frame only if it is split into exactly 2 windows."
   (require 'use-package)
 
   ;; TODO: make this auto iterate package list from 'package-selected-packages and install all
-  ;; TODO: turn off read only mode (view-mode) so that elpa can download
+  ;; TODO: turn off read only mode (view-mode) so that [m]elpa can download without failure
   (use-package buffer-move :ensure buffer-move)
   (use-package csharp-mode :ensure csharp-mode)
   (use-package highlight-symbol :ensure highlight-symbol)
@@ -481,4 +438,5 @@ of the frame only if it is split into exactly 2 windows."
   (use-package unbound :ensure unbound)
   (use-package clang-format :ensure clang-format)
   (use-package restart-emacs :ensure restart-emacs)
+
   (message "done"))
