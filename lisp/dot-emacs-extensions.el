@@ -480,4 +480,5 @@ of the frame only if it is split into exactly 2 windows."
   (use-package tfs :ensure tfs)
   (use-package unbound :ensure unbound)
   (use-package clang-format :ensure clang-format)
+  (use-package restart-emacs :ensure restart-emacs)
   (message "done"))
