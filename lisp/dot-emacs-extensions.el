@@ -479,4 +479,5 @@ of the frame only if it is split into exactly 2 windows."
   (use-package highlight-symbol :ensure highlight-symbol)
   (use-package tfs :ensure tfs)
   (use-package unbound :ensure unbound)
+  (use-package clang-format :ensure clang-format)
   (message "done"))
