@@ -20,10 +20,10 @@
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
 (add-hook 'find-file-hook
           '(lambda ()
-             (view-mode t)
              (when (and (buffer-file-name)
                         (file-exists-p (buffer-file-name))
                         (file-writable-p (buffer-file-name)))
+               (view-mode t)
                (if (string= "/scp:"
                             (substring (buffer-file-name) 0 5))
                    (auto-save-mode -1)))))
@@ -459,3 +459,26 @@ of the frame only if it is split into exactly 2 windows."
       find-program "findk "
       grep-command grep-program
       grep-find-command (concat find-program " -type f -exec " grep-command " {} \\;"))
+
+(defun install-missing-melpa-packages ()
+  "Install missing packages from MELPA"
+  (interactive)
+
+  ;; Install external packages from MELPA or M-x list-packages on a
+  ;; new emacs installation see variable package-selected-packages
+  ;; [http://stackoverflow.com/a/21065066]
+  (if (not (package-installed-p 'use-package))
+      (progn
+        (package-refresh-contents)
+        (package-install 'use-package)))
+
+  (require 'use-package)
+
+  ;; TODO: make this auto iterate package list from 'package-selected-packages and install all
+  ;; TODO: turn off read only mode (view-mode) so that elpa can download
+  (use-package buffer-move :ensure buffer-move)
+  (use-package csharp-mode :ensure csharp-mode)
+  (use-package highlight-symbol :ensure highlight-symbol)
+  (use-package tfs :ensure tfs)
+  (use-package unbound :ensure unbound)
+  (message "done"))
