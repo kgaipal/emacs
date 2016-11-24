@@ -366,8 +366,6 @@ of the frame only if it is split into exactly 2 windows."
                              "\" /edit \"" (buffer-file-name) "\"")))
          (kill-new vs-cmd)))
 
-;; ========================== Manual changes =================================
-
 ;; Force single instance of emacs running on the system
 (server-start)
 
