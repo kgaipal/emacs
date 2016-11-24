@@ -36,7 +36,7 @@
     (with-current-buffer buf
       (when (and (buffer-file-name) (not (buffer-modified-p)))
         (revert-buffer t t t)
-        (toggle-read-only 1) )))
+        (toggle-read-only 1))))
   (message "Reverting all buffers...done") )
 
 ;; Highlight Qt specific keywords just like public,protected, private keywords in c++
@@ -58,11 +58,13 @@
             (subword-mode 1)))
 
 ;; C# mode
+(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
 (add-hook 'csharp-mode-hook
           (lambda ()
-            (which-function-mode nil)
-            (flymake-mode -1)
-            (subword-mode 1)))
+            (message "TODO: customize csharp-mode-hook")
+            ;; (which-function-mode nil)
+            ;; (flymake-mode -1)
+            ))
 
 ;; fixing wierd control characters in shell mode
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
@@ -453,5 +455,7 @@ of the frame only if it is split into exactly 2 windows."
 ;; Using external grep and find programs
 ;; Note: remove " . " from $(GIT_SDK_ROOT)/mingw64/share/emacs/25.1/lisp/find-dired.el
 ;; byte compile and reload emacs for find-dired to work with findk
-(setq grep-command "grepk "
-      find-program "findk ")
+(setq grep-program "grepk "
+      find-program "findk "
+      grep-command grep-program
+      grep-find-command (concat find-program " -type f -exec " grep-command " {} \\;"))

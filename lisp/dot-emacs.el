@@ -1,6 +1,12 @@
 ;; dot-emacs file
 ;; kgaipal@gmail.com
 
+;; MELPA packages
+;; http://stable.melpa.org/#/getting-started
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -39,7 +45,7 @@
  '(fill-column 90)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
- '(grep-use-null-device nil)            ; when using external grep wrapper (grepk) so not needed
+ '(grep-use-null-device nil)
  '(hide-ifdef-initially t)
  '(hide-ifdef-shadow nil)
  '(highlight-symbol-colors (quote ("yellow")))
@@ -51,6 +57,9 @@
  '(kill-whole-line t)
  '(make-backup-files nil)
  '(mode-line-in-non-selected-windows t)
+ '(package-selected-packages
+   (quote
+    (unbound highlight-symbol csharp-mode tfs buffer-move)))
  '(read-file-name-completion-ignore-case t)
  '(recentf-mode 1)
  '(scroll-bar-mode nil)
