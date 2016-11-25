@@ -46,9 +46,6 @@
  '(kill-whole-line t)
  '(make-backup-files nil)
  '(mode-line-in-non-selected-windows t)
- '(package-selected-packages
-   (quote
-    (restart-emacs clang-format use-package unbound highlight-symbol csharp-mode tfs buffer-move)))
  '(read-file-name-completion-ignore-case t)
  '(recentf-mode 1)
  '(scroll-bar-mode nil)

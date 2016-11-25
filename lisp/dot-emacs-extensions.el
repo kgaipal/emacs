@@ -415,13 +415,22 @@ of the frame only if it is split into exactly 2 windows."
       grep-command grep-program
       grep-find-command (concat find-program " -type f -exec " grep-command " {} \\;"))
 
+;; Install external packages from [M]ELPA
+;; http://stackoverflow.com/a/21065066
+;; http://ergoemacs.org/emacs/emacs_package_system.html(
+(defvar packages-to-restore
+  '(buffer-move
+    clang-format
+    csharp-mode
+    highlight-symbol
+    restart-emacs
+    tfs
+    unbound))
+
 (defun restore-packages ()
   "Restore packages from [M]ELPA"
   (interactive)
 
-  ;; Install external packages from MELPA or M-x list-packages on a
-  ;; new emacs installation see variable package-selected-packages
-  ;; http://stackoverflow.com/a/21065066
   (if (not (package-installed-p 'use-package))
       (progn
         (package-refresh-contents)
@@ -429,14 +438,9 @@ of the frame only if it is split into exactly 2 windows."
 
   (require 'use-package)
 
-  ;; TODO: make this auto iterate package list from 'package-selected-packages and install all
-  ;; TODO: turn off read only mode (view-mode) so that [m]elpa can download without failure
-  (use-package buffer-move :ensure buffer-move)
-  (use-package csharp-mode :ensure csharp-mode)
-  (use-package highlight-symbol :ensure highlight-symbol)
-  (use-package tfs :ensure tfs)
-  (use-package unbound :ensure unbound)
-  (use-package clang-format :ensure clang-format)
-  (use-package restart-emacs :ensure restart-emacs)
+  (dolist (p packages-to-restore)
+    (message "restoring %s" p)
+    ;; (use-package p :ensure p))  ;; not working
+    (package-install p))
 
   (message "done"))

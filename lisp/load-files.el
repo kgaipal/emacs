@@ -19,11 +19,11 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-;; GNU Coding style
-(load-file "~/.emacs.d/gnu-coding-style.el")
-
 ;; Some helpful functions which are not defined in this file because they are too big
 (load-file "~/.emacs.d/dot-emacs-extensions.el")
+
+;; GNU Coding style
+(load-file "~/.emacs.d/gnu-coding-style.el")
 
 ;; Customization in mode-line format
 (load-file "~/.emacs.d/mode-line-customization.el")
