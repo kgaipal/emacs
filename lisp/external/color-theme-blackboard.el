@@ -5,7 +5,7 @@
 ;;
 ;; (require 'color-theme)
 ;; (color-theme-initialize)
-;; (load-file "themes/color-theme-blackboard.el")
+;; (load-file "~/.emacs.d/themes/color-theme-blackboard.el")
 ;;
 ;; And then (color-theme-blackboard) to activate it.
 ;;

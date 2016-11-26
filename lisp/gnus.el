@@ -2,7 +2,7 @@
 ;; Kshitij Gaipal
 
 ;; desktop notification
-(load-file "gnus-notify.el")
+(load-file "~/.emacs.d/gnus-notify.el")
 
 ;; Identification
 (setq user-full-name "Kshitij Gaipal"
