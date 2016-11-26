@@ -417,7 +417,8 @@ of the frame only if it is split into exactly 2 windows."
 
 ;; Install external packages from [M]ELPA
 ;; http://stackoverflow.com/a/21065066
-;; http://ergoemacs.org/emacs/emacs_package_system.html(
+;; http://ergoemacs.org/emacs/emacs_package_system.html
+;; https://github.com/emacs-tw/awesome-emacs
 (defvar packages-to-restore
   '(
     ag
@@ -426,12 +427,6 @@ of the frame only if it is split into exactly 2 windows."
     clang-format
     csharp-mode
     dumb-jump
-    git-blamed
-    git-command
-    git-commit
-    git-lens
-    git-messenger
-    git-timemachine
     highlight-symbol
     indent-guide
     mode-icons
