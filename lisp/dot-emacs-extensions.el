@@ -1,20 +1,20 @@
-;; Some utility functions and hooks which I found rather helpful in certain tasks
+;; Utility functions, hooks, and customizations for .emacs
 ;; kgaipal@gmail.com
 
 ;; Force single instance of emacs running on the system
 (server-start)
 
-;; Mark the buffer read only to avoid cat typing in a newly opened buffer
-;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
-(add-hook 'find-file-hook
-          '(lambda ()
-             (when (and (buffer-file-name)
-                        (file-exists-p (buffer-file-name))
-                        (file-writable-p (buffer-file-name)))
-               (view-mode t)
-               (if (string= "/scp:"
-                            (substring (buffer-file-name) 0 5))
-                   (auto-save-mode -1)))))
+;; ;; Mark the buffer read only to avoid cat typing in a newly opened buffer
+;; ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
+;; (add-hook 'find-file-hook
+;;           '(lambda ()
+;;              (when (and (buffer-file-name)
+;;                         (file-exists-p (buffer-file-name))
+;;                         (file-writable-p (buffer-file-name)))
+;;                (view-mode t)
+;;                (if (string= "/scp:"
+;;                             (substring (buffer-file-name) 0 5))
+;;                    (auto-save-mode -1)))))
 
 ;; Revert all buffers http://www.emacswiki.org/emacs/RevertBuffer#toc4
 (defun revert-all-buffers ()
@@ -419,13 +419,31 @@ of the frame only if it is split into exactly 2 windows."
 ;; http://stackoverflow.com/a/21065066
 ;; http://ergoemacs.org/emacs/emacs_package_system.html(
 (defvar packages-to-restore
-  '(buffer-move
+  '(
+    ag
+    annotate-depth
+    buffer-move
     clang-format
     csharp-mode
+    dumb-jump
+    git-blamed
+    git-command
+    git-commit
+    git-lens
+    git-messenger
+    git-timemachine
     highlight-symbol
+    indent-guide
+    mode-icons
     restart-emacs
+    symon
     tfs
-    unbound))
+    unbound
+    whitespace-cleanup-mode
+    ))
+
+;; try this too for convenience
+;; https://github.com/technomancy/better-defaults
 
 (defun restore-packages ()
   "Restore packages from [M]ELPA"
