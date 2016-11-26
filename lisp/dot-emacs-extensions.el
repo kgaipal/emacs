@@ -11,7 +11,7 @@
              (when (and (buffer-file-name)
                         (file-exists-p (buffer-file-name))
                         (file-writable-p (buffer-file-name)))
-               (view-mode t)
+               ;; (view-mode t)
                (if (string= "/scp:"
                             (substring (buffer-file-name) 0 5))
                    (auto-save-mode -1)))))
@@ -422,10 +422,12 @@ of the frame only if it is split into exactly 2 windows."
 (defvar packages-to-restore
   '(
     ag
+    anzu
     annotate-depth
     buffer-move
     clang-format
     csharp-mode
+    direx
     dumb-jump
     highlight-symbol
     indent-guide

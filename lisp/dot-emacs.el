@@ -33,6 +33,7 @@
  '(eshell-visual-subcommands (quote (("git" "diff" "show" "log"))))
  '(fill-column 90)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
+ '(global-anzu-mode t)
  '(global-subword-mode t)
  '(grep-use-null-device nil)
  '(hide-ifdef-initially t)
