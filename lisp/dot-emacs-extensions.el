@@ -4,17 +4,17 @@
 ;; Force single instance of emacs running on the system
 (server-start)
 
-;; ;; Mark the buffer read only to avoid cat typing in a newly opened buffer
-;; ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
-;; (add-hook 'find-file-hook
-;;           '(lambda ()
-;;              (when (and (buffer-file-name)
-;;                         (file-exists-p (buffer-file-name))
-;;                         (file-writable-p (buffer-file-name)))
-;;                (view-mode t)
-;;                (if (string= "/scp:"
-;;                             (substring (buffer-file-name) 0 5))
-;;                    (auto-save-mode -1)))))
+;; Mark the buffer read only to avoid cat typing in a newly opened buffer
+;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
+(add-hook 'find-file-hook
+          '(lambda ()
+             (when (and (buffer-file-name)
+                        (file-exists-p (buffer-file-name))
+                        (file-writable-p (buffer-file-name)))
+               (view-mode t)
+               (if (string= "/scp:"
+                            (substring (buffer-file-name) 0 5))
+                   (auto-save-mode -1)))))
 
 ;; Revert all buffers http://www.emacswiki.org/emacs/RevertBuffer#toc4
 (defun revert-all-buffers ()
