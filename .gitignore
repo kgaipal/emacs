@@ -1,9 +1,10 @@
-# emacs temp files
+p# emacs temp files
 auto-save-list
 recentf
 server
 tramp
 session.*
-lisp/newsticker/
-lisp/elpa/*
 lisp/abbrev_defs
+lisp/bookmarks
+lisp/elpa
+lisp/newsticker
