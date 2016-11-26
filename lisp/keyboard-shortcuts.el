@@ -1,10 +1,5 @@
-;; Some keyboard shorcuts I changed/assigned which are more intuitve for my current
-;; keyboard layout
-;; Last edited on: Dec 13, 2014
-;; by Kshitij Gaipal
-
-;; Load this file in your ".emacs" file:
-;; (load-file "~/.emacs.d/keyboard-shortcuts.el")
+;; Intuitive key combinations for frequent operations
+;; kgaipal@gmail.com
 
 ;; Basic indentation
 (global-set-key (kbd "<backtab>") 'my-decrease-left-margin)
@@ -15,13 +10,6 @@
 ;; Jump to line number
 ;; http://geosoft.no/development/emacs.html
 (global-set-key (kbd "C-x C-l") 'goto-line)
-
-;; ;; Proper shortcuts for searching text (forward)
-;; ;; http://sralab.com/2006/12/20/emacs-cut-paste-and-nice-other-hotkeys/
-;; (global-set-key (kbd "C-f") 'isearch-forward)
-;; (define-key isearch-mode-map [(control f)] (lookup-key isearch-mode-map (kbd "C-s")))
-;; (define-key minibuffer-local-isearch-map [(control f)]
-;; (lookup-key minibuffer-local-isearch-map (kbd "C-f")))
 
 ;; Toggle between source/header files
 (global-set-key (kbd "<f4>") 'ff-find-other-file)
