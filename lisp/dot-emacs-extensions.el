@@ -306,16 +306,16 @@ of the frame only if it is split into exactly 2 windows."
 
   ;; option #1
   ;; (ansi-term "/bin/bash")
-  ;; (rename-buffer (concatenate 'string "*term:" buffer-name "*"))
+  ;; (rename-buffer (concat "*term:" buffer-name "*"))
 
   ;; option #2
-  (shell (concatenate 'string "*shell:" buffer-name "*"))
+  (shell (concat "*shell:" buffer-name "*"))
 
   ;; option #3
   ;; (eshell )
-  ;; (rename-buffer (concatenate 'string "*shell:" buffer-name "*"))
+  ;; (rename-buffer (concat  "*shell:" buffer-name "*"))
 
-  (message (concatenate 'string "Renamed the new shell to *shell:" buffer-name "*")))
+  (message (concat "Renamed the new shell to *shell:" buffer-name "*")))
 
 ;; Insert current date and time
 (defun insert-current-date () (interactive)
