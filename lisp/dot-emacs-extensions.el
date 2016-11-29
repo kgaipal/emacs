@@ -11,7 +11,7 @@
              (when (and (buffer-file-name)
                         (file-exists-p (buffer-file-name))
                         (file-writable-p (buffer-file-name)))
-               (view-mode t)
+               (toggle-read-only t)
                (if (string= "/scp:"
                             (substring (buffer-file-name) 0 5))
                    (auto-save-mode -1)))))
@@ -24,7 +24,7 @@
     (with-current-buffer buf
       (when (and (buffer-file-name) (not (buffer-modified-p)))
         (revert-buffer t t t)
-        (view-mode t))))
+        (toggle-read-only t))))
   (message "Reverting all buffers...done") )
 
 ;; Highlight Qt specific keywords just like public,protected, private keywords in c++
@@ -61,7 +61,7 @@
 ;; Auto reload file by F5 keystroke
 (defun refresh-file ()
   (interactive) (revert-buffer t t t)
-  (view-mode t))
+  (toggle-read-only t))
 
 ;; Cut-Copy-Paste in emacs-nox (Emacs without X)
 ;; http://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
