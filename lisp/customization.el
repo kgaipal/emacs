@@ -23,6 +23,3 @@
 ;; Load these files last, as they have my custom code/shortcuts which may be
 ;; overridden from above packages if this is loaded last
 (load-file "~/.emacs.d/keyboard-shortcuts.el")
-
-;; setup cscope regardless
-(cscope-setup)
