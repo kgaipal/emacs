@@ -438,6 +438,7 @@ of the frame only if it is split into exactly 2 windows."
     tfs
     unbound
     whitespace-cleanup-mode
+    xcscope
     ))
 
 ;; try this too for convenience
