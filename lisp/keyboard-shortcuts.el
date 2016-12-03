@@ -104,7 +104,7 @@
 ;; cscope
 ;; (define-key global-map [(control f3)] 'cscope-set-initial-directory)
 ;; (define-key global-map [(control f4)] 'cscope-unset-initial-directory)
-;;  (define-key global-map [(control f12)] 'cscope-find-this-symbol)
+ (define-key global-map [(control f12)] 'cscope-find-this-symbol)
 ;; (define-key global-map [(control f6)] 'cscope-find-global-definition)
 ;; (define-key global-map [(control f7)] 'cscope-find-global-definition-no-prompting)
 ;; (define-key global-map [(control f8)] 'cscope-pop-mark)
@@ -114,6 +114,3 @@
 ;; (define-key global-map [(control f12)] 'cscope-history-backward-file)
 ;; (define-key global-map [(meta f9)]  'cscope-display-buffer)
 ;; (define-key global-map [(meta f10)] 'cscope-display-buffer-toggle)
-
-;; dumb-jump
-(global-set-key (kbd "C-<f12>") 'dumb-jump-go-other-window)
