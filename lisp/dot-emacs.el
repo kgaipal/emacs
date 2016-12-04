@@ -28,7 +28,6 @@
  '(desktop-save-mode t)
  '(dired-listing-switches "-pgGh")
  '(dumb-jump-default-project (concat (getenv "HOME") "/code/"))
- '(dumb-jump-mode t)
  '(erc-notifications-mode t)
  '(erc-server "localhost")
  '(eshell-prompt-function
