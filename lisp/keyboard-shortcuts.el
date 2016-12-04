@@ -20,21 +20,14 @@
 ;; We want another key to suggest keywords completions
 (global-set-key (kbd "C-/") 'dabbrev-expand)
 
-;; Invoke Alt+x by alternate command
+;; Invoke Alt+x by alternate command; its analogous to shifting focus to URL bar in FireFox
 ;; http://sites.google.com/site/steveyegge2/effective-emacs
-(global-set-key (kbd "C-l") 'execute-extended-command) ;analogous to shifting focus to URL bar in FireFox
+(global-set-key (kbd "C-l") 'execute-extended-command)
 
 ;; Kill whole line and unset accidental region deletion
 ;; (global-set-key (kbd "C-w") 'kill-buffer)
 ;; (global-set-key (kbd "C-w") 'subword-kill)
 ;; (global-set-key (kbd "M-d") 'kill-whole-line)
-
-;; Avoiding killing (or suspending) emacs accidently while
-;; cut-copy-paste (or undo/redo) operations
-(global-unset-key (kbd "C-x C-c"))	;stop emacs
-(global-unset-key (kbd "C-x C-z"))	;hide emacs to taskbar, does not makes sense for terminal mode
-(global-unset-key (kbd "C-x q"))	;disable command kbd-macro-query, until I give up killing emcas from terminal
-;; (global-set-key (kbd "C-x q") 'save-buffers-kill-terminal)
 
 ;; (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-x C-o") 'ido-switch-buffer)
@@ -78,18 +71,16 @@
 
 ;; Move across buffers
 (global-set-key (kbd "C-x n") 'next-buffer)
-(global-unset-key (kbd "C-x C-n"))
 (global-set-key (kbd "C-x p") 'previous-buffer)
-(global-unset-key (kbd "C-x C-p"))
 
-;; Disable the RET command since it is close to C-n for moving to next line
-;; (global-unset-key (kbd "C-m"))
-
-(global-unset-key (kbd "C-o"))		; I accidently press this instead of C-p
-;; (global-unset-key (kbd "C-c C-d"))	; I accidently press this instead of C-x C-s (save file)
-
-;; Disable backwork kill sentence
-(global-unset-key (kbd "C-x DEL"))
+;; Disable some shotcuts since they are cat typed mistakenly for other regular keys
+(global-unset-key (kbd "C-o"))		;I accidently press this instead of C-p
+(global-unset-key (kbd "C-x DEL"))      ;disable backwork kill sentence
+(global-unset-key (kbd "C-x C-c"))	;dont stop emacs
+(global-unset-key (kbd "C-x C-z"))	;dont hide emacs into taskbar
+(global-unset-key (kbd "C-x q"))	;disable command kbd-macro-query, until I give up killing emcas from terminal
+(global-unset-key (kbd "C-x C-n"))      ;already disabled, but this suppress annoying prompt
+(global-unset-key (kbd "C-x C-p"))      ;already disabled, but this suppress annoying prompt
 
 ;; ;; Find next defined tag
 ;; (global-set-key (kbd "C-x M-.") ')
@@ -98,8 +89,12 @@
 (put 'kbd-macro-query 'disabled t)	;conflicts with key sequence "C-x q"
 (put 'compose-mail 'disabled t)		;conflicts with key sequence "C-l"
 
-;; cscope
+;; CSCOPE
 (define-key global-map [(f12)] 'cscope-find-this-symbol)
 ;; (define-key global-map [(control f6)] 'cscope-find-global-definition)
 ;; (define-key global-map [(control f7)] 'cscope-find-global-definition-no-prompting)
 (define-key global-map [(control -)] 'cscope-pop-mark)
+
+;; dumb-jump mode
+(global-set-key (kbd "C-M-l") 'dumb-jump-go)
+(global-set-key (kbd "C-M-o") 'dumb-jump-back)
