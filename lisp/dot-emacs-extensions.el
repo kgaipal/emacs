@@ -4,6 +4,10 @@
 ;; Force single instance of emacs running on the system
 (server-start)
 
+;; Turn on global whitespace-cleanup on file saving
+(require 'whitespace-cleanup-mode)
+(global-whitespace-cleanup-mode t)
+
 ;; Mark the buffer read only to avoid cat typing in a newly opened buffer
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
 (add-hook 'find-file-hook
@@ -419,6 +423,9 @@ of the frame only if it is split into exactly 2 windows."
 ;; http://stackoverflow.com/a/21065066
 ;; http://ergoemacs.org/emacs/emacs_package_system.html
 ;; https://github.com/emacs-tw/awesome-emacs
+;;
+;; try this too for convenience
+;; https://github.com/technomancy/better-defaults
 (defvar packages-to-restore
   '(
     ag
@@ -436,12 +443,10 @@ of the frame only if it is split into exactly 2 windows."
     restart-emacs
     symon
     tfs
+    realgud
     unbound
     whitespace-cleanup-mode
     ))
-
-;; try this too for convenience
-;; https://github.com/technomancy/better-defaults
 
 (defun restore-packages ()
   "Restore packages from [M]ELPA"
