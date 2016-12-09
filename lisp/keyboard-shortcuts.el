@@ -101,3 +101,7 @@
 
 ;; quick toggling window split for grep/find/ag search results
 (global-set-key (kbd "C-M-w") 'toggle-window-split)
+
+;; ripgrep
+(global-set-key (kbd "C-M-.") 'ripgrep-regexp)
+
