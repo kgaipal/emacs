@@ -441,9 +441,10 @@ of the frame only if it is split into exactly 2 windows."
     highlight-symbol
     indent-guide
     mode-icons
-    restart-emacs
-    tfs
     realgud
+    restart-emacs
+    ripgrep
+    tfs
     unbound
     whitespace-cleanup-mode
     ))
