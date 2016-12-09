@@ -416,6 +416,7 @@ of the frame only if it is split into exactly 2 windows."
 ;; byte compile and reload emacs for find-dired to work with findk
 (setq grep-program "grepk "
       find-program "findk "
+      ag-executable "agk"
       grep-command grep-program
       grep-find-command (concat find-program " -type f -exec " grep-command " {} \\;"))
 

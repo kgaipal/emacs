@@ -98,3 +98,6 @@
 ;; dumb-jump mode
 (global-set-key (kbd "C-M-l") 'dumb-jump-go)
 (global-set-key (kbd "C-M-o") 'dumb-jump-back)
+
+;; quick toggling window split for grep/find/ag search results
+(global-set-key (kbd "C-M-w") 'toggle-window-split)
