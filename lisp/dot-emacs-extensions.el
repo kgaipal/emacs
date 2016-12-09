@@ -442,7 +442,6 @@ of the frame only if it is split into exactly 2 windows."
     indent-guide
     mode-icons
     restart-emacs
-    symon
     tfs
     realgud
     unbound
