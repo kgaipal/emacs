@@ -5,8 +5,10 @@
 (server-start)
 
 ;; Turn on global whitespace-cleanup on file saving
-(require 'whitespace-cleanup-mode)
-(global-whitespace-cleanup-mode t)
+(if (package-installed-p 'whitespace-cleanup-mode)
+    (progn
+      (require 'whitespace-cleanup-mode)
+      (global-whitespace-cleanup-mode t)))
 
 ;; Mark the buffer read only to avoid cat typing in a newly opened buffer
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
