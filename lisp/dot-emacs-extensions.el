@@ -438,7 +438,6 @@ of the frame only if it is split into exactly 2 windows."
     buffer-move
     clang-format
     csharp-mode
-    direx
     dumb-jump
     highlight-symbol
     indent-guide
