@@ -105,3 +105,5 @@
 ;; ripgrep
 (global-set-key (kbd "C-M-.") 'ripgrep-regexp)
 
+;; magit
+(global-set-key (kbd "C-M-g") 'magit-status)

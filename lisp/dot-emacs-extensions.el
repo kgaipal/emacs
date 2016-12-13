@@ -53,12 +53,12 @@
 
 ;; C# mode
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
-(add-hook 'csharp-mode-hook
-          (lambda ()
-            (message "TODO: customize csharp-mode-hook")
-            ;; (which-function-mode nil)
-            ;; (flymake-mode -1)
-            ))
+;; (add-hook 'csharp-mode-hook
+;;           (lambda ()
+;;             (message "TODO: customize csharp-mode-hook")
+;;             ;; (which-function-mode nil)
+;;             ;; (flymake-mode -1)
+;;             ))
 
 ;; fixing wierd control characters in shell mode
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
