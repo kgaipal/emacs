@@ -333,10 +333,16 @@ of the frame only if it is split into exactly 2 windows."
 ;; checkout melpa package: open-in-msvs for hints
 (defun open-buffer-in-vs ()
   (interactive)
-  (let ((vs-cmd (concat "\""
-                        (shell-command-to-string (concat "where devenv"))
-                        "\" /edit \"" (buffer-file-name) "\"")))
-    (kill-new vs-cmd)))
+  (let ((vs-cmd (format "\"%s/devenv.exe\" %s \"%s\""
+                        "C:/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/"
+                        "/edit"         ;args
+                        (buffer-file-name)
+                        (line-number-at-pos)
+                        (current-column))))
+    (message (concat vs-cmd " copied!"))
+    (kill-new vs-cmd)
+    ;; (call-process-shell-command vs-cmd)
+  ))
 
 ;; Set the tab width
 ;; http://www.chemie.fu-berlin.de/chemnet/use/info/cc-mode/cc-mode_6.html#SEC17
