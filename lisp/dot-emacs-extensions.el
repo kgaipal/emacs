@@ -324,16 +324,19 @@ of the frame only if it is split into exactly 2 windows."
   (message (concat "Renamed the new shell to *shell:" buffer-name "*")))
 
 ;; Insert current date and time
-(defun insert-current-date () (interactive)
-       (insert (shell-command-to-string "echo -n $(date +'%b %d, %Y')")))
+(defun insert-current-date ()
+  (interactive)
+  (insert (shell-command-to-string "echo -n $(date +'%b %d, %Y')")))
 
 ;; Copies the current buffer in visual studio for editing; for now this
 ;; commands needs to be run manually; ideally it should be open directly
-(defun open-buffer-in-vs () (interactive)
-       (let ((vs-cmd (concat "\""
-                             (shell-command-to-string (concat "where devenv"))
-                             "\" /edit \"" (buffer-file-name) "\"")))
-         (kill-new vs-cmd)))
+;; checkout melpa package: open-in-msvs for hints
+(defun open-buffer-in-vs ()
+  (interactive)
+  (let ((vs-cmd (concat "\""
+                        (shell-command-to-string (concat "where devenv"))
+                        "\" /edit \"" (buffer-file-name) "\"")))
+    (kill-new vs-cmd)))
 
 ;; Set the tab width
 ;; http://www.chemie.fu-berlin.de/chemnet/use/info/cc-mode/cc-mode_6.html#SEC17
