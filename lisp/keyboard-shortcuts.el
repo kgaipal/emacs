@@ -3,6 +3,7 @@
 
 ;; Basic indentation
 (global-set-key (kbd "<backtab>") 'my-decrease-left-margin)
+(global-set-key (kbd "C-\\") 'my-increase-left-margin)
 
 ;; Auto reload file by F5 keystroke
 (global-set-key [f5] 'refresh-file)
