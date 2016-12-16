@@ -440,7 +440,6 @@ of the frame only if it is split into exactly 2 windows."
 ;; https://github.com/technomancy/better-defaults
 (defvar packages-to-restore
   '(
-    ag
     annotate-depth
     anzu
     bm
