@@ -60,6 +60,7 @@
  '(mode-line-in-non-selected-windows t)
  '(read-file-name-completion-ignore-case t)
  '(recentf-mode 1)
+ '(ripgrep-arguments (quote ("--smart-case")))
  '(scroll-bar-mode nil)
  '(scroll-conservatively 100)
  '(sentence-end-double-space nil)
