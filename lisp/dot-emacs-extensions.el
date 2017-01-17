@@ -452,7 +452,10 @@ of the frame only if it is split into exactly 2 windows."
     mode-icons
     realgud
     restart-emacs
+    rg
     ripgrep
+    shrink-whitespace
+    sos
     tfs
     unbound
     whitespace-cleanup-mode
