@@ -58,9 +58,6 @@
  '(kill-whole-line t)
  '(make-backup-files nil)
  '(mode-line-in-non-selected-windows t)
- '(package-selected-packages
-   (quote
-    (realgud occur-x open-in-msvs whitespace-cleanup-mode use-package unbound tfs sos shrink-whitespace ripgrep rg restart-emacs mode-icons magit indent-guide highlight-symbol dumb-jump csharp-mode clang-format buffer-move bm anzu annotate-depth)))
  '(read-file-name-completion-ignore-case t)
  '(recentf-mode 1)
  '(ripgrep-arguments (quote ("--smart-case")))
