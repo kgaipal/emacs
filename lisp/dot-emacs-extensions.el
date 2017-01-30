@@ -10,6 +10,14 @@
       (require 'whitespace-cleanup-mode)
       (global-whitespace-cleanup-mode t)))
 
+;; Turn off global magit-auto-revert-mode since this slows down when too many buffers are
+;; open and git commands (like git checkout -- ) are issued outside of magit emacs/magit
+;; environment
+(if (package-installed-p 'magit)
+    (progn
+      (require 'magit)
+      (magit-auto-revert-mode nil)))
+
 ;; Mark the buffer read only to avoid cat typing in a newly opened buffer
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
 (add-hook 'find-file-hook
@@ -448,6 +456,8 @@ of the frame only if it is split into exactly 2 windows."
     highlight-symbol
     indent-guide
     mode-icons
+    occur-x
+    open-in-msvs
     realgud
     restart-emacs
     rg
