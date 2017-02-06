@@ -25,9 +25,11 @@
              (when (and (buffer-file-name)
                         (file-exists-p (buffer-file-name))
                         (file-writable-p (buffer-file-name)))
-               (toggle-read-only t)
-               (if (string= "/scp:"
-                            (substring (buffer-file-name) 0 5))
+               (if (or (string= "COMMIT" (substring (buffer-name) 0 6))
+                       (string= "el" (file-name-extension (buffer-file-name))))
+                   (read-only-mode -1)
+                 (read-only-mode t))
+               (if (string= "/scp:" (substring (buffer-file-name) 0 5))
                    (auto-save-mode -1)))))
 
 ;; Revert all buffers http://www.emacswiki.org/emacs/RevertBuffer#toc4
