@@ -2,7 +2,9 @@
 ;; kgaipal@gmail.com
 
 ;; Force single instance of emacs running on the system
-(server-start)
+(if (boundp 'server-process)
+    (message "emacs server already running")
+  (server-start))
 
 ;; Turn on global whitespace-cleanup on file saving
 (if (package-installed-p 'whitespace-cleanup-mode)
