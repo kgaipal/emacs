@@ -459,6 +459,7 @@ of the frame only if it is split into exactly 2 windows."
     dumb-jump
     highlight-symbol
     indent-guide
+    magit
     mode-icons
     occur-x
     open-in-msvs
