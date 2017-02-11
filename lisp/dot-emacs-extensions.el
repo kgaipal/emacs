@@ -50,11 +50,6 @@
         (toggle-read-only t))))
   (message "Reverting all buffers...done") )
 
-;; Highlight Qt specific keywords just like public,protected, private keywords in c++
-;; http://www.emacswiki.org/emacs/QtMode#toc3
-(setq c-C++-access-key "\\<\\(slots\\|signals\\|private\\|protected\\|public\\)\\>[ \t]*[(slots\\|signals)]*[ \t]*:")
-(font-lock-add-keywords 'c++-mode '(("\\<\\(Q_[A-Z]*\\|\\Q[A-Z][A-Za-z]*\\|public slots\\|public signals\\|private slots\\|private signals\\|protected slots\\|protected signals\\)\\>" . font-lock-constant-face)))
-
 ;; Highlight C++11 keywords
 (setq c-C++-access-key "override\\|final")
 (font-lock-add-keywords 'c++-mode '(("override\\|final" . font-lock-constant-face)))
@@ -67,15 +62,6 @@
           (lambda ()
             (which-function-mode t)
             (subword-mode 1)))
-
-;; C# mode
-(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
-;; (add-hook 'csharp-mode-hook
-;;           (lambda ()
-;;             (message "TODO: customize csharp-mode-hook")
-;;             ;; (which-function-mode nil)
-;;             ;; (flymake-mode -1)
-;;             ))
 
 ;; fixing wierd control characters in shell mode
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
@@ -377,19 +363,8 @@ of the frame only if it is split into exactly 2 windows."
 ;; http://ergoemacs.org/emacs/emacs_winner_mode.html
 (winner-mode 1)
 
-;; IBuffer module provides better switching
-;; http://www.emacswiki.org/emacs/IbufferMode
-(require 'ibuf-ext)
-;; hiding the unnecessary buffers
-(add-to-list 'ibuffer-never-show-predicates "^\\*")
-
-;; set the desktop-path to current directory only
-(setq desktop-path '("."))
-
-;; custom ibuffer format
-(setq ibuffer-formats '((mark modified read-only " "
-                              (name 50 100 :left :elide) " "
-                              (file-or-process-directory))))
+;; set the desktop-path to /tmp by default
+(setq desktop-path '("/tmp/"))
 
 ;; When we move forward word-by-word ... also stop at ';'
 ;; Helpfull stop running past to next line in c-mode/c++-mode
@@ -405,9 +380,7 @@ of the frame only if it is split into exactly 2 windows."
 ;; setup for various files [extensions] and their editing modes
 (setq auto-mode-alist
       (append '(("\\.psql$" . sql-mode)
-                ("\\.cs$" . csharp-mode)
                 ("\\.h$" . c++-mode)
-                ("\\.ts$" . c++-mode)
                 ("\\.ini$" . windows-conf-mode)
                 ("\\.scons$" . python-mode)
                 ("\\.cshtml$" . html-mode)
@@ -420,8 +393,6 @@ of the frame only if it is split into exactly 2 windows."
 ;; platforms specic tweaks
 (if (or (eq system-type 'windows-nt) (eq system-type 'msdos))
     (progn
-      (defvar git-path (concat (getenv "HOME") "/code/git-sdk/usr/bin/"))
-
       (set-face-attribute 'default nil :height 130)
 
       ;; TODO: below is unnecessary if path is set as 'System Variable'
@@ -464,16 +435,14 @@ of the frame only if it is split into exactly 2 windows."
     highlight-symbol
     indent-guide
     magit
-    mode-icons
     occur-x
     open-in-msvs
     realgud
     restart-emacs
     rg
     ripgrep
-    shrink-whitespace
-    sos
     tfs
+    typescript-mode
     unbound
     whitespace-cleanup-mode
     ))
