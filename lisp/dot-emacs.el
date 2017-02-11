@@ -19,7 +19,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Buffer-menu-name-width 35)
- '(ag-reuse-buffers t)
  '(auto-save-default t)
  '(desktop-clear-preserve-buffers
    (quote
@@ -27,8 +26,6 @@
  '(desktop-restore-eager 10)
  '(desktop-save-mode t)
  '(dired-listing-switches "-pgGh")
- '(dumb-jump-ag-cmd "rg")
- '(dumb-jump-default-project (concat (getenv "HOME") "/code/"))
  '(erc-notifications-mode t)
  '(erc-server "localhost")
  '(eshell-prompt-function
@@ -44,7 +41,6 @@
  '(eshell-visual-subcommands (quote (("git" "diff" "show" "log"))))
  '(fill-column 90)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
- '(global-anzu-mode t)
  '(global-subword-mode t)
  '(grep-use-null-device nil)
  '(hide-ifdef-initially t)
@@ -60,7 +56,6 @@
  '(mode-line-in-non-selected-windows t)
  '(read-file-name-completion-ignore-case t)
  '(recentf-mode 1)
- '(ripgrep-arguments (quote ("--smart-case")))
  '(scroll-bar-mode nil)
  '(scroll-conservatively 100)
  '(sentence-end-double-space nil)

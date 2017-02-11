@@ -17,6 +17,9 @@
 ;; GNU Coding style
 (load-file "~/.emacs.d/gnu-coding-style.el")
 
+;; emacs packages specific
+(load-file "~/.emacs.d/packages-customization.el")
+
 ;; Customization in mode-line format
 (load-file "~/.emacs.d/mode-line-customization.el")
 

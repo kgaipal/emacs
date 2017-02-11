@@ -6,25 +6,6 @@
     (message "emacs server already running")
   (server-start))
 
-;; Turn on global whitespace-cleanup on file saving
-(if (package-installed-p 'whitespace-cleanup-mode)
-    (progn
-      (global-whitespace-cleanup-mode t)))
-
-;; Turn off magit's auto file revert since it discrupts the workflow in emacs white
-;; reverting and we already have a 'refresh-all' keybinding defined
-(if (package-installed-p 'magit)
-    (progn
-      (magit-auto-revert-mode nil)))
-
-;; Turn off global magit-auto-revert-mode since this slows down when too many buffers are
-;; open and git commands (like git checkout -- ) are issued outside of magit emacs/magit
-;; environment
-(if (package-installed-p 'magit)
-    (progn
-      (require 'magit)
-      (magit-auto-revert-mode nil)))
-
 ;; Mark the buffer read only to avoid cat typing in a newly opened buffer
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
 (add-hook 'find-file-hook
@@ -331,22 +312,6 @@ of the frame only if it is split into exactly 2 windows."
   (interactive)
   (insert (shell-command-to-string "echo -n $(date +'%b %d, %Y')")))
 
-;; Copies the current buffer in visual studio for editing; for now this
-;; commands needs to be run manually; ideally it should be open directly
-;; checkout melpa package: open-in-msvs for hints
-(defun open-buffer-in-vs ()
-  (interactive)
-  (let ((vs-cmd (format "\"%s/devenv.exe\" %s \"%s\""
-                        "C:/Program Files (x86)/Microsoft Visual Studio 14.0/Common7/IDE/"
-                        "/edit"         ;args
-                        (buffer-file-name)
-                        (line-number-at-pos)
-                        (current-column))))
-    (message (concat vs-cmd " copied!"))
-    (kill-new vs-cmd)
-    ;; (call-process-shell-command vs-cmd)
-  ))
-
 ;; Set the tab width
 ;; http://www.chemie.fu-berlin.de/chemnet/use/info/cc-mode/cc-mode_6.html#SEC17
 (setq-default default-tab-width 8)
@@ -372,7 +337,6 @@ of the frame only if it is split into exactly 2 windows."
 
 ;; hiding some unwanted extensions in dired mode
 ;; http://www.emacswiki.org/emacs/DiredOmitMode
-(require 'dired-x)
 (setq-default dired-omit-files-p t)	; this is buffer-local variable
 (setq dired-omit-files
       (concat dired-omit-files "\\|^\\..+$"))
@@ -415,52 +379,3 @@ of the frame only if it is split into exactly 2 windows."
       find-program "findk "
       grep-command grep-program
       grep-find-command (concat find-program " -type f -exec " grep-command " {} \\;"))
-
-;; Install external packages from [M]ELPA
-;; http://stackoverflow.com/a/21065066
-;; http://ergoemacs.org/emacs/emacs_package_system.html
-;; https://github.com/emacs-tw/awesome-emacs
-;;
-;; try this too for convenience
-;; https://github.com/technomancy/better-defaults
-(defvar packages-to-restore
-  '(
-    annotate-depth
-    anzu
-    bm
-    buffer-move
-    clang-format
-    csharp-mode
-    dumb-jump
-    highlight-symbol
-    indent-guide
-    magit
-    occur-x
-    open-in-msvs
-    realgud
-    restart-emacs
-    rg
-    ripgrep
-    tfs
-    typescript-mode
-    unbound
-    whitespace-cleanup-mode
-    ))
-
-(defun restore-packages ()
-  "Restore packages from [M]ELPA"
-  (interactive)
-
-  (if (not (package-installed-p 'use-package))
-      (progn
-        (package-refresh-contents)
-        (package-install 'use-package)))
-
-  (require 'use-package)
-
-  (dolist (p packages-to-restore)
-    (message "restoring %s" p)
-    ;; (use-package p :ensure p))  ;; not working
-    (package-install p))
-
-  (message "done"))
