@@ -9,8 +9,13 @@
 ;; Turn on global whitespace-cleanup on file saving
 (if (package-installed-p 'whitespace-cleanup-mode)
     (progn
-      (require 'whitespace-cleanup-mode)
       (global-whitespace-cleanup-mode t)))
+
+;; Turn off magit's auto file revert since it discrupts the workflow in emacs white
+;; reverting and we already have a 'refresh-all' keybinding defined
+(if (package-installed-p 'magit)
+    (progn
+      (magit-auto-revert-mode nil)))
 
 ;; Turn off global magit-auto-revert-mode since this slows down when too many buffers are
 ;; open and git commands (like git checkout -- ) are issued outside of magit emacs/magit
@@ -430,8 +435,7 @@ of the frame only if it is split into exactly 2 windows."
       ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
       (remove-hook 'find-file-hooks 'vc-find-file-hook))
   (progn
-    (setenv "PATH" (concat local-bin-path ":" (getenv "PATH")))
-    (setq exec-path (append exec-path 'local-bin-path))))
+    (setenv "PATH" (concat local-bin-path ":" (getenv "PATH")))))
 
 ;; Using external grep and find programs
 ;; Note: remove " . " from $(GIT_SDK_ROOT)/mingw64/share/emacs/25.1/lisp/find-dired.el
