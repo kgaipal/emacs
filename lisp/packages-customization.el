@@ -75,4 +75,4 @@
     ;; (use-package p :ensure p))  ;; not working
     (package-install p))
 
-  (message "done"))
+  (message "done!"))
