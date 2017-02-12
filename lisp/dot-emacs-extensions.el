@@ -164,7 +164,6 @@ If the region is not active, activate the current line."
       (file-name-directory buffer-file-name)
     ""))
 
-
 ;; Hide unversion files in vc-dired mode
 ;; http://pastebin.com/9EVj2P0R
 (defun vc-dir-hide-unregistered ()
@@ -231,7 +230,6 @@ of the frame only if it is split into exactly 2 windows."
         (message "Nothing to toggle")
       (message "Won't toggle for more than 2 windows!"))))
 
-
 ;; Highlight current line only in ibuffer
 (add-hook 'ibuffer-mode-hook
           (lambda ()
@@ -245,7 +243,6 @@ of the frame only if it is split into exactly 2 windows."
             (if (string= "*vc-dir*" (buffer-name))
                 (hl-line-mode 1)
               (hl-line-mode -1))))
-
 
 ;; Restore windows layout when done with ediff mode
 ;; http://emacswiki.org/emacs/EdiffMode#toc3
