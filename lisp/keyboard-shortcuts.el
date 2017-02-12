@@ -63,15 +63,24 @@
 (global-set-key (kbd "C-x n") 'next-buffer)
 (global-set-key (kbd "C-x p") 'previous-buffer)
 
-;; dumb-jump mode
-(global-set-key (kbd "C-M-l") 'dumb-jump-go)
-(global-set-key (kbd "C-M-o") 'dumb-jump-back)
-
 ;; quick toggling window split for grep/find/ag search results
 (global-set-key (kbd "C-M-w") 'toggle-window-split)
 
+;; dumb-jump mode
+(if (package-installed-p 'dumb-jump)
+    (progn
+      (require 'dumb-jump)
+      (global-set-key (kbd "C-M-l") 'dumb-jump-go)
+      (global-set-key (kbd "C-M-o") 'dumb-jump-back)))
+
 ;; ripgrep
-(global-set-key (kbd "C-M-.") 'ripgrep-regexp)
+(if (package-installed-p 'ripgrep)
+    (progn
+      (require 'ripgrep)
+      (global-set-key (kbd "C-M-.") 'ripgrep-regexp)))
 
 ;; magit
-(global-set-key (kbd "C-M-g") 'magit-status)
+(if (package-installed-p 'magit)
+    (progn
+      (require 'magit)
+      (global-set-key (kbd "C-M-g") 'magit-status)))
