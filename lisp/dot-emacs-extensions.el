@@ -328,7 +328,8 @@ of the frame only if it is split into exactly 2 windows."
 ;; http://ergoemacs.org/emacs/emacs_winner_mode.html
 (winner-mode 1)
 
-;; set the desktop-path to /tmp by default
+;; set the desktop-path to /tmp by default; no more littering of .emacs.desktop everywhere
+;; for quick and dirty changes
 (setq desktop-path '("/tmp/"))
 
 ;; When we move forward word-by-word ... also stop at ';'

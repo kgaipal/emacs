@@ -23,7 +23,8 @@
 ;; emacs packages specific customization
 (load-file "~/.emacs.d/packages-customization.el")
 
-;; Some helpful functions which are not defined in this file because they are too big
+;; customization functions and settings which are not defined in this file because they
+;; are too big and too many and need explaination
 (load-file "~/.emacs.d/dot-emacs-extensions.el")
 
 ;; GNU Coding style
