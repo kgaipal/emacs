@@ -45,6 +45,10 @@
  ;; If there is more than one, they won't work right.
  '(Buffer-menu-name-width 35)
  '(auto-save-default t)
+ '(custom-enabled-themes (quote (yet-another-dark-theme)))
+ '(custom-safe-themes
+   (quote
+    ("07e5e2557f42a430283098bd4c7bc4054aed914a0bb903ac113bcdaf21f70d04" default)))
  '(desktop-clear-preserve-buffers
    (quote
     ("\\*scratch\\*" "\\*Messages\\*" "\\*server\\*" "\\*tramp/.+\\*" "\\*Warnings\\*" "\\*Group\\*" "\\.newsrc-dribble" "\\*Summary INBOX\\*" "\\*term\\:[[:alnum:]]+\\*" "&bitlbee" "erc\\:[[:alnum:]]+")))
@@ -85,38 +89,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background "black" :foreground "white"))))
- '(comint-highlight-prompt ((t (:foreground "brightblue"))))
- '(compilation-info ((t (:foreground "plum4" :underline nil :weight ultra-light))))
- '(compilation-line-number ((t (:inherit font-lock-variable-name-face :foreground "green4" :underline nil))))
- '(custom-group-tag ((((min-colors 88) (class color) (background light)) (:inherit variable-pitch :background "white" :foreground "darkblue" :weight bold :height 1.2))))
- '(custom-variable-tag ((((min-colors 88) (class color) (background light)) (:foreground "brightblue" :weight bold))))
- '(diff-added ((t (:foreground "green"))))
- '(diff-file-header ((((class color) (min-colors 88) (background light)) (:weight bold))))
- '(diff-header ((t (:background "dim gray"))))
- '(diff-removed ((t (:foreground "pink"))))
- '(dired-symlink ((t (:inherit font-lock-keyword-face :foreground "cyan"))))
- '(ediff-current-diff-A ((((class color) (min-colors 16)) (:background "lightpink" :foreground "black"))))
- '(ediff-current-diff-B ((((class color) (min-colors 16)) (:background "lightgreen" :foreground "black"))))
- '(ediff-even-diff-A ((((class color) (min-colors 16)) (:background "grey25" :foreground "white"))))
- '(ediff-even-diff-B ((((class color) (min-colors 16)) (:background "grey25" :foreground "white"))))
- '(ediff-odd-diff-A ((((class color) (min-colors 16)) (:background "grey55" :foreground "black"))))
- '(ediff-odd-diff-B ((((class color) (min-colors 16)) (:background "grey55" :foreground "black"))))
- '(font-lock-builtin-face ((((class color) (min-colors 88)) (:foreground "deep sky blue"))))
- '(font-lock-comment-face ((t (:foreground "dim gray" :slant italic))))
- '(font-lock-function-name-face ((t (:inherit font-lock-keyword-face :weight bold))))
- '(font-lock-keyword-face ((t (:foreground "royal blue"))))
- '(font-lock-string-face ((t (:foreground "lawn green"))))
- '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) nil)))
- '(hide-ifdef-shadow ((t (:inherit shadow :background "color-233"))))
- '(hl-line ((t (:foreground "color-28" :weight extra-bold))))
- '(isearch ((t (:background "yellow" :foreground "black" :weight normal))))
- '(isearch-fail ((((class color) (min-colors 88) (background light)) (:background "color-160"))))
- '(lazy-highlight ((t (:inherit isearch :foreground "yellow4"))))
- '(link ((t (:foreground "cyan" :underline "deep sky blue"))))
- '(linum ((t (:inherit font-lock-comment-face :background "black" :weight normal))))
- '(log-view-message ((((class color)) (:background "grey50"))))
- '(match ((t (:foreground "red"))))
- '(minibuffer-prompt ((t (:foreground "royal blue"))))
- '(region ((t (:background "gray23"))))
- '(which-func ((((class color) (min-colors 88) (background light)) nil))))
+ )
