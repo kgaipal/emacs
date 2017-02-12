@@ -6,7 +6,7 @@
 
 ;; Identification
 (setq user-full-name "Kshitij Gaipal"
-      user-mail-address "kgaipal@bomgar.com")
+      user-mail-address "email-alias@company.com")
 
 ;; Primary IMAP account
 (require 'nnir)
