@@ -63,15 +63,6 @@
 (global-set-key (kbd "C-x n") 'next-buffer)
 (global-set-key (kbd "C-x p") 'previous-buffer)
 
-;; ;; Find next defined tag
-;; (global-set-key (kbd "C-x M-.") ')
-
-;; CSCOPE
-(define-key global-map [(f12)] 'cscope-find-this-symbol)
-;; (define-key global-map [(control f6)] 'cscope-find-global-definition)
-;; (define-key global-map [(control f7)] 'cscope-find-global-definition-no-prompting)
-(define-key global-map [(control -)] 'cscope-pop-mark)
-
 ;; dumb-jump mode
 (global-set-key (kbd "C-M-l") 'dumb-jump-go)
 (global-set-key (kbd "C-M-o") 'dumb-jump-back)
