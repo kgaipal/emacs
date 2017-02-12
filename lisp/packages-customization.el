@@ -44,6 +44,7 @@
     clang-format
     csharp-mode
     dumb-jump
+    fold-this
     highlight-symbol
     indent-guide
     magit
