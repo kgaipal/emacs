@@ -335,12 +335,6 @@ of the frame only if it is split into exactly 2 windows."
 ;; Helpfull stop running past to next line in c-mode/c++-mode
 (modify-syntax-entry ?$ "w")
 
-;; hiding some unwanted extensions in dired mode
-;; http://www.emacswiki.org/emacs/DiredOmitMode
-(setq-default dired-omit-files-p t)	; this is buffer-local variable
-(setq dired-omit-files
-      (concat dired-omit-files "\\|^\\..+$"))
-
 ;; setup for various files [extensions] and their editing modes
 (setq auto-mode-alist
       (append '(("\\.psql$" . sql-mode)
