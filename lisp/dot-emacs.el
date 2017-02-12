@@ -101,7 +101,6 @@
  '(ediff-even-diff-B ((((class color) (min-colors 16)) (:background "grey25" :foreground "white"))))
  '(ediff-odd-diff-A ((((class color) (min-colors 16)) (:background "grey55" :foreground "black"))))
  '(ediff-odd-diff-B ((((class color) (min-colors 16)) (:background "grey55" :foreground "black"))))
- '(eshell-prompt ((t (:foreground "brightblue" :weight normal))))
  '(font-lock-builtin-face ((((class color) (min-colors 88)) (:foreground "deep sky blue"))))
  '(font-lock-comment-face ((t (:foreground "dim gray" :slant italic))))
  '(font-lock-function-name-face ((t (:inherit font-lock-keyword-face :weight bold))))
