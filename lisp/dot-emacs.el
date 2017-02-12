@@ -52,17 +52,6 @@
  '(dired-listing-switches "-pgGh")
  '(erc-notifications-mode t)
  '(erc-server "localhost")
- '(eshell-prompt-function
-   (lambda nil
-     (concat "["
-             (file-name-nondirectory
-              (eshell/pwd))
-             (if
-                 (=
-                  (user-uid)
-                  0)
-                 " # " "]$ "))))
- '(eshell-visual-subcommands (quote (("git" "diff" "show" "log"))))
  '(fill-column 90)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
