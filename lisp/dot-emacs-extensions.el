@@ -304,6 +304,13 @@ of the frame only if it is split into exactly 2 windows."
 
   (message (concat "Renamed the new shell to *shell:" buffer-name "*")))
 
+(defun insert-self-todo ()
+  "Inserts a 'TODO (username):' commented at point"
+  (interactive)
+  (kill-new (concat "TODO (" (getenv "USERNAME") "): "))
+  (yank))
+(defalias 'int 'insert-self-todo)
+
 (defun find-files-in-project-root (wildcard)
   "Find files with the given wildcard from ROOT path set from .emacs.desktop file."
   (interactive "s wildcard: ")
