@@ -19,7 +19,7 @@
 
 ;; Sendmail options
 (setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-auth-credentials '(("smtp.office365.com" "587" "kgaipal@bomgar.com" nil))
+      smtpmail-auth-credentials '(("smtp.office365.com" "587" "email-alias@company.com" nil))
       smtpmail-default-smtp-server "smtp.office365.com"
       smtpmail-smtp-server "smtp.office365.com"
       smtpmail-smtp-service 587
