@@ -361,7 +361,7 @@ of the frame only if it is split into exactly 2 windows."
 ;; platforms specic tweaks
 (if (or (eq system-type 'windows-nt) (eq system-type 'msdos))
     (progn
-      (set-face-attribute 'default nil :height 130)
+      (set-face-attribute 'default nil :height 128 :family "Courier New")
 
       ;; TODO: below is unnecessary if path is set as 'System Variable'
       (setenv "PATH" (concat local-bin-path ";" (getenv "PATH")))
