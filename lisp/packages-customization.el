@@ -7,8 +7,7 @@
 
 (if (package-installed-p 'dumb-jump)
     (progn
-      (setq dumb-jump-ag-cmd "rg")
-      (setq dumb-jump-default-project (concat (getenv "HOME") "/code/"))))
+      (setq dumb-jump-default-project "/tmp/")))
 
 ;; Turn on anzu mode globally
 (if (package-installed-p 'anzu)
