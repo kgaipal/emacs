@@ -26,7 +26,7 @@
 (if (package-installed-p 'magit)
     (progn
       (require 'magit)
-      (magit-auto-revert-mode nil)))
+      (setq magit-auto-revert-mode nil)))
 
 ;; Install external packages from [M]ELPA
 ;; http://stackoverflow.com/a/21065066

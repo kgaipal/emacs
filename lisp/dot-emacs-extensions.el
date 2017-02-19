@@ -1,11 +1,6 @@
 ;; Utility functions, hooks, and customizations for .emacs
 ;; kgaipal@gmail.com
 
-;; Force single instance of emacs running on the system
-(if (boundp 'server-process)
-    (message "emacs server already running")
-  (server-start))
-
 ;; Mark the buffer read only to avoid cat typing in a newly opened buffer
 ;; http://stackoverflow.com/questions/5154309/how-to-make-a-opened-buffer-read-only-without-reloading-again-with-find-file-rea
 (add-hook 'find-file-hook
