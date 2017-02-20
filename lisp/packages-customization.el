@@ -1,6 +1,19 @@
 ;; emacs external packages configuration
 ;; kgaipal@gmail.com
 
+
+;; csharp-mode specific
+(defun my-csharp-mode-hook ()
+  (electric-pair-mode 1)       ;; Emacs 24
+  (electric-pair-local-mode 1) ;; Emacs 25
+  )
+(add-hook 'csharp-mode-hook 'my-csharp-mode-hook)
+
+(if (package-installed-p 'auto-complete)
+    (progn
+      (global-auto-complete-mode t)
+      (setq ac-modes (append '(csharp-mode) ac-modes))))
+
 (if (package-installed-p 'ripgrep)
     (progn
       (setq ripgrep-arguments (quote ("--smart-case")))))
@@ -38,6 +51,7 @@
   '(
     annotate-depth
     anzu
+    auto-complete
     bm
     buffer-move
     clang-format
