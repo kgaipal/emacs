@@ -11,6 +11,7 @@
 
 (if (package-installed-p 'auto-complete)
     (progn
+      (require 'auto-complete)
       (global-auto-complete-mode t)
       (setq ac-modes (append '(csharp-mode) ac-modes))))
 
@@ -27,10 +28,12 @@
     (progn
       (global-anzu-mode t)))
 
-;; Turn on global whitespace-cleanup on file saving
-(if (package-installed-p 'whitespace-cleanup-mode)
+;; Global option for ws-butler
+(if (package-installed-p 'ws-butler)
     (progn
-      (global-whitespace-cleanup-mode t)))
+      (require 'ws-butler)
+      (setq ws-butler-convert-leading-tabs-or-spaces t)
+      (ws-butler-global-mode t)))
 
 ;; Turn off global magit-auto-revert-mode since this slows down when too many buffers are
 ;; open and git commands (like git checkout -- ) are issued outside of magit emacs/magit
@@ -70,7 +73,7 @@
     tfs
     typescript-mode
     unbound
-    whitespace-cleanup-mode
+    ws-butler
     ))
 
 (defun restore-packages ()
