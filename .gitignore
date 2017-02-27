@@ -1,4 +1,4 @@
-p# emacs temp files
+# emacs temp files
 auto-save-list
 recentf
 server
@@ -8,3 +8,4 @@ lisp/abbrev_defs
 lisp/bookmarks
 lisp/elpa
 lisp/newsticker
+lisp/ac-comphist.dat

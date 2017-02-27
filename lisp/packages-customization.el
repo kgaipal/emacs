@@ -28,6 +28,11 @@
     (progn
       (global-anzu-mode t)))
 
+;; Turn on anzu mode globally
+(if (package-installed-p 'indent-guide)
+    (progn
+      (setq indent-guide-global-mode t)))
+
 ;; Global option for ws-butler
 (if (package-installed-p 'ws-butler)
     (progn
