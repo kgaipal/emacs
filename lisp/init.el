@@ -16,12 +16,12 @@
              ;; '("marmalade" . "http://marmalade-repo.org/packages/")
              '("melpa-stable" . "https://melpa.org/packages/"))
 
+;; emacs packages specific customization
+(load-file "~/.emacs.d/packages-customization.el")
+
 ;; customization functions and settings which are not defined in this file because they
 ;; are too big and too many and need explaination
 (load-file "~/.emacs.d/dot-emacs-extensions.el")
-
-;; emacs packages specific customization
-(load-file "~/.emacs.d/packages-customization.el")
 
 ;; GNU Coding style
 (load-file "~/.emacs.d/gnu-coding-style.el")

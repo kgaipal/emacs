@@ -379,13 +379,13 @@ of the frame only if it is split into exactly 2 windows."
       grep-command grep-program
       grep-find-command (concat find-program " -type f -exec " grep-command " {} \\;"))
 
-;; preserve some buffers when switching desktop-sessions
+;; ;; preserve some buffers when switching desktop-sessions
 ;; (setq desktop-clear-preserve-buffers
 ;;       (append '("&bitlbee"
-;; 		"\\*Group\\*"
-;; 		"\\*Summary INBOX\\*"
-;; 		"\\*shell\\:[[:alnum:]]+\\*"
-;; 		"\\*term\\:[[:alnum:]]+\\*"
-;; 		"\\.newsrc-dribble"
+;;                 "\\*Group\\*"
+;;                 "\\*Summary INBOX\\*"
+;;                 "\\*shell\\:[[:alnum:]]+\\*"
+;;                 "\\*term\\:[[:alnum:]]+\\*"
+;;                 "\\.newsrc-dribble"
 ;;                 "erc\\:[[:alnum:]]+")
 ;;               desktop-clear-preserve-buffers))
