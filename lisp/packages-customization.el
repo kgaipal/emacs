@@ -32,7 +32,7 @@
 (if (package-installed-p 'ws-butler)
     (progn
       (require 'ws-butler)
-      (setq ws-butler-convert-leading-tabs-or-spaces t)
+      (setq ws-butler-convert-leading-tabs-or-spaces nil)
       (ws-butler-global-mode t)))
 
 ;; Turn off global magit-auto-revert-mode since this slows down when too many buffers are
