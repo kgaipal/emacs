@@ -46,7 +46,9 @@
 (if (package-installed-p 'magit)
     (progn
       (require 'magit)
-      (setq magit-auto-revert-mode nil)))
+      (setq magit-auto-revert-mode nil)
+      (require 'magit-gitflow)
+      (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)))
 
 ;; Install external packages from [M]ELPA
 ;; http://stackoverflow.com/a/21065066
@@ -69,6 +71,7 @@
     highlight-symbol
     indent-guide
     magit
+    magit-gitflow
     occur-x
     open-in-msvs
     realgud
