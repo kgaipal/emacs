@@ -81,6 +81,7 @@
     tfs
     typescript-mode
     unbound
+    web-mode
     ws-butler
     ))
 
