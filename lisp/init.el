@@ -49,7 +49,7 @@
  '(custom-safe-themes
    (quote
     ("666bc80d2bd4fb95333f5178f01015f6a1c239f996e851d8907e504d989f5359" default)))
- '(desktop-restore-eager 10)
+ '(desktop-restore-eager 2)
  '(desktop-save-mode t)
  '(dired-listing-switches "-pgGh")
  '(erc-notifications-mode t)

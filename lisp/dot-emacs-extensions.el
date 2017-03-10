@@ -339,10 +339,6 @@ of the frame only if it is split into exactly 2 windows."
 ;; http://ergoemacs.org/emacs/emacs_winner_mode.html
 (winner-mode 1)
 
-;; set the desktop-path to /tmp by default; no more littering of .emacs.desktop everywhere
-;; for quick and dirty changes
-(setq desktop-path '("/tmp/"))
-
 ;; When we move forward word-by-word ... also stop at ';'
 ;; Helpfull stop running past to next line in c-mode/c++-mode
 (modify-syntax-entry ?$ "w")
@@ -363,9 +359,7 @@ of the frame only if it is split into exactly 2 windows."
 ;; platforms specic tweaks
 (if (or (eq system-type 'windows-nt) (eq system-type 'msdos))
     (progn
-
-      ;; TODO: below is unnecessary if path is set as 'System Variable'
-      (setenv "PATH" (concat local-bin-path ";" (getenv "PATH")))
+      (defvar path-sep ";")
 
       ;; disable menu bar
       (menu-bar-mode 0)
@@ -375,10 +369,16 @@ of the frame only if it is split into exactly 2 windows."
       ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
       (remove-hook 'find-file-hooks 'vc-find-file-hook))
   (progn
-    (setenv "PATH" (concat local-bin-path ":" (getenv "PATH")))))
+    (defvar path-sep ":")))
+
+;; TODO (kgaipal): below is unnecessary if path is set as 'System Variable'
+(setenv "PATH" (concat local-bin-path path-sep (getenv "PATH")))
+
+;; Save .emacs.desktop in tmp location for quick and dirty changes
+(setq desktop-path '("/tmp" "C:/msys64/tmp"))
 
 ;; Using external grep and find programs
-;; Note: remove " . " from $(GIT_SDK_ROOT)/mingw64/share/emacs/25.1/lisp/find-dired.el
+;; Note: remove " . " from $(GNU_ROOT)/mingw64/share/emacs/25.1/lisp/find-dired.el
 ;; byte compile and reload emacs for find-dired to work with findk
 (setq grep-program "grepk "
       find-program "findk "

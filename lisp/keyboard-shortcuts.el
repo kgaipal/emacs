@@ -69,20 +69,17 @@
 ;; dumb-jump mode
 (if (package-installed-p 'dumb-jump)
     (progn
-      (require 'dumb-jump)
       (global-set-key (kbd "C-M-l") 'dumb-jump-go)
       (global-set-key (kbd "C-M-o") 'dumb-jump-back)))
 
 ;; ripgrep
 (if (package-installed-p 'ripgrep)
     (progn
-      (require 'ripgrep)
       (global-set-key (kbd "C-M-.") 'ripgrep-regexp)))
 
 ;; magit
 (if (package-installed-p 'magit)
     (progn
-      (require 'magit)
       (global-set-key (kbd "C-M-g") 'magit-status)))
 
 ;; visual studio like shortcut for finding files in project
