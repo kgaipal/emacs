@@ -47,4 +47,9 @@
  '(next-error ((t (:inherit (region)))))
  '(query-replace ((t (:inherit (isearch))))))
 
+;; platforms specic tweaks
+(if (or (eq system-type 'windows-nt) (eq system-type 'msdos))
+    (progn
+      (set-face-attribute 'default nil :height 128 :family "Courier New")))
+
 (provide-theme 'yet-another-dark-theme)

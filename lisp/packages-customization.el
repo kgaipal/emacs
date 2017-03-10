@@ -3,15 +3,15 @@
 
 
 ;; csharp-mode specific
-(defun my-csharp-mode-hook ()
-  (electric-pair-mode 1)       ;; Emacs 24
-  (electric-pair-local-mode 1) ;; Emacs 25
-  )
-(add-hook 'csharp-mode-hook 'my-csharp-mode-hook)
+(if (package-installed-p 'csharp-mode)
+    (progn
+      (defun my-csharp-mode-hook ()
+	(electric-pair-mode 1)	      ;; Emacs 24
+	(electric-pair-local-mode 1)) ;; Emacs 25
+      (add-hook 'csharp-mode-hook 'my-csharp-mode-hook)))
 
 (if (package-installed-p 'auto-complete)
     (progn
-      (require 'auto-complete)
       (global-auto-complete-mode t)
       (setq ac-modes (append '(csharp-mode) ac-modes))))
 
@@ -36,7 +36,6 @@
 ;; Global option for ws-butler
 (if (package-installed-p 'ws-butler)
     (progn
-      (require 'ws-butler)
       (setq ws-butler-convert-leading-tabs-or-spaces nil)
       (ws-butler-global-mode t)))
 
@@ -45,10 +44,12 @@
 ;; environment
 (if (package-installed-p 'magit)
     (progn
-      (require 'magit)
       (setq magit-auto-revert-mode nil)
-      (require 'magit-gitflow)
-      (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)))
+
+      (if (package-installed-p 'magit-gitflow)
+	  (progn
+	    (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)))
+      ))
 
 ;; Install external packages from [M]ELPA
 ;; http://stackoverflow.com/a/21065066
