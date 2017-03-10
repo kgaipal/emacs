@@ -395,3 +395,7 @@ of the frame only if it is split into exactly 2 windows."
 ;;                 "\\.newsrc-dribble"
 ;;                 "erc\\:[[:alnum:]]+")
 ;;               desktop-clear-preserve-buffers))
+
+
+;; path to custom themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")

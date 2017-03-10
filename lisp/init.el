@@ -45,10 +45,10 @@
  ;; If there is more than one, they won't work right.
  '(Buffer-menu-name-width 35)
  '(auto-save-default t)
- '(custom-enabled-themes (quote (yet-another-dark-theme)))
+ '(custom-enabled-themes (quote (yet-another-dark)))
  '(custom-safe-themes
    (quote
-    ("666bc80d2bd4fb95333f5178f01015f6a1c239f996e851d8907e504d989f5359" default)))
+    ("15290cc4f813a717dfe953657368d6ba55226e9b98f10cee06b5fcd582b8340e" default)))
  '(desktop-restore-eager 2)
  '(desktop-save-mode t)
  '(dired-listing-switches "-pgGh")
@@ -85,3 +85,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; platforms specic tweaks for themes;
+;; doing this after theme is loaded
+(when (or (eq system-type 'windows-nt) (eq system-type 'msdos))
+  (set-face-attribute 'default nil :height 130 :family "Courier New"))

@@ -1,8 +1,8 @@
-(deftheme yet-another-dark-theme
+(deftheme yet-another-dark
   "Created 2017-02-12. A dark theme which works for all platforms alike.")
 
 (custom-theme-set-faces
- 'yet-another-dark-theme
+ 'yet-another-dark
  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :width normal :height 120 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground "white" :background "black" :stipple nil :inherit nil))))
  '(cursor ((((background light)) (:background "black")) (((background dark)) (:background "white"))))
  '(fixed-pitch ((t (:family "Monospace"))))
@@ -47,8 +47,4 @@
  '(next-error ((t (:inherit (region)))))
  '(query-replace ((t (:inherit (isearch))))))
 
-;; platforms specic tweaks
-(when (or (eq system-type 'windows-nt) (eq system-type 'msdos))
-  (set-face-attribute 'default nil :height 128 :family "Courier New"))
-
-(provide-theme 'yet-another-dark-theme)
+(provide-theme 'yet-another-dark)
