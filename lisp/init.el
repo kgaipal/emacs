@@ -49,17 +49,11 @@
  '(custom-safe-themes
    (quote
     ("15290cc4f813a717dfe953657368d6ba55226e9b98f10cee06b5fcd582b8340e" default)))
- '(desktop-restore-eager 2)
- '(desktop-save-mode t)
- '(dired-listing-switches "-pgGh")
- '(erc-notifications-mode t)
- '(erc-server "localhost")
+ '(dired-listing-switches "-pgGhB")
  '(fill-column 90)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
  '(grep-use-null-device nil)
- '(hide-ifdef-initially t)
- '(hide-ifdef-shadow nil)
  '(highlight-symbol-colors (quote ("yellow")))
  '(ido-enable-flex-matching t)
  '(ido-mode (quote buffer) nil (ido))

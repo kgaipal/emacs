@@ -401,7 +401,9 @@ of the frame only if it is split into exactly 2 windows."
                             "\\*term\\:[[:alnum:]]+\\*"
                             "\\.newsrc-dribble"
                             "erc\\:[[:alnum:]]+")
-                          desktop-clear-preserve-buffers))
+                          desktop-clear-preserve-buffers)
+                  desktop-restore-eager 2
+                  desktop-save-mode t)
 
             ;; frame title showing desktop path
             (set-frame-name (directory-file-name desktop-dirname))))
