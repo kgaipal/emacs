@@ -399,3 +399,8 @@ of the frame only if it is split into exactly 2 windows."
 
 ;; path to custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
+;; frame title showing desktop path
+(add-hook 'desktop-after-read-hook
+          (lambda ()
+            (set-frame-name (directory-file-name desktop-dirname))))
