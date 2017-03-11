@@ -385,22 +385,23 @@ of the frame only if it is split into exactly 2 windows."
       grep-command grep-program
       grep-find-command (concat find-program " -type f -exec " grep-command " {} \\;"))
 
-;; ;; preserve some buffers when switching desktop-sessions
-;; (setq desktop-clear-preserve-buffers
-;;       (append '("&bitlbee"
-;;                 "\\*Group\\*"
-;;                 "\\*Summary INBOX\\*"
-;;                 "\\*shell\\:[[:alnum:]]+\\*"
-;;                 "\\*term\\:[[:alnum:]]+\\*"
-;;                 "\\.newsrc-dribble"
-;;                 "erc\\:[[:alnum:]]+")
-;;               desktop-clear-preserve-buffers))
-
-
 ;; path to custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-;; frame title showing desktop path
+;; desktop session customization
 (add-hook 'desktop-after-read-hook
           (lambda ()
+
+            ;; preserve some buffers when switching desktop-sessions
+            (setq desktop-clear-preserve-buffers
+                  (append '("&bitlbee"
+                            "\\*Group\\*"
+                            "\\*Summary INBOX\\*"
+                            "\\*shell\\:[[:alnum:]]+\\*"
+                            "\\*term\\:[[:alnum:]]+\\*"
+                            "\\.newsrc-dribble"
+                            "erc\\:[[:alnum:]]+")
+                          desktop-clear-preserve-buffers))
+
+            ;; frame title showing desktop path
             (set-frame-name (directory-file-name desktop-dirname))))
