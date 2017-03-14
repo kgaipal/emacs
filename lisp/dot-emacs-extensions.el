@@ -407,3 +407,7 @@ of the frame only if it is split into exactly 2 windows."
 
             ;; frame title showing desktop path
             (set-frame-name (directory-file-name desktop-dirname))))
+
+;; convenient short names for swapping windows
+(defun swap () (interactive) (buf-move-left))
+(defun swapr () (interactive) (buf-move-right))
