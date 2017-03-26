@@ -21,7 +21,8 @@
 
 (if (package-installed-p 'dumb-jump)
     (progn
-      (setq dumb-jump-searcher "rg")
+      (setq dumb-jump-max-find-time 10)
+      (setq dumb-jump-prefer-searcher "rg")
       (setq dumb-jump-default-project "/tmp/")))
 
 ;; Turn on anzu mode globally
