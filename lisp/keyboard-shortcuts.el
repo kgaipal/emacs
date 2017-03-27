@@ -83,4 +83,4 @@
       (global-set-key (kbd "C-M-g") 'magit-status)))
 
 ;; visual studio like shortcut for finding files in project
-(global-set-key (kbd "C-;") 'find-files-in-project-root)
+(global-set-key (kbd "C-;") 'find-files-in-project-root-using-counsel)

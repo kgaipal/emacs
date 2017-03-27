@@ -1,6 +1,10 @@
 ;; emacs external packages configuration
 ;; kgaipal@gmail.com
 
+;; ivy mode specific
+(if (package-installed-p 'ivy)
+    (progn
+	(ivy-mode t)))
 
 ;; csharp-mode specific
 (if (package-installed-p 'csharp-mode)

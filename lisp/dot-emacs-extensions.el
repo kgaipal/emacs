@@ -318,6 +318,11 @@ of the frame only if it is split into exactly 2 windows."
   (interactive "s wildcard: ")
   (find-name-dired desktop-dirname wildcard))
 
+(defun find-files-in-project-root-using-counsel ()
+  "Find files interactively using 'counsel' package from the project ROOT."
+  (interactive)
+  (counsel-file-jump nil desktop-dirname))
+
 ;; Insert current date and time
 (defun insert-current-date ()
   (interactive)
