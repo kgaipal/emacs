@@ -19,6 +19,8 @@
     (progn
       (setq ripgrep-arguments (quote ("--smart-case")))))
 
+;; dumb-jump mode specific
+;; set ripgrep and default searcher
 (if (package-installed-p 'dumb-jump)
     (progn
       (setq dumb-jump-max-find-time 10)
@@ -33,7 +35,7 @@
 ;; Turn on anzu mode globally
 (if (package-installed-p 'indent-guide)
     (progn
-      (setq indent-guide-global-mode t)))
+      (indent-guide-global-mode t)))
 
 ;; Global option for ws-butler
 (if (package-installed-p 'ws-butler)
@@ -58,6 +60,12 @@
 ;; http://ergoemacs.org/emacs/emacs_package_system.html
 ;; https://github.com/emacs-tw/awesome-emacs
 ;;
+;; OLD:
+;; clang-format
+;; dumb-jump
+;; realgud
+;; rg
+;;
 ;; try this too for convenience
 ;; https://github.com/technomancy/better-defaults
 (defvar packages-to-restore
@@ -65,24 +73,17 @@
     annotate-depth
     anzu
     auto-complete
-    bm
     buffer-move
-    clang-format
     csharp-mode
-    dumb-jump
     fold-this
     highlight-symbol
     indent-guide
     magit
     magit-gitflow
     occur-x
-    open-in-msvs
-    realgud
     restart-emacs
-    rg
     ripgrep
     tfs
-    typescript-mode
     unbound
     web-mode
     ws-butler
