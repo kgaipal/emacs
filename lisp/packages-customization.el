@@ -78,6 +78,7 @@
     anzu
     auto-complete
     buffer-move
+    counsel
     csharp-mode
     fold-this
     highlight-symbol
