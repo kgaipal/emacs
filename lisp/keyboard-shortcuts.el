@@ -80,7 +80,7 @@
 ;; counsel for searching symbols
 (if (package-installed-p 'counsel)
     (progn
-      (global-set-key (kbd "C-M-.") 'counsel-git-grep)))
+      (global-set-key (kbd "C-M-.") 'counsel-rg)))
 
 ;; magit
 (if (package-installed-p 'magit)

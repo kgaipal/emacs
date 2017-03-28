@@ -1,10 +1,17 @@
 ;; emacs external packages configuration
 ;; kgaipal@gmail.com
 
+;; counsel specific
+(if (package-installed-p 'counsel)
+    (progn
+      (setq counsel-find-file-ignore-regexp nil)))
+
 ;; ivy mode specific
 (if (package-installed-p 'ivy)
     (progn
-	(ivy-mode t)))
+      (ivy-mode t)
+      (setq ivy-height 4)
+      (setq ivy-ignore-buffers (quote ("\\` " "..\\\\" ".\\\\")))))
 
 ;; csharp-mode specific
 (if (package-installed-p 'csharp-mode)
