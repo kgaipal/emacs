@@ -10,7 +10,7 @@
 (if (package-installed-p 'ivy)
     (progn
       (ivy-mode t)
-      (setq ivy-height 4)
+      (setq ivy-height 5)
       (setq ivy-ignore-buffers (quote ("\\` " "..\\\\" ".\\\\")))))
 
 ;; csharp-mode specific
