@@ -14,11 +14,13 @@
 	(electric-pair-local-mode 1)) ;; Emacs 25
       (add-hook 'csharp-mode-hook 'my-csharp-mode-hook)))
 
+;; auto completion specific
 (if (package-installed-p 'auto-complete)
     (progn
       (global-auto-complete-mode t)
       (setq ac-modes (append '(csharp-mode) ac-modes))))
 
+;; ripgrep specific
 (if (package-installed-p 'ripgrep)
     (progn
       (setq ripgrep-arguments (quote ("--smart-case")))))
@@ -68,6 +70,7 @@
 ;; clang-format
 ;; dumb-jump
 ;; realgud
+;; ripgrep
 ;; rg
 ;;
 ;; try this too for convenience
@@ -87,7 +90,6 @@
     magit-gitflow
     occur-x
     restart-emacs
-    ripgrep
     tfs
     unbound
     web-mode
