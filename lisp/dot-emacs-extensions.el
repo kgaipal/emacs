@@ -314,7 +314,7 @@ of the frame only if it is split into exactly 2 windows."
 (defalias 'fixme 'insert-fixme)
 
 (defun find-files-in-project-root (wildcard)
-  "Find files with the given wildcard from ROOT path set from .emacs.desktop file."
+  "Find files interactively from the project ROOT."
   (interactive "s wildcard: ")
   (find-name-dired desktop-dirname wildcard))
 
