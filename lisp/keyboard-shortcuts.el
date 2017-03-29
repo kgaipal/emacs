@@ -77,11 +77,6 @@
     (progn
       (global-set-key (kbd "C-M-.") 'ripgrep-regexp)))
 
-;; counsel for searching symbols
-(if (package-installed-p 'counsel)
-    (progn
-      (global-set-key (kbd "C-M-.") 'counsel-rg)))
-
 ;; magit
 (if (package-installed-p 'magit)
     (progn
