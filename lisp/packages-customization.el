@@ -77,7 +77,6 @@
 ;; clang-format
 ;; dumb-jump
 ;; realgud
-;; ripgrep
 ;; rg
 ;;
 ;; try this too for convenience
@@ -97,6 +96,7 @@
     magit-gitflow
     occur-x
     restart-emacs
+    ripgrep
     tfs
     unbound
     web-mode
