@@ -101,6 +101,8 @@
     unbound
     web-mode
     ws-butler
+    aggressive-fill-paragraph
+    aggressive-indent
     ))
 
 (defun restore-packages ()
