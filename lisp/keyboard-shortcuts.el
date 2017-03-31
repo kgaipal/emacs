@@ -35,12 +35,10 @@
 ;; We want another key to suggest keywords completions
 (global-set-key (kbd "C-/") 'dabbrev-expand)
 
-;; Invoke Alt+x by alternate command; its analogous to shifting focus to URL bar in FireFox
+;; Invoke Alt+x by alternate command; its analogous to shifting focus to URL bar in
+;; firefox
 ;; http://sites.google.com/site/steveyegge2/effective-emacs
 (global-set-key (kbd "C-l") 'execute-extended-command)
-
-;; (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-x C-o") 'ido-switch-buffer)
 
 ;; marking a buffer as readonly
 (global-set-key (kbd "M-r") 'read-only-mode)
@@ -63,7 +61,8 @@
 (global-set-key (kbd "C-x n") 'next-buffer)
 (global-set-key (kbd "C-x p") 'previous-buffer)
 
-;; quick toggling window split for grep/find/ag search results
+;; quick toggling window split for grep/find/ag/ripgrep search results when searched
+;; results are too long
 (global-set-key (kbd "C-M-w") 'toggle-window-split)
 
 ;; dumb-jump mode
@@ -81,6 +80,14 @@
 (if (package-installed-p 'magit)
     (progn
       (global-set-key (kbd "C-M-g") 'magit-status)))
+
+
+;; ivy mode
+(if (package-installed-p 'ivy)
+    (progn
+      (global-set-key (kbd "C-x C-o") 'ivy-switch-buffer)))
+;; (global-set-key (kbd "C-x C-b") 'ibuffer)
+;; (global-set-key (kbd "C-x C-o") 'ido-switch-buffer)
 
 ;; visual studio like shortcut for finding files in project
 (global-set-key (kbd "C-;") 'find-files-in-project-root-using-counsel)

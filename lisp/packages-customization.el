@@ -1,6 +1,24 @@
 ;; emacs external packages configuration
 ;; kgaipal@gmail.com
 
+(if (package-installed-p 'aggressive-fill-paragraph)
+    (progn
+      (setq aggressive-fill-paragraph-mode t)))
+
+;; turn on occur-x-mode when occur is used
+(if (package-installed-p 'occur-x)
+    (progn
+      (require 'occur-x)
+      (add-hook 'occur-mode-hook 'turn-on-occur-x-mode)))
+
+;; pretty display in selecting buffers through ivy
+(if (package-installed-p 'ivy-rich)
+    (progn
+      (require 'ivy-rich)
+      (ivy-set-display-transformer
+       'ivy-switch-buffer
+       'ivy-rich-switch-buffer-transformer)))
+
 ;; counsel specific
 (if (package-installed-p 'counsel)
     (progn
@@ -9,9 +27,9 @@
 ;; ivy mode specific
 (if (package-installed-p 'ivy)
     (progn
+      (setq ivy-extra-directories nil)
       (ivy-mode t)
-      (setq ivy-height 5)
-      (setq ivy-ignore-buffers (quote ("\\` " "..\\\\" ".\\\\")))))
+      (setq ivy-height 5)))
 
 ;; csharp-mode specific
 (if (package-installed-p 'csharp-mode)
@@ -83,6 +101,8 @@
 ;; https://github.com/technomancy/better-defaults
 (defvar packages-to-restore
   '(
+    aggressive-fill-paragraph
+    aggressive-indent
     annotate-depth
     anzu
     auto-complete
@@ -92,6 +112,7 @@
     fold-this
     highlight-symbol
     indent-guide
+    ivy-rich
     magit
     magit-gitflow
     occur-x
@@ -101,8 +122,6 @@
     unbound
     web-mode
     ws-butler
-    aggressive-fill-paragraph
-    aggressive-indent
     ))
 
 (defun restore-packages ()

@@ -33,7 +33,7 @@
 ;; Customization in mode-line format
 (load-file "~/.emacs.d/mode-line-customization.el")
 
-;; Note: Load these files last, as they have my custom code/shortcuts which may be
+;; Note: Load these files last as they have my custom code/shortcuts which may be
 ;; overridden from above packages if this is loaded last
 (load-file "~/.emacs.d/keyboard-shortcuts.el")
 
