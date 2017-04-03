@@ -71,11 +71,6 @@
       (global-set-key (kbd "C-M-l") 'dumb-jump-go)
       (global-set-key (kbd "C-M-o") 'dumb-jump-back)))
 
-;; ripgrep
-(if (package-installed-p 'ripgrep)
-    (progn
-      (global-set-key (kbd "C-M-.") 'ripgrep-regexp)))
-
 ;; magit
 (if (package-installed-p 'magit)
     (progn
@@ -88,6 +83,10 @@
       (global-set-key (kbd "C-x C-o") 'ivy-switch-buffer)))
 ;; (global-set-key (kbd "C-x C-b") 'ibuffer)
 ;; (global-set-key (kbd "C-x C-o") 'ido-switch-buffer)
+
+;; finding text can use any project grep/ripgrep/silver_searcher
+;; see wrapper: find-text-in-project-root
+(global-set-key (kbd "C-M-.") 'find-text-in-project-root)))
 
 ;; visual studio like shortcut for finding files in project
 (global-set-key (kbd "C-;") 'find-files-in-project-root-using-counsel)
