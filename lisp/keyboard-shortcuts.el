@@ -86,7 +86,7 @@
 
 ;; finding text can use any project grep/ripgrep/silver_searcher
 ;; see wrapper: find-text-in-project-root
-(global-set-key (kbd "C-M-.") 'find-text-in-project-root)))
+(global-set-key (kbd "C-M-.") 'find-text-in-project-root)
 
 ;; visual studio like shortcut for finding files in project
 (global-set-key (kbd "C-;") 'find-files-in-project-root-using-counsel)
