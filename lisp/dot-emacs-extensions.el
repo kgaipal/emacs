@@ -320,9 +320,12 @@ of the frame only if it is split into exactly 2 windows."
   (find-name-dired desktop-dirname wildcard))
 
 (defun find-text-in-project-root (wildcard)
-  "Find text interactively from the project ROOT."
+  "Find text interactively from the project ROOT. If desktop is not loaded, default search
+ directory is set as /tmp"
   (interactive "s wildcard: ")
-  (ripgrep-regexp wildcard desktop-dirname))
+  (if (boundp 'desktop-dirname)
+      (ripgrep-regexp wildcard desktop-dirname)
+    (ripgrep-regexp wildcard "/tmp/")))
 
 (defun find-files-in-project-root-using-counsel ()
   "Find files interactively using 'counsel' package from the project ROOT."
