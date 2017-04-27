@@ -418,6 +418,14 @@ of the frame only if it is split into exactly 2 windows."
             ;; frame title showing desktop path
             (set-frame-name (directory-file-name desktop-dirname))))
 
+;; dont remove byte-order marker (BOM) in xml files
+;; https://superuser.com/questions/41254/make-emacs-not-remove-the-bom-from-xml-files
+(setq auto-coding-regexp-alist
+  (delete (rassoc 'utf-16be-with-signature auto-coding-regexp-alist)
+  (delete (rassoc 'utf-16le-with-signature auto-coding-regexp-alist)
+  (delete (rassoc 'utf-8-with-signature auto-coding-regexp-alist)
+          auto-coding-regexp-alist))))
+
 ;; convenient short names for swapping windows
 (defun swap () (interactive) (buf-move-left))
 (defun swapr () (interactive) (buf-move-right))
