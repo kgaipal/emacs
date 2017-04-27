@@ -429,3 +429,8 @@ of the frame only if it is split into exactly 2 windows."
 ;; convenient short names for swapping windows
 (defun swap () (interactive) (buf-move-left))
 (defun swapr () (interactive) (buf-move-right))
+
+;; dont add final newline in xml config files automatically
+(add-hook 'nxml-mode-hook
+          (lambda ()
+            (setq require-final-newline nil)))
