@@ -325,7 +325,7 @@ of the frame only if it is split into exactly 2 windows."
   (interactive "s wildcard: ")
   (if (boundp 'desktop-dirname)
       (ripgrep-regexp wildcard desktop-dirname)
-    (ripgrep-regexp wildcard "/tmp/")))
+    (ripgrep-regexp wildcard "~")))
 
 (defun find-files-in-project-root-using-counsel ()
   "Find files interactively using 'counsel' package from the project ROOT."
