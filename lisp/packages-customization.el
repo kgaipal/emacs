@@ -36,10 +36,13 @@
     (progn
       (defun my-csharp-mode-hook ()
         (add-hook 'csharp-mode-hook
-          (lambda ()
-            (electric-pair-mode 1)        ;; Emacs 24
-            (electric-pair-local-mode 1)) ;; Emacs 25
-          ))))
+                  (lambda ()
+                    ;; disable require-final-newline like xml mode
+                    (setq require-final-newline nil)
+
+                    (electric-pair-mode 1)        ;; Emacs 24
+                    (electric-pair-local-mode 1)) ;; Emacs 25
+                  ))))
 
 ;; auto completion specific
 (if (package-installed-p 'auto-complete)
@@ -84,8 +87,8 @@
       (setq magit-auto-revert-mode nil)
 
       (if (package-installed-p 'magit-gitflow)
-	  (progn
-	    (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)))
+          (progn
+            (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)))
       ))
 
 ;; Install external packages from [M]ELPA
