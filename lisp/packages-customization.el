@@ -34,15 +34,14 @@
 ;; csharp-mode specific
 (if (package-installed-p 'csharp-mode)
     (progn
-      (defun my-csharp-mode-hook ()
-        (add-hook 'csharp-mode-hook
-                  (lambda ()
-                    ;; disable require-final-newline like xml mode
-                    (setq require-final-newline nil)
+      (add-hook 'csharp-mode-hook
+                (lambda ()
+                  ;; disable require-final-newline like xml mode
+                  (setq require-final-newline nil)
 
-                    (electric-pair-mode 1)        ;; Emacs 24
-                    (electric-pair-local-mode 1)) ;; Emacs 25
-                  ))))
+                  (electric-pair-mode 1)        ;; Emacs 24
+                  (electric-pair-local-mode 1)) ;; Emacs 25
+                )))
 
 ;; auto completion specific
 (if (package-installed-p 'auto-complete)
