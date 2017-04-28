@@ -113,6 +113,7 @@
     buffer-move
     counsel
     csharp-mode
+    edit-at-point
     fold-this
     highlight-symbol
     indent-guide
