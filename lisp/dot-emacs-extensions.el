@@ -116,14 +116,14 @@ If the region is not active, activate the current line."
       (goto-char end)
       (unless (bolp) (end-of-line)))))
 
-(defun my-increase-left-margin ()
+(defun increase-left-margin ()
   "Increase left margin in region after expanding it to whole lines."
   (interactive)
   (let (deactivate-mark)
     (expand-region-to-whole-lines)
     (increase-left-margin (region-beginning) (region-end) nil)))
 
-(defun my-decrease-left-margin ()
+(defun decrease-left-margin ()
   "Decrease left margin in region after expanding it to whole lines."
   (interactive)
   (let (deactivate-mark)
