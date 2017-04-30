@@ -395,9 +395,9 @@ of the frame only if it is split into exactly 2 windows."
 ;; Using external grep and find programs
 ;; Note: remove " . " from $(GNU_ROOT)/mingw64/share/emacs/25.1/lisp/find-dired.el
 ;; byte compile and reload emacs for find-dired to work with findk
-(setq grep-program "grepk "
-      find-program "findk "
-      grep-command grep-program)
+(setq grep-program "grepk"
+      find-program "findk"
+      grep-command (concat grep-program " "))
 
 ;; path to custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
