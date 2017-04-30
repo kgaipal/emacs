@@ -323,6 +323,7 @@ of the frame only if it is split into exactly 2 windows."
   "Find text interactively from the project ROOT. If desktop is not loaded, default search
  directory is set as /tmp"
   (interactive "s wildcard: ")
+  (require 'ripgrep)
   (if (boundp 'desktop-dirname)
       (ripgrep-regexp wildcard desktop-dirname)
     (ripgrep-regexp wildcard "~")))
