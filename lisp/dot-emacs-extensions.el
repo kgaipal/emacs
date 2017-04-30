@@ -397,8 +397,7 @@ of the frame only if it is split into exactly 2 windows."
 ;; byte compile and reload emacs for find-dired to work with findk
 (setq grep-program "grepk "
       find-program "findk "
-      grep-command grep-program
-      grep-find-command (concat find-program " -type f -exec " grep-command " {} \\;"))
+      grep-command grep-program)
 
 ;; path to custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
