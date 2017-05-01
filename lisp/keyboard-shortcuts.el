@@ -15,8 +15,8 @@
 (global-unset-key (kbd "C-x C-p"))      ;already disabled, but this suppress annoying prompt
 
 ;; Basic indentation
-(global-set-key (kbd "<backtab>") 'decrease-left-margin)
-(global-set-key (kbd "C-\\") 'increase-left-margin)
+(global-set-key (kbd "<backtab>") 'decrease-left-margin-wrapper)
+(global-set-key (kbd "C-\\") 'increase-left-margin-wrapper)
 
 ;; Auto reload file by F5 keystroke
 (global-set-key [f5] 'refresh-file)
