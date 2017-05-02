@@ -22,7 +22,7 @@
 ;; counsel specific
 (if (package-installed-p 'counsel)
     (progn
-      (setq counsel-find-file-ignore-regexp "/bin/")))
+      (setq counsel-find-file-ignore-regexp "\\(/bin/\\|/Debug/\\|/Release/\\)")))
 
 ;; ivy mode specific
 (if (package-installed-p 'ivy)
