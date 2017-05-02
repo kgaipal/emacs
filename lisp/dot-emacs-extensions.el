@@ -438,3 +438,9 @@ of the frame only if it is split into exactly 2 windows."
 (add-hook 'nxml-mode-hook
           (lambda ()
             (setq require-final-newline nil)))
+
+;; displays current buffer encoding system
+(defun display-buffer-encoding ()
+  "displays current buffer encoding system"
+    (interactive)
+  (message "%s" buffer-file-coding-system))
