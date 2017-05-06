@@ -1,10 +1,6 @@
 ;; emacs external packages configuration
 ;; kgaipal@gmail.com
 
-(if (package-installed-p 'aggressive-fill-paragraph)
-    (progn
-      (setq aggressive-fill-paragraph-mode t)))
-
 ;; turn on occur-x-mode when occur is used
 (if (package-installed-p 'occur-x)
     (progn
@@ -95,18 +91,21 @@
 ;; http://ergoemacs.org/emacs/emacs_package_system.html
 ;; https://github.com/emacs-tw/awesome-emacs
 ;;
-;; OLD:
+;; [OLD]:
+;; aggressive-fill-paragraph
+;; aggressive-indent
 ;; clang-format
 ;; dumb-jump
 ;; realgud
 ;; rg
 ;;
+;; [TRYING]:
+;;
+;;
 ;; try this too for convenience
 ;; https://github.com/technomancy/better-defaults
 (defvar packages-to-restore
   '(
-    aggressive-fill-paragraph
-    aggressive-indent
     annotate-depth
     anzu
     auto-complete
