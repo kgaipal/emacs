@@ -2,6 +2,12 @@
 ;; kgaipal@gmail.com
 
 ;; turn on occur-x-mode when occur is used
+(if (package-installed-p 'spu)
+    (progn
+      (require 'spu)
+      (spu-package-upgrade-daily)))
+
+;; turn on occur-x-mode when occur is used
 (if (package-installed-p 'occur-x)
     (progn
       (require 'occur-x)
@@ -100,7 +106,8 @@
 ;; rg
 ;;
 ;; [TRYING]:
-;;
+;; xah-find
+;; spu
 ;;
 ;; try this too for convenience
 ;; https://github.com/technomancy/better-defaults
@@ -122,10 +129,12 @@
     occur-x
     restart-emacs
     ripgrep
+    spu
     tfs
     unbound
     web-mode
     ws-butler
+    xah-find
     ))
 
 (defun restore-packages ()
