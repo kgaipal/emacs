@@ -50,6 +50,7 @@
    (quote
     ("15290cc4f813a717dfe953657368d6ba55226e9b98f10cee06b5fcd582b8340e" default)))
  '(dired-listing-switches "-pgGhB")
+ '(electric-pair-mode t)
  '(fill-column 90)
  '(fringe-mode (quote (1 . 1)) nil (fringe))
  '(global-subword-mode t)
