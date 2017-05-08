@@ -442,3 +442,44 @@ of the frame only if it is split into exactly 2 windows."
   "displays current buffer encoding system"
     (interactive)
   (message "%s" buffer-file-coding-system))
+
+;; make header for source file
+(defun make-header ()
+
+  (defun line-seperator ()
+    "-----------------------------------------------------------------------")
+
+  (defun comment-marker ()
+    "// ")
+
+  (defun company-name ()
+    "Microsoft Corporation")
+
+  (defun author-name ()
+    "Kshitij Gaipal")
+
+  (defun header-start ()
+    (concat (comment-marker) (line-seperator) "\n"))
+
+  (defun header-end ()
+    (concat (comment-marker) (line-seperator) "\n\n"))
+
+  (defun author-block ()
+    (concat (comment-marker) "<author name=\"" (author-name) "\" />\n"))
+
+  (defun copyright-block ()
+    (concat
+     (comment-marker) "<copyright file=\"" (buffer-name) "\" company=\"" (company-name) "\"\n"
+     (comment-marker) "    Copyright (c) " (company-name) ". All rights reserved.\n"
+     (comment-marker) "</copyright>\n"))
+
+  "Creates and Inserts the header for a source file"
+  (interactive)
+  (let ((header (concat
+                 (header-start)
+                 (copyright-block)
+                 (header-end))))
+    (kill-new header)
+    (message header)))
+
+;;
