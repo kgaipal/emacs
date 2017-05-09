@@ -1,7 +1,10 @@
 ;; emacs external packages configuration
 ;; kgaipal@gmail.com
 
-;; turn on occur-x-mode when occur is used
+;; auto upgrade packags daily
+(use-package spu
+  :defer 5 ;; defer package loading for 5 second
+  :config (spu-package-upgrade-daily))
 (if (package-installed-p 'spu)
     (progn
       (require 'spu)
