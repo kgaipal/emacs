@@ -9,3 +9,4 @@ lisp/bookmarks
 lisp/elpa
 lisp/newsticker
 lisp/ac-comphist.dat
+lisp/spu_log/*
