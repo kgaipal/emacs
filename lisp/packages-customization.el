@@ -107,6 +107,7 @@
 ;; dumb-jump
 ;; realgud
 ;; rg
+;; unbound
 ;;
 ;; [TRYING]:
 ;; xah-find
@@ -134,7 +135,6 @@
     ripgrep
     spu
     tfs
-    unbound
     web-mode
     ws-butler
     xah-find
