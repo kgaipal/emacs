@@ -3,7 +3,7 @@
 
 ;; auto upgrade packags daily
 (use-package spu
-  :defer 5 ;; defer package loading for 5 second
+  :defer 60 ;; defer package loading for some seconds
   :config (spu-package-upgrade-daily))
 (if (package-installed-p 'spu)
     (progn
