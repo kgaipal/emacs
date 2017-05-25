@@ -43,7 +43,7 @@
                 (lambda ()
                   ;; disable require-final-newline like xml mode
                   (setq require-final-newline nil)
-
+                  (fic-mode t)
                   (electric-pair-mode 1)        ;; Emacs 24
                   (electric-pair-local-mode 1)) ;; Emacs 25
                 )))
@@ -111,7 +111,6 @@
 ;;
 ;; [TRYING]:
 ;; xah-find
-;; spu
 ;;
 ;; try this too for convenience
 ;; https://github.com/technomancy/better-defaults
@@ -124,6 +123,7 @@
     counsel
     csharp-mode
     edit-at-point
+    fic-mode
     fold-this
     highlight-symbol
     indent-guide
