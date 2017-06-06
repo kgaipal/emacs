@@ -25,7 +25,7 @@
  '(mode-line-in-non-selected-windows t)
  '(package-selected-packages
    (quote
-    (gnome-c-style magit xah-find ws-butler web-mode use-package tfs spu ripgrep restart-emacs occur-x magit-gitflow ivy-rich indent-guide highlight-symbol fold-this fic-mode edit-at-point csharp-mode counsel buffer-move auto-complete anzu annotate-depth)))
+    (ripgrep annotate-depth anzu auto-complete buffer-move counsel csharp-mode edit-at-point fic-mode fold-this highlight-symbol indent-guide ivy-rich magit magit-gitflow occur-x restart-emacs spu tfs use-package web-mode ws-butler xah-find)))
  '(read-file-name-completion-ignore-case t)
  '(recentf-mode 1)
  '(scroll-bar-mode nil)
