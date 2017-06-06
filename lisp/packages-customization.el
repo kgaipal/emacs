@@ -4,11 +4,9 @@
 ;; auto upgrade packags daily
 (if (package-installed-p 'spu)
     (progn
-      (require 'spu)
       (use-package spu
-		   :defer 60 ;; defer package loading for some seconds
-		   :config (spu-package-upgrade-daily))
-      (spu-package-upgrade-daily)))
+		   :defer 120 ;; defer package loading for some seconds
+		   :config (spu-package-upgrade-daily))))
 
 ;; turn on occur-x-mode when occur is used
 (if (package-installed-p 'occur-x)
