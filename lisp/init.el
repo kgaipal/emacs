@@ -27,16 +27,14 @@
 ;; emacs packages specific customization
 (load-file "~/.emacs.d/packages-customization.el")
 
-;; GNU Coding style
-(load-file "~/.emacs.d/gnu-coding-style.el")
-
-;; Customization in mode-line format
+;; customization in mode-line format
 (load-file "~/.emacs.d/mode-line-customization.el")
 
 ;; Note: Load these files last as they have my custom code/shortcuts which may be
 ;; overridden from above packages if this is loaded last
 (load-file "~/.emacs.d/keyboard-shortcuts.el")
 
+;; custom options
 (setq custom-file "~/.emacs.d/custom-options.el")
 (load custom-file)
 
