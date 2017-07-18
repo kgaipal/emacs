@@ -89,7 +89,7 @@
 (global-set-key (kbd "C-M-.") 'find-text-in-project-root)
 
 ;; visual studio like shortcut for finding files in project
-(global-set-key (kbd "C-;") 'find-files-in-project-root-using-counsel)
+(global-set-key (kbd "C-.") 'find-files-in-project-root-using-counsel)
 
 ;; edit-at-point
 (if (package-installed-p 'edit-at-point)
