@@ -116,6 +116,7 @@
   '(
     annotate-depth
     anzu
+    auctex
     auto-complete
     buffer-move
     counsel
@@ -128,6 +129,7 @@
     ivy-rich
     magit
     magit-gitflow
+    noccur
     occur-x
     restart-emacs
     ripgrep
