@@ -39,6 +39,7 @@
     (progn
       (add-hook 'csharp-mode-hook
                 (lambda ()
+                  (turn-on-occur-x-mode)
                   ;; disable require-final-newline like xml mode
                   (setq require-final-newline nil)
                   (fic-mode t)
