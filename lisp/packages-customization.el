@@ -39,7 +39,6 @@
     (progn
       (add-hook 'csharp-mode-hook
                 (lambda ()
-                  (turn-on-occur-x-mode)
                   ;; disable require-final-newline like xml mode
                   (setq require-final-newline nil)
                   (fic-mode t)
@@ -56,7 +55,9 @@
 ;; ripgrep specific
 (if (package-installed-p 'ripgrep)
     (progn
-      (setq ripgrep-arguments (quote ("--smart-case")))))
+      ;; turn on coloring like grep
+      ;; https://github.com/nlamirault/ripgrep.el/issues/20
+      (setq ripgrep-arguments (quote ("--color=always" "--smart-case")))))
 
 ;; dumb-jump mode specific
 ;; set ripgrep and default searcher
