@@ -419,7 +419,7 @@ of the frame only if it is split into exactly 2 windows."
                   desktop-save-mode t)
 
             ;; frame title showing desktop path
-            (set-frame-name (directory-file-name desktop-dirname))))
+            (set-frame-name (file-name-nondirectory (directory-file-name desktop-dirname)))))
 
 ;; dont remove byte-order marker (BOM) in xml files
 ;; https://superuser.com/questions/41254/make-emacs-not-remove-the-bom-from-xml-files
