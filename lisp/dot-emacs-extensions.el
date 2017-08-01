@@ -436,8 +436,8 @@ of the frame only if it is split into exactly 2 windows."
 ;; dont add final newline in xml config files automatically
 (add-hook 'nxml-mode-hook
           (lambda ()
-            (toggle-truncate-lines)
-            (setq require-final-newline nil)))
+            (setq require-final-newline nil
+                  truncate-lines t)))
 
 ;; displays current buffer encoding system
 (defun display-buffer-encoding ()
