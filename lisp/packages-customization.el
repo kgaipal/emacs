@@ -25,7 +25,7 @@
 ;; counsel specific
 (if (package-installed-p 'counsel)
     (progn
-      (setq counsel-find-file-ignore-regexp "\\(/bin/\\|/Debug/\\|/Release/\\)")))
+      (setq counsel-find-file-ignore-regexp "\\(/bin/\\|/Debug/\\|/Release/\\|\\.dll\\|\\.wadcfgx\\)")))
 
 ;; ivy mode specific
 (if (package-installed-p 'ivy)
