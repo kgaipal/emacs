@@ -449,7 +449,7 @@ of the frame only if it is split into exactly 2 windows."
 (defun make-header ()
 
   (defun line-seperator ()
-    "-----------------------------------------------------------------------")
+    "--------------------------------------------------------------------------------")
 
   (defun comment-marker ()
     "// ")
@@ -471,7 +471,7 @@ of the frame only if it is split into exactly 2 windows."
 
   (defun copyright-block ()
     (concat
-     (comment-marker) "<copyright file=\"" (buffer-name) "\" company=\"" (company-name) "\"\n"
+     (comment-marker) "<copyright file=\"" (buffer-name) "\" company=\"" (company-name) "\">\n"
      (comment-marker) "    Copyright (c) " (company-name) ". All rights reserved.\n"
      (comment-marker) "</copyright>\n"))
 
