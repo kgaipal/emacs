@@ -89,6 +89,7 @@
 (if (package-installed-p 'magit)
     (progn
       (setq magit-auto-revert-mode nil)
+      (setq magit-process-connection-type nil) ;make it fast on windows
 
       (if (package-installed-p 'magit-gitflow)
           (progn
