@@ -25,7 +25,7 @@
  '(mode-line-in-non-selected-windows t)
  '(package-selected-packages
    (quote
-    (magit auctex loccur noccur ripgrep annotate-depth anzu auto-complete buffer-move counsel csharp-mode edit-at-point fic-mode fold-this highlight-symbol indent-guide ivy-rich magit-gitflow occur-x restart-emacs spu tfs use-package web-mode ws-butler xah-find)))
+    (annotate-depth anzu auctex auto-complete buffer-move counsel csharp-mode edit-at-point fic-mode fold-this highlight-symbol indent-guide ivy-rich loccur magit magit-gitflow noccur occur-x restart-emacs ripgrep spu tfs use-package web-mode ws-butler xah-find)))
  '(read-file-name-completion-ignore-case t)
  '(recentf-mode 1)
  '(scroll-bar-mode nil)
