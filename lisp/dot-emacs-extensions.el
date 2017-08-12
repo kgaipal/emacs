@@ -364,6 +364,8 @@ of the frame only if it is split into exactly 2 windows."
                 ("\\.h$" . c++-mode)
                 ("\\.ini$" . windows-conf-mode)
                 ("\\.config$" . nxml-mode)
+                ("\\.sln$" . nxml-mode)
+                ("\\.csproj$" . nxml-mode)
                 ("\\.scons$" . python-mode)
                 ("\\.cshtml$" . html-mode)
                 ("SConstruct$" . python-mode)
