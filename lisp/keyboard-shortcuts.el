@@ -128,3 +128,6 @@
       ;;   ("C-\"" . edit-at-point-defun-dup))
 
       (global-set-key (kbd "C-S-w") 'edit-at-point-symbol-copy)))
+
+;; fixup whitespace
+(global-set-key (kbd "M-SPC") 'fixup-whitespace)
