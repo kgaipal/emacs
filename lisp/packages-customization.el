@@ -111,7 +111,14 @@
 ;; unbound
 ;;
 ;; [TRYING]:
-;; xah-find
+;; highlight-escape-sequences
+;; electric-spacing
+;; electric-operator
+;; easy-repeat
+;; easy-kill-extras
+;; dynamic-ruler
+;; disk
+;; dired-dups
 ;;
 ;; try this too for convenience
 ;; https://github.com/technomancy/better-defaults
