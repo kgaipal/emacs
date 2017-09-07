@@ -450,7 +450,7 @@ of the frame only if it is split into exactly 2 windows."
 (defun make-header ()
 
   (defun line-seperator ()
-    "--------------------------------------------------------------------------------")
+    (make-string 90 ?-))
 
   (defun comment-marker ()
     "// ")
