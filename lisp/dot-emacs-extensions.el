@@ -449,8 +449,14 @@ of the frame only if it is split into exactly 2 windows."
 ;; make header for source file
 (defun make-header ()
 
+  (defun eol ()
+    "\n")
+
+  (defun bom ()
+    "﻿")
+
   (defun line-seperator ()
-    (make-string 90 ?-))
+    (make-string 80 ?-))
 
   (defun comment-marker ()
     "// ")
@@ -462,19 +468,19 @@ of the frame only if it is split into exactly 2 windows."
     "Kshitij Gaipal")
 
   (defun header-start ()
-    (concat (comment-marker) (line-seperator) "\n"))
+    (concat (bom) (comment-marker) (line-seperator) (eol)))
 
   (defun header-end ()
-    (concat (comment-marker) (line-seperator) "\n\n"))
+    (concat (comment-marker) (line-seperator) (eol)))
 
   (defun author-block ()
-    (concat (comment-marker) "<author name=\"" (author-name) "\" />\n"))
+    (concat (comment-marker) "<author name=\"" (author-name) "\" />") (eol))
 
   (defun copyright-block ()
     (concat
-     (comment-marker) "<copyright file=\"" (buffer-name) "\" company=\"" (company-name) "\">\n"
-     (comment-marker) "    Copyright (c) " (company-name) ". All rights reserved.\n"
-     (comment-marker) "</copyright>\n"))
+     (comment-marker) "<copyright file=\"" (buffer-name) "\" company=\"" (company-name) "\" >" (eol)
+     (comment-marker) "    Copyright (c) " (company-name) ". All rights reserved." (eol)
+     (comment-marker) "</copyright>" (eol)))
 
   "Creates and Inserts the header for a source file"
   (interactive)
