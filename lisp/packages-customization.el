@@ -39,11 +39,9 @@
     (progn
       (add-hook 'csharp-mode-hook
                 (lambda ()
-                  ;; disable require-final-newline like xml mode
-                  (setq require-final-newline nil)
+                  (setq require-final-newline nil) ;disable require-final-newline like xml mode
                   (fic-mode t)
-                  (electric-pair-mode 1)        ;; Emacs 24
-                  (electric-pair-local-mode 1)) ;; Emacs 25
+                  (electric-pair-local-mode 1))
                 )))
 
 ;; auto completion specific

@@ -37,6 +37,9 @@
 ;; Common features in all c-mode
 (add-hook 'c-mode-common-hook
           (lambda ()
+            (if (package-installed-p 'fic-mode)
+                (fic-mode t))
+            (electric-pair-local-mode 1)
             (which-function-mode t)
             (subword-mode 1)))
 
