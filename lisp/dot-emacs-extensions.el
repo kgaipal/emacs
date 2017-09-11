@@ -384,6 +384,12 @@ of the frame only if it is split into exactly 2 windows."
       ;; disable menu bar
       (menu-bar-mode 0)
 
+      ;; FIXME (ksgaipal): workargound for magit until pacman git bug is fixed
+      ;; https://github.com/Alexpux/MSYS2-packages/issues/993
+      (if (package-installed-p 'magit)
+          (setq magit-git-executable "c:/Program Files/Git/bin/git.exe"))
+          (setq vc-git-program "c:/Program Files/Git/bin/git.exe")
+
       ;; remove the hook to check the vc-status on any file;
       ;; this makes emacs 1-2 slow on windows
       ;; http://stackoverflow.com/questions/8837712/emacs-creates-buffers-very-slowly
