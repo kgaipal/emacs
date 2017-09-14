@@ -1,3 +1,4 @@
+
 ;; emacs external packages configuration
 ;; kgaipal@gmail.com
 
@@ -137,7 +138,6 @@
     ivy-rich
     magit
     magit-gitflow
-    noccur
     occur-x
     restart-emacs
     ripgrep
