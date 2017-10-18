@@ -126,7 +126,7 @@
       ;;   ("C-{"  . edit-at-point-defun-delete)
       ;;   ("C-:"  . edit-at-point-defun-paste)
       ;;   ("C-\"" . edit-at-point-defun-dup))
-
+      (global-set-key (kbd "C-S-d") 'edit-at-point-symbol-delete)
       (global-set-key (kbd "C-S-w") 'edit-at-point-symbol-copy)))
 
 ;; fixup whitespace
