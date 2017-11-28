@@ -40,6 +40,7 @@
     (progn
       (add-hook 'csharp-mode-hook
                 (lambda ()
+                  (c-set-style "C#")
                   (setq require-final-newline nil) ;disable require-final-newline like xml mode
                   (fic-mode t)
                   (electric-pair-local-mode 1))
