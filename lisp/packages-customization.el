@@ -40,7 +40,13 @@
     (progn
       (add-hook 'csharp-mode-hook
                 (lambda ()
+
+                  ;; code style for this mode only
                   (c-set-style "C#")
+
+                  ;; all overrides after style is set above
+                  (c-set-offset 'arglist-intro '+)
+
                   (setq require-final-newline nil) ;disable require-final-newline like xml mode
                   (fic-mode t)
                   (electric-pair-local-mode 1))
