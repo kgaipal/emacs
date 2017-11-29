@@ -131,3 +131,6 @@
 
 ;; fixup whitespace
 (global-set-key (kbd "M-SPC") 'fixup-whitespace)
+
+;; replace-string
+(global-set-key (kbd "M-s M-s") 'replace-string)
