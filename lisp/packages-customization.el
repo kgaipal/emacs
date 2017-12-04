@@ -1,13 +1,13 @@
-
 ;; emacs external packages configuration
 ;; kgaipal@gmail.com
 
 ;; auto upgrade packags daily
-(if (package-installed-p 'spu)
+(if (and (package-installed-p 'spu)
+         (package-installed-p 'use-package))
     (progn
       (use-package spu
-		   :defer 120 ;; defer package loading for some seconds
-		   :config (spu-package-upgrade-daily))))
+        :defer 120 ;; defer package loading for some seconds
+        :config (spu-package-upgrade-daily))))
 
 ;; turn on occur-x-mode when occur is used
 (if (package-installed-p 'occur-x)
@@ -46,6 +46,7 @@
 
                   ;; all overrides after style is set above
                   (c-set-offset 'arglist-intro '+)
+                  (c-set-offset 'topmost-intro-cont '0)
 
                   (setq require-final-newline nil) ;disable require-final-newline like xml mode
                   (fic-mode t)
@@ -148,7 +149,7 @@
     occur-x
     restart-emacs
     ripgrep
-    spu
+    ;; spu
     tfs
     web-mode
     ws-butler
