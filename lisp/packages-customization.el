@@ -149,7 +149,7 @@
     occur-x
     restart-emacs
     ripgrep
-    ;; spu
+    spu
     tfs
     web-mode
     ws-butler
