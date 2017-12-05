@@ -147,6 +147,7 @@
     magit
     magit-gitflow
     occur-x
+    omnisharp
     restart-emacs
     ripgrep
     spu
