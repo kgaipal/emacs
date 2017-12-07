@@ -138,6 +138,6 @@
 ;; omnisharp specific
 (if (package-installed-p 'omnisharp)
     (progn
-      (global-set-key (kbd "<f12>") 'omnisharp-go-to-definition)
+      (global-set-key (kbd "C-=") 'omnisharp-go-to-definition)
       (global-set-key (kbd "C--") 'pop-tag-mark)
       (global-set-key (kbd "C-,") 'omnisharp-auto-complete)))
