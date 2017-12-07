@@ -136,5 +136,8 @@
 (global-set-key (kbd "M-s M-s") 'replace-string)
 
 ;; omnisharp specific
-(global-set-key (kbd "<f12>") 'omnisharp-go-to-definition)
-(global-set-key (kbd "C-<f12>") 'pop-tag-mark)
+(if (package-installed-p 'omnisharp)
+    (progn
+      (global-set-key (kbd "<f12>") 'omnisharp-go-to-definition)
+      (global-set-key (kbd "C-<f12>") 'pop-tag-mark)
+      (global-set-key (kbd "C-,") 'omnisharp-auto-complete)))
