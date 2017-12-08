@@ -161,6 +161,8 @@
   "Restore packages from [M]ELPA"
   (interactive)
 
+  (package-refresh-contents)
+
   (if (not (package-installed-p 'use-package))
       (progn
         (package-refresh-contents)
