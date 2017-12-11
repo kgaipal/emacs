@@ -92,11 +92,16 @@
 
 ;; Turn off global magit-auto-revert-mode since this slows down when too many buffers are
 ;; open and git commands (like git checkout -- ) are issued outside of magit emacs/magit
-;; environment
+;; environment. Some improvements based on https://magit.vc/manual/magit/Performance.html
 (if (package-installed-p 'magit)
     (progn
       (setq magit-auto-revert-mode nil)
       (setq magit-process-connection-type nil) ;make it fast on windows
+      (setq magit-refresh-status-buffer nil)
+      (setq magit-refresh-verbose t)
+
+      ;; disble vc backend just for Git because magit exists
+      (setq vc-handled-backends (delq 'Git vc-handled-backends))
 
       (if (package-installed-p 'magit-gitflow)
           (progn
