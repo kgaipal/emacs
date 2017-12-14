@@ -100,8 +100,8 @@
       (setq magit-refresh-status-buffer nil)
       (setq magit-refresh-verbose t)
 
-      ;; disble vc backend just for Git because magit exists
-      (setq vc-handled-backends (delq 'Git vc-handled-backends))
+      ;; ;; disble vc backend just for Git because magit exists
+      ;; (setq vc-handled-backends (delq 'Git vc-handled-backends))
 
       (if (package-installed-p 'magit-gitflow)
           (progn
