@@ -1,6 +1,13 @@
 ;; emacs external packages configuration
 ;; kgaipal@gmail.com
 
+;; omnisharp specific
+(if (package-installed-p 'omnisharp)
+    (progn
+
+      ;; manually update version from https://github.com/OmniSharp/omnisharp-roslyn/releases/
+      (setq omnisharp-expected-server-version "1.28.0")))
+
 ;; auto upgrade packags daily
 (if (and (package-installed-p 'spu)
          (package-installed-p 'use-package))
