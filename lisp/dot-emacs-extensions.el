@@ -360,6 +360,8 @@ of the frame only if it is split into exactly 2 windows."
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;; desktop session customization
+(setq desktop-restore-eager 2)          ;restore only 2 buffers
+(setq desktop-save-mode t)              ;always save
 (add-hook 'desktop-after-read-hook
           (lambda ()
 
@@ -372,9 +374,7 @@ of the frame only if it is split into exactly 2 windows."
                             "\\*term\\:[[:alnum:]]+\\*"
                             "\\.newsrc-dribble"
                             "erc\\:[[:alnum:]]+")
-                          desktop-clear-preserve-buffers)
-                  desktop-restore-eager 2
-                  desktop-save-mode t)
+                          desktop-clear-preserve-buffers))
 
             ;; frame title showing desktop path
             (set-frame-name (file-name-nondirectory (directory-file-name desktop-dirname)))))
