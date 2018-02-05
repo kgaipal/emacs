@@ -348,7 +348,6 @@ of the frame only if it is split into exactly 2 windows."
 ;; TODO (kgaipal): below is unnecessary if path is set as 'System Variable'
 (setenv "PATH" (concat local-bin-path path-sep (getenv "PATH")))
 
-
 ;; Using external grep and find programs
 (setq grep-program "grepk"
       find-program "findk"
