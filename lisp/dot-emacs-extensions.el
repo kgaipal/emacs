@@ -348,8 +348,6 @@ of the frame only if it is split into exactly 2 windows."
 ;; TODO (kgaipal): below is unnecessary if path is set as 'System Variable'
 (setenv "PATH" (concat local-bin-path path-sep (getenv "PATH")))
 
-;; Save .emacs.desktop in tmp location for quick and dirty changes
-(setq desktop-path '("/tmp" "C:/msys64/tmp"))
 
 ;; Using external grep and find programs
 (setq grep-program "grepk"
@@ -360,8 +358,9 @@ of the frame only if it is split into exactly 2 windows."
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;; desktop session customization
-(setq desktop-restore-eager 2)          ;restore only 2 buffers
-(setq desktop-save-mode t)              ;always save
+(setq desktop-path '("/tmp" "C:/msys64/tmp")) ;save in tmp location for quick/dirty changes
+(setq desktop-restore-eager 2)                ;restore only 2 buffers
+(setq desktop-save-mode 'if-exists)           ;always save
 (add-hook 'desktop-after-read-hook
           (lambda ()
 
