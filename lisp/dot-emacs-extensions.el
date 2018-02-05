@@ -360,7 +360,8 @@ of the frame only if it is split into exactly 2 windows."
 ;; desktop session customization
 (setq desktop-path '("/tmp" "C:/msys64/tmp")) ;save in tmp location for quick/dirty changes
 (setq desktop-restore-eager 2)                ;restore only 2 buffers
-(setq desktop-save-mode 'if-exists)           ;always save
+(setq desktop-save-mode t)                    ;always save desktop
+(setq desktop-save (quote ask-if-exists))     ;save without prompting if desktop files exists
 (add-hook 'desktop-after-read-hook
           (lambda ()
 
