@@ -158,6 +158,7 @@
     ivy-rich
     magit
     magit-gitflow
+    msvc
     occur-x
     omnisharp
     restart-emacs
