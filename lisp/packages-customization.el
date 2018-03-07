@@ -164,7 +164,6 @@
     restart-emacs
     ripgrep
     spu
-    tfs
     web-mode
     ws-butler
     xah-find
