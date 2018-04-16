@@ -106,6 +106,12 @@
       (setq magit-process-connection-type nil) ;make it fast on windows
       (setq magit-refresh-status-buffer nil)
       (setq magit-refresh-verbose t)
+      (setq magit-status-sections-hook
+            (quote
+             (magit-insert-status-headers
+              magit-insert-untracked-files
+              magit-insert-unstaged-changes
+              magit-insert-staged-changes)))
 
       ;; ;; disble vc backend just for Git because magit exists
       ;; (setq vc-handled-backends (delq 'Git vc-handled-backends))
