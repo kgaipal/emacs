@@ -33,7 +33,7 @@
 ;; counsel specific
 (if (package-installed-p 'counsel)
     (progn
-      (setq counsel-find-file-ignore-regexp "\\(bin/\\|Debug/\\|Release/\\|TestResults/\\|/Fakes/\\|/FakesAssemblies/\\|Backup*/\\|\\.dll\\|\\.o\\|\\.wadcfgx\\|\\.vs\\|*\\.min\\.*\\)")))
+      (setq counsel-find-file-ignore-regexp "\\(bin/\\|Debug/\\|Release/\\|TestResults/\\|/Fakes/\\|/FakesAssemblies/\\|Backup*/\\|\\.dll\\|\\.o\\|\\.wadcfgx\\|\\.vs\\|*\\.min\\.*\\|*\\.DotSettings\\.user\\)")))
 
 ;; ivy mode specific
 (if (package-installed-p 'ivy)
