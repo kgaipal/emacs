@@ -107,6 +107,13 @@
       (setq magit-refresh-status-buffer nil)
       (setq magit-refresh-verbose t)
 
+      ;; turning off diff options for speed
+      (setq magit-diff-highlight-indentation nil)
+      (setq magit-diff-highlight-trailing nil)
+      (setq magit-diff-paint-whitespace nil)
+      (setq magit-diff-highlight-hunk-body nil)
+      (setq magit-diff-refine-hunk nil)
+
       ;; add back 'magit-insert-status-headers' if speed is acceptable
       (setq magit-status-sections-hook
             (quote
