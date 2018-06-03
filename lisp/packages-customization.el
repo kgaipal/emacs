@@ -115,6 +115,13 @@
       (setq magit-diff-refine-hunk nil)
       (setq magit-revision-insert-related-refs nil)
 
+      ;; When you initiate a commit, then Magit by default automatically shows a diff of
+      ;; the changes you are about to commit. For large commits this can take a long time,
+      ;; which is especially distracting when you are committing large amounts of
+      ;; generated data which you don’t actually intend to inspect before committing. This
+      ;; behavior can be turned off using:
+      (remove-hook 'server-switch-hook 'magit-commit-diff)
+
       ;; add back 'magit-insert-status-headers' if speed is acceptable
       (setq magit-status-sections-hook
             (quote
