@@ -115,6 +115,14 @@
       (setq magit-diff-refine-hunk nil)
       (setq magit-revision-insert-related-refs nil)
 
+      ;; When refreshing the "references buffer" is slow, then that’s usually because
+      ;; several hundred refs are being displayed. The best way to address that is to
+      ;; display fewer refs, obviously.
+      ;;
+      ;; If you are not, or only mildly, interested in seeing the list of tags, then start
+      ;; by not displaying them:
+      (remove-hook 'magit-refs-sections-hook 'magit-insert-tags)
+
       ;; When you initiate a commit, then Magit by default automatically shows a diff of
       ;; the changes you are about to commit. For large commits this can take a long time,
       ;; which is especially distracting when you are committing large amounts of
