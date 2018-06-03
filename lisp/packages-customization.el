@@ -113,6 +113,7 @@
       (setq magit-diff-paint-whitespace nil)
       (setq magit-diff-highlight-hunk-body nil)
       (setq magit-diff-refine-hunk nil)
+      (setq magit-revision-insert-related-refs nil)
 
       ;; add back 'magit-insert-status-headers' if speed is acceptable
       (setq magit-status-sections-hook
