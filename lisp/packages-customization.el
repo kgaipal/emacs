@@ -6,7 +6,7 @@
     (progn
 
       ;; manually update version from https://github.com/OmniSharp/omnisharp-roslyn/releases/
-      (setq omnisharp-expected-server-version "1.30.1")))
+      (setq omnisharp-expected-server-version "1.31.1")))
 
 ;; auto upgrade packags daily
 (if (and (package-installed-p 'spu)
