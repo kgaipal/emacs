@@ -130,12 +130,18 @@
       ;; behavior can be turned off using:
       (remove-hook 'server-switch-hook 'magit-commit-diff)
 
-      ;; add back 'magit-insert-status-headers' if speed is acceptable
+      ;; add back following if speed is acceptable (total right now 4.6s)
+      ;; 3.2s magit-insert-status-headers
+      ;; 1.1s magit-insert-untracked-files
+      ;; 0.7s magit-insert-unstaged-changes
+      ;; 0.9s magit-insert-staged-changes
       (setq magit-status-sections-hook
             (quote
-             (magit-insert-untracked-files
+             (
+              magit-insert-untracked-files
               magit-insert-unstaged-changes
-              magit-insert-staged-changes)))
+              magit-insert-staged-changes
+              )))
 
       ;; ;; disble vc backend just for Git because magit exists
       ;; (setq vc-handled-backends (delq 'Git vc-handled-backends))
