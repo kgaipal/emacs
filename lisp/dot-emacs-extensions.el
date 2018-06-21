@@ -450,7 +450,7 @@ of the frame only if it is split into exactly 2 windows."
     (message header)))
 
 ;;
-(defun vs-compile ()
+(defun compile-visual-studio ()
   "Creates and Inserts the header for a source file"
   (interactive)
   (compile "c:/msys64/home/ksgaipal/code/confs/scripts/vs-make.bat"))
