@@ -5,9 +5,10 @@
 (if (package-installed-p 'omnisharp)
     (progn
 
-      ;; auto start server
+      ;; auto start server and flycheck mode
       ;; https://github.com/Omnisharp/omnisharp-emacs
       (add-hook 'csharp-mode-hook 'omnisharp-mode)
+      (add-hook 'csharp-mode-hook #'flycheck-mode)
 
       ;; manually update version from https://github.com/OmniSharp/omnisharp-roslyn/releases/
       (setq omnisharp-expected-server-version "1.32.1")))
