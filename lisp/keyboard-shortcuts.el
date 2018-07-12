@@ -89,7 +89,10 @@
 (global-set-key (kbd "C-M-.") 'find-text-in-project-root)
 
 ;; visual studio like shortcut for finding files in project
-(global-set-key (kbd "C-.") 'magit-find-file)
+(global-set-key (kbd "C-;") 'magit-find-file)
+
+;; finding untracked files in a git repo old way (cousel which is slow in windows)
+(global-set-key (kbd "C-.") 'find-files-in-project-root-using-counsel)
 
 ;; edit-at-point
 (if (package-installed-p 'edit-at-point)
