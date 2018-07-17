@@ -20,7 +20,7 @@
 
 ;; Auto reload file by F5 keystroke
 (global-set-key [f5] 'refresh-file)
-;; (global-set-key [C-f5] 'revert-all-buffers)
+(global-set-key [C-f5] 'revert-all-buffers)
 
 ;; Jump to line number
 ;; http://geosoft.no/development/emacs.html
