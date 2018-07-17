@@ -198,6 +198,7 @@
     highlight-symbol
     indent-guide
     ivy-rich
+    magit
     msvc
     occur-x
     omnisharp
