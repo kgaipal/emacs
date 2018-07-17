@@ -7,7 +7,7 @@
 
       ;; auto start server and flycheck mode
       ;; https://github.com/Omnisharp/omnisharp-emacs
-      ;; (add-hook 'csharp-mode-hook 'omnisharp-mode)
+      (add-hook 'csharp-mode-hook 'omnisharp-mode)
       (add-hook 'csharp-mode-hook #'flycheck-mode)
 
       ;; manually update version from https://github.com/OmniSharp/omnisharp-roslyn/releases/
@@ -179,7 +179,8 @@
 ;; dynamic-ruler
 ;; disk
 ;; dired-dups
-;;
+;; magit
+;; magit-gitflow
 ;; try this too for convenience
 ;; https://github.com/technomancy/better-defaults
 (defvar packages-to-restore
@@ -197,8 +198,6 @@
     highlight-symbol
     indent-guide
     ivy-rich
-    magit
-    magit-gitflow
     msvc
     occur-x
     omnisharp
