@@ -80,7 +80,7 @@
 ;; ivy mode
 (if (package-installed-p 'ivy)
     (progn
-      (global-set-key (kbd "C-x C-o") 'ivy-switch-buffer)))
+      (global-set-key (kbd "C-x C-o") 'ivy-switch-buffer-other-window)))
 ;; (global-set-key (kbd "C-x C-o") 'switch-to-buffer)
 ;; (global-set-key (kbd "C-x C-b") 'ibuffer)
 ;; (global-set-key (kbd "C-x C-o") 'ido-switch-buffer)
