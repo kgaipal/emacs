@@ -144,5 +144,6 @@
     (progn
       (global-set-key (kbd "C-<return>") 'omnisharp-run-code-action-refactoring)
       (global-set-key (kbd "C-=") 'omnisharp-go-to-definition)
+      (global-set-key (kbd "C-+") 'omnisharp-find-implementations)
       (global-set-key (kbd "C--") 'pop-tag-mark)
       (global-set-key (kbd "C-,") 'omnisharp-auto-complete)))
