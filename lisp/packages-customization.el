@@ -43,7 +43,7 @@
 ;; ivy mode specific
 (if (package-installed-p 'ivy)
     (progn
-      (setq ivy-extra-directories nil))
+      (setq ivy-extra-directories nil)
       (ivy-mode t)
       (setq ivy-height 5)))
 
