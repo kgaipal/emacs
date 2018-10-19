@@ -11,7 +11,7 @@
       (add-hook 'csharp-mode-hook #'flycheck-mode)
 
       ;; manually update version from https://github.com/OmniSharp/omnisharp-roslyn/releases/
-      (setq omnisharp-expected-server-version "1.32.5")))
+      (setq omnisharp-expected-server-version "1.32.6")))
 
 ;; auto upgrade packags daily
 (if (and (package-installed-p 'spu)
@@ -142,7 +142,7 @@
       ;; 0.9s magit-insert-staged-changes
       (setq magit-status-sections-hook
             (quote
-             (magit-insert-status-headers
+             (
               magit-insert-untracked-files
               magit-insert-unstaged-changes
               magit-insert-staged-changes
