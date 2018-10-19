@@ -94,6 +94,7 @@
 
 ;; finding untracked files in a git repo old way (cousel which is slow in windows)
 (global-set-key (kbd "C-.") 'find-files-in-project-root-using-counsel)
+;; (global-set-key (kbd "C-.") 'find-file-in-repository)
 
 ;; edit-at-point
 (if (package-installed-p 'edit-at-point)
