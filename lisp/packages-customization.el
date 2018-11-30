@@ -38,7 +38,7 @@
 ;; counsel specific
 (if (package-installed-p 'counsel)
     (progn
-      (setq counsel-find-file-ignore-regexp "\\(/pkg/\\|/obj/\\|/bin/\\|/Debug/\\|/Release/\\|/TestResults/\\|/Fakes/\\|/FakesAssemblies/\\|/Backup*/\\|\\.dll\\|\\.o\\|\\.wadcfgx\\|\\.vs\\|*\\.min\\.*\\|*\\.DotSettings\\.user\\|out/\\|packages/\\|\\.dgml\\)")))
+      (setq counsel-find-file-ignore-regexp "\\(/pkg/\\|/obj/\\|/bin/\\|/Debug/\\|/Release/\\|/TestResults/\\|/Fakes/\\|/FakesAssemblies/\\|/Backup*/\\|\\.dll\\|\\.o\\|\\.wadcfgx\\|\\.vs\\|*\\.min\\.*\\|*\\.DotSettings\\.user\\|out/\\|packages/\\|\\.dgml\\|packages\\)")))
 
 ;; ivy mode specific
 (if (package-installed-p 'ivy)
@@ -202,6 +202,7 @@
     msvc
     occur-x
     omnisharp
+    powershell
     restart-emacs
     ripgrep
     spu
