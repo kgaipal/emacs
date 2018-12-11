@@ -282,7 +282,7 @@ of the frame only if it is split into exactly 2 windows."
   (interactive "s wildcard: ")
   (require 'ripgrep)
   (if (< (length wildcard) 4)
-      (message "enter atleast 3 chars")
+      (message "enter atleast 4 chars")
     (if (boundp 'desktop-dirname)
         (ripgrep-regexp wildcard desktop-dirname)
       (ripgrep-regexp wildcard "~/code/"))))
