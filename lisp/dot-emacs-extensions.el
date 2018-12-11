@@ -281,8 +281,8 @@ of the frame only if it is split into exactly 2 windows."
  directory is set as /tmp"
   (interactive "s wildcard: ")
   (require 'ripgrep)
-  (if (< (length wildcard) 4)
-      (message "enter atleast 4 chars")
+  (if (< (length wildcard) 3)
+      (message "enter atleast 3 chars")
     (if (boundp 'desktop-dirname)
         (ripgrep-regexp wildcard desktop-dirname)
       (ripgrep-regexp wildcard "~/code/"))))
