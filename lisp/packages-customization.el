@@ -11,7 +11,8 @@
       (add-hook 'csharp-mode-hook #'flycheck-mode)
 
       ;; manually update version from https://github.com/OmniSharp/omnisharp-roslyn/releases/
-      (setq omnisharp-expected-server-version "1.32.8")))
+      (setq omnisharp-expected-server-version "1.32.10")
+      (setq omnisharp-server-executable-path (concat "C:\\Users\\ksgaipal\\code\\emacs\\lisp\\.cache\\omnisharp\\server\\v" omnisharp-expected-server-version "\\OmniSharp.exe"))))
 
 ;; auto upgrade packags daily
 (if (and (package-installed-p 'spu)
