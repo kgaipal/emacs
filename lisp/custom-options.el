@@ -24,7 +24,7 @@
  '(mode-line-in-non-selected-windows t)
  '(package-selected-packages
    (quote
-    (use-package web-mode omnisharp magit ivy-rich csharp-mode msvc annotate-depth anzu auctex auto-complete buffer-move counsel dynamic-ruler easy-kill-extras edit-at-point fic-mode fold-this highlight-escape-sequences highlight-symbol indent-guide loccur magit-gitflow noccur occur-x restart-emacs ripgrep spu tfs ws-butler xah-find)))
+    (annotate-depth anzu auctex auto-complete buffer-move counsel csharp-mode dynamic-ruler easy-kill-extras edit-at-point fic-mode fold-this highlight-escape-sequences highlight-symbol indent-guide ivy-rich loccur magit magit-gitflow msvc noccur occur-x omnisharp powershell restart-emacs ripgrep spu tfs use-package web-mode ws-butler xah-find)))
  '(read-file-name-completion-ignore-case t)
  '(recentf-mode 1)
  '(scroll-bar-mode nil)
@@ -33,7 +33,7 @@
  '(show-paren-mode t)
  '(tab-width 8)
  '(tool-bar-mode nil)
- '(tramp-auto-save-directory "/tmp")
+ '(tramp-auto-save-directory "/tmp" nil (tramp))
  '(which-func-format (quote ("{" which-func-current "}"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
