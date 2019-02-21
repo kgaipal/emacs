@@ -204,6 +204,7 @@
     occur-x
     omnisharp
     powershell
+    powershell
     restart-emacs
     ripgrep
     spu
