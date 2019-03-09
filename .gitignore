@@ -11,3 +11,4 @@ lisp/newsticker
 lisp/ac-comphist.dat
 lisp/spu_log/*
 lisp/url
+lisp/transient

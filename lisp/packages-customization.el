@@ -172,6 +172,8 @@
 ;; unbound
 ;;
 ;; [TRYING]:
+;; auctex
+;; ivy-rich
 ;; highlight-escape-sequences
 ;; electric-spacing
 ;; electric-operator
@@ -188,7 +190,6 @@
   '(
     annotate-depth
     anzu
-    auctex
     auto-complete
     buffer-move
     counsel
@@ -198,12 +199,9 @@
     fold-this
     highlight-symbol
     indent-guide
-    ivy-rich
     magit
-    msvc
     occur-x
     omnisharp
-    powershell
     powershell
     restart-emacs
     ripgrep
