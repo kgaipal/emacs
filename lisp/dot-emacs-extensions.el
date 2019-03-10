@@ -442,11 +442,15 @@ of the frame only if it is split into exactly 2 windows."
      (comment-marker) "    Copyright (c) " (company-name) ". All rights reserved." (eol)
      (comment-marker) "</copyright>" (eol)))
 
+  (defun copyright-block-crm ()
+    (concat
+     (comment-marker) " Copyright (c) " (company-name) ". All rights reserved." (eol)))
+
   "Creates and Inserts the header for a source file"
   (interactive)
   (let ((header (concat
                  (header-start)
-                 (copyright-block)
+                 (copyright-block-crm)
                  (header-end))))
     (kill-new header)
     (message header)))
